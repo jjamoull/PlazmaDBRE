@@ -1,0 +1,267 @@
+<?xml version="1.0" ?>
+<JavaMetrics>
+<JavaElement Kind="JavaProject" Name="bs.base">
+  <Metrics>
+    <Metric name="Hotspots" value="116"></Metric>
+    <Metric name="Queries" value="130"></Metric>
+    <Metric name="Inserts" value="53"></Metric>
+    <Metric name="Selects" value="33"></Metric>
+    <Metric name="Updates" value="4"></Metric>
+    <Metric name="Deletes" value="22"></Metric>
+  </Metrics>
+  <Children>
+    <JavaElement Kind="PackageFragmentRoot" Name="src">
+      <Metrics>
+        <Metric name="Hotspots" value="116"></Metric>
+        <Metric name="Queries" value="130"></Metric>
+        <Metric name="Inserts" value="53"></Metric>
+        <Metric name="Selects" value="33"></Metric>
+        <Metric name="Updates" value="4"></Metric>
+        <Metric name="Deletes" value="22"></Metric>
+      </Metrics>
+      <Children>
+        <JavaElement Kind="PackageFragment" Name="org.plazmaforge.bsolution.bank.server.services">
+          <Metrics>
+            <Metric name="Hotspots" value="7"></Metric>
+            <Metric name="Queries" value="7"></Metric>
+            <Metric name="Inserts" value="2"></Metric>
+            <Metric name="Selects" value="0"></Metric>
+            <Metric name="Updates" value="0"></Metric>
+            <Metric name="Deletes" value="0"></Metric>
+          </Metrics>
+          <Children>
+            <JavaElement Kind="CompilationUnit" Name="BankCompressionExecutorImpl.java">
+              <Metrics>
+                <Metric name="Hotspots" value="2"></Metric>
+                <Metric name="Queries" value="2"></Metric>
+                <Metric name="Inserts" value="2"></Metric>
+                <Metric name="Selects" value="0"></Metric>
+                <Metric name="Updates" value="0"></Metric>
+                <Metric name="Deletes" value="0"></Metric>
+              </Metrics>
+              <Children>
+              </Children>
+            </JavaElement>
+            <JavaElement Kind="CompilationUnit" Name="BankImporter.java">
+              <Metrics>
+                <Metric name="Hotspots" value="5"></Metric>
+                <Metric name="Queries" value="5"></Metric>
+                <Metric name="Inserts" value="0"></Metric>
+                <Metric name="Selects" value="0"></Metric>
+                <Metric name="Updates" value="0"></Metric>
+                <Metric name="Deletes" value="0"></Metric>
+              </Metrics>
+              <Children>
+              </Children>
+            </JavaElement>
+          </Children>
+        </JavaElement>
+        <JavaElement Kind="PackageFragment" Name="org.plazmaforge.bsolution.base.server.services">
+          <Metrics>
+            <Metric name="Hotspots" value="15"></Metric>
+            <Metric name="Queries" value="19"></Metric>
+            <Metric name="Inserts" value="5"></Metric>
+            <Metric name="Selects" value="7"></Metric>
+            <Metric name="Updates" value="4"></Metric>
+            <Metric name="Deletes" value="0"></Metric>
+          </Metrics>
+          <Children>
+            <JavaElement Kind="CompilationUnit" Name="SystemInfoServiceImpl.java">
+              <Metrics>
+                <Metric name="Hotspots" value="14"></Metric>
+                <Metric name="Queries" value="18"></Metric>
+                <Metric name="Inserts" value="5"></Metric>
+                <Metric name="Selects" value="7"></Metric>
+                <Metric name="Updates" value="3"></Metric>
+                <Metric name="Deletes" value="0"></Metric>
+              </Metrics>
+              <Children>
+              </Children>
+            </JavaElement>
+            <JavaElement Kind="CompilationUnit" Name="SystemInfoExecutorImpl.java">
+              <Metrics>
+                <Metric name="Hotspots" value="1"></Metric>
+                <Metric name="Queries" value="1"></Metric>
+                <Metric name="Inserts" value="0"></Metric>
+                <Metric name="Selects" value="0"></Metric>
+                <Metric name="Updates" value="1"></Metric>
+                <Metric name="Deletes" value="0"></Metric>
+              </Metrics>
+              <Children>
+              </Children>
+            </JavaElement>
+          </Children>
+        </JavaElement>
+        <JavaElement Kind="PackageFragment" Name="org.plazmaforge.bsolution.cash.server.services">
+          <Metrics>
+            <Metric name="Hotspots" value="2"></Metric>
+            <Metric name="Queries" value="2"></Metric>
+            <Metric name="Inserts" value="2"></Metric>
+            <Metric name="Selects" value="0"></Metric>
+            <Metric name="Updates" value="0"></Metric>
+            <Metric name="Deletes" value="0"></Metric>
+          </Metrics>
+          <Children>
+            <JavaElement Kind="CompilationUnit" Name="CashCompressionExecutorImpl.java">
+              <Metrics>
+                <Metric name="Hotspots" value="2"></Metric>
+                <Metric name="Queries" value="2"></Metric>
+                <Metric name="Inserts" value="2"></Metric>
+                <Metric name="Selects" value="0"></Metric>
+                <Metric name="Updates" value="0"></Metric>
+                <Metric name="Deletes" value="0"></Metric>
+              </Metrics>
+              <Children>
+              </Children>
+            </JavaElement>
+          </Children>
+        </JavaElement>
+        <JavaElement Kind="PackageFragment" Name="org.plazmaforge.bsolution.finance.server.services">
+          <Metrics>
+            <Metric name="Hotspots" value="14"></Metric>
+            <Metric name="Queries" value="14"></Metric>
+            <Metric name="Inserts" value="6"></Metric>
+            <Metric name="Selects" value="3"></Metric>
+            <Metric name="Updates" value="0"></Metric>
+            <Metric name="Deletes" value="4"></Metric>
+          </Metrics>
+          <Children>
+            <JavaElement Kind="CompilationUnit" Name="FinanceCompressionExecutorImpl.java">
+              <Metrics>
+                <Metric name="Hotspots" value="14"></Metric>
+                <Metric name="Queries" value="14"></Metric>
+                <Metric name="Inserts" value="6"></Metric>
+                <Metric name="Selects" value="3"></Metric>
+                <Metric name="Updates" value="0"></Metric>
+                <Metric name="Deletes" value="4"></Metric>
+              </Metrics>
+              <Children>
+              </Children>
+            </JavaElement>
+          </Children>
+        </JavaElement>
+        <JavaElement Kind="PackageFragment" Name="org.plazmaforge.bsolution.goods.server.services">
+          <Metrics>
+            <Metric name="Hotspots" value="27"></Metric>
+            <Metric name="Queries" value="29"></Metric>
+            <Metric name="Inserts" value="20"></Metric>
+            <Metric name="Selects" value="0"></Metric>
+            <Metric name="Updates" value="0"></Metric>
+            <Metric name="Deletes" value="6"></Metric>
+          </Metrics>
+          <Children>
+            <JavaElement Kind="CompilationUnit" Name="GoodsImporter.java">
+              <Metrics>
+                <Metric name="Hotspots" value="3"></Metric>
+                <Metric name="Queries" value="3"></Metric>
+                <Metric name="Inserts" value="0"></Metric>
+                <Metric name="Selects" value="0"></Metric>
+                <Metric name="Updates" value="0"></Metric>
+                <Metric name="Deletes" value="0"></Metric>
+              </Metrics>
+              <Children>
+              </Children>
+            </JavaElement>
+            <JavaElement Kind="CompilationUnit" Name="GoodsCompressionExecutorImpl.java">
+              <Metrics>
+                <Metric name="Hotspots" value="24"></Metric>
+                <Metric name="Queries" value="26"></Metric>
+                <Metric name="Inserts" value="20"></Metric>
+                <Metric name="Selects" value="0"></Metric>
+                <Metric name="Updates" value="0"></Metric>
+                <Metric name="Deletes" value="6"></Metric>
+              </Metrics>
+              <Children>
+              </Children>
+            </JavaElement>
+          </Children>
+        </JavaElement>
+        <JavaElement Kind="PackageFragment" Name="org.plazmaforge.bsolution.partner.server.services">
+          <Metrics>
+            <Metric name="Hotspots" value="12"></Metric>
+            <Metric name="Queries" value="12"></Metric>
+            <Metric name="Inserts" value="4"></Metric>
+            <Metric name="Selects" value="3"></Metric>
+            <Metric name="Updates" value="0"></Metric>
+            <Metric name="Deletes" value="4"></Metric>
+          </Metrics>
+          <Children>
+            <JavaElement Kind="CompilationUnit" Name="PartnerCompressionExecutorImpl.java">
+              <Metrics>
+                <Metric name="Hotspots" value="12"></Metric>
+                <Metric name="Queries" value="12"></Metric>
+                <Metric name="Inserts" value="4"></Metric>
+                <Metric name="Selects" value="3"></Metric>
+                <Metric name="Updates" value="0"></Metric>
+                <Metric name="Deletes" value="4"></Metric>
+              </Metrics>
+              <Children>
+              </Children>
+            </JavaElement>
+          </Children>
+        </JavaElement>
+        <JavaElement Kind="PackageFragment" Name="org.plazmaforge.bsolution.payroll.server.services">
+          <Metrics>
+            <Metric name="Hotspots" value="4"></Metric>
+            <Metric name="Queries" value="4"></Metric>
+            <Metric name="Inserts" value="0"></Metric>
+            <Metric name="Selects" value="2"></Metric>
+            <Metric name="Updates" value="0"></Metric>
+            <Metric name="Deletes" value="0"></Metric>
+          </Metrics>
+          <Children>
+            <JavaElement Kind="CompilationUnit" Name="PayrollCalculateExecutor.java">
+              <Metrics>
+                <Metric name="Hotspots" value="4"></Metric>
+                <Metric name="Queries" value="4"></Metric>
+                <Metric name="Inserts" value="0"></Metric>
+                <Metric name="Selects" value="2"></Metric>
+                <Metric name="Updates" value="0"></Metric>
+                <Metric name="Deletes" value="0"></Metric>
+              </Metrics>
+              <Children>
+              </Children>
+            </JavaElement>
+          </Children>
+        </JavaElement>
+        <JavaElement Kind="PackageFragment" Name="org.plazmaforge.bsolution.product.server.services">
+          <Metrics>
+            <Metric name="Hotspots" value="35"></Metric>
+            <Metric name="Queries" value="43"></Metric>
+            <Metric name="Inserts" value="14"></Metric>
+            <Metric name="Selects" value="18"></Metric>
+            <Metric name="Updates" value="0"></Metric>
+            <Metric name="Deletes" value="8"></Metric>
+          </Metrics>
+          <Children>
+            <JavaElement Kind="CompilationUnit" Name="ProductCompressionExecutorImpl.java">
+              <Metrics>
+                <Metric name="Hotspots" value="30"></Metric>
+                <Metric name="Queries" value="30"></Metric>
+                <Metric name="Inserts" value="14"></Metric>
+                <Metric name="Selects" value="6"></Metric>
+                <Metric name="Updates" value="0"></Metric>
+                <Metric name="Deletes" value="8"></Metric>
+              </Metrics>
+              <Children>
+              </Children>
+            </JavaElement>
+            <JavaElement Kind="CompilationUnit" Name="ProductManagerServiceImpl.java">
+              <Metrics>
+                <Metric name="Hotspots" value="5"></Metric>
+                <Metric name="Queries" value="13"></Metric>
+                <Metric name="Inserts" value="0"></Metric>
+                <Metric name="Selects" value="12"></Metric>
+                <Metric name="Updates" value="0"></Metric>
+                <Metric name="Deletes" value="0"></Metric>
+              </Metrics>
+              <Children>
+              </Children>
+            </JavaElement>
+          </Children>
+        </JavaElement>
+      </Children>
+    </JavaElement>
+  </Children>
+</JavaElement>
+</JavaMetrics>
