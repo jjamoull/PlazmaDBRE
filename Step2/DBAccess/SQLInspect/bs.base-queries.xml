@@ -1,0 +1,1633 @@
+<?xml version="1.0" ?>
+<Queries>
+  <Query id="1">
+    <Value>INSERT INTO M_PARTNER_REGISTER (PARTNER_ID, DEBIT_AMOUNT, CREDIT_AMOUNT) SELECT D.PARTNER_ID, 0, FD.TOTAL FROM FINANCE_DOCUMENT FD INNER JOIN DOCUMENT D ON D.ID = FD.ID INNER JOIN DOCUMENT_TYPE T ON T.ID = D.DOCUMENT_TYPE_ID INNER JOIN FINANCE_DOCUMENT_TYPE FT ON FT.DOCUMENT_TYPE_ID = T.ID WHERE T.DOCUMENT_SECTION IN ('PAYMENT')  AND FT.MOVE_TYPE = 'INPUT' AND D.PERIOD_ID = {{na}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.bank.server.services</ExecPackage>
+    <ExecClass>BankCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/bank/server/services/BankCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>54</ExecLine>
+    <ExecString>st.execute("INSERT INTO M_PARTNER_REGISTER (PARTNER_ID, DEBIT_AMOUNT, CREDIT_AMOUNT)" + " SELECT D.PARTNER_ID, 0, FD.TOTAL FROM FINANCE_DOCUMENT FD" + " INNER JOIN DOCUMENT D ON D.ID = FD.ID"+ " INNER JOIN DOCUMENT_TYPE T ON T.ID = D.DOCUMENT_TYPE_ID"+ " INNER JOIN FINANCE_DOCUMENT_TYPE FT ON FT.DOCUMENT_TYPE_ID = T.ID"+ " WHERE T.DOCUMENT_SECTION" + PRODUCT_DOCUMENT_TYPE_CLAUSE + " AND FT.MOVE_TYPE = 'INPUT' AND D.PERIOD_ID = "+ periodId)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.bank.server.services.BankCompressionExecutorImpl.addIncome(java.sql.Statement,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/bank/server/services/BankCompressionExecutorImpl.java" methodLine="53" callLine="54"></Call>
+      <Call method="org.plazmaforge.bsolution.bank.server.services.BankCompressionExecutorImpl.executeCompression(java.sql.Statement,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/bank/server/services/BankCompressionExecutorImpl.java" methodLine="47" callLine="48"></Call>
+    </CallStack>
+  </Query>
+  <Query id="2">
+    <Value>INSERT INTO M_PARTNER_REGISTER (PARTNER_ID, DEBIT_AMOUNT, CREDIT_AMOUNT) SELECT D.PARTNER_ID, FD.TOTAL, 0 FROM FINANCE_DOCUMENT FD INNER JOIN DOCUMENT D ON D.ID = FD.ID INNER JOIN DOCUMENT_TYPE T ON T.ID = D.DOCUMENT_TYPE_ID INNER JOIN FINANCE_DOCUMENT_TYPE FT ON FT.DOCUMENT_TYPE_ID = T.ID WHERE T.DOCUMENT_SECTION IN ('PAYMENT')  AND FT.MOVE_TYPE = 'OUTPUT' AND D.PERIOD_ID = {{na}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.bank.server.services</ExecPackage>
+    <ExecClass>BankCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/bank/server/services/BankCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>64</ExecLine>
+    <ExecString>st.execute("INSERT INTO M_PARTNER_REGISTER (PARTNER_ID, DEBIT_AMOUNT, CREDIT_AMOUNT)" + " SELECT D.PARTNER_ID, FD.TOTAL, 0 FROM FINANCE_DOCUMENT FD" + " INNER JOIN DOCUMENT D ON D.ID = FD.ID"+ " INNER JOIN DOCUMENT_TYPE T ON T.ID = D.DOCUMENT_TYPE_ID"+ " INNER JOIN FINANCE_DOCUMENT_TYPE FT ON FT.DOCUMENT_TYPE_ID = T.ID"+ " WHERE T.DOCUMENT_SECTION" + PRODUCT_DOCUMENT_TYPE_CLAUSE + " AND FT.MOVE_TYPE = 'OUTPUT' AND D.PERIOD_ID = "+ periodId)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.bank.server.services.BankCompressionExecutorImpl.addOutcome(java.sql.Statement,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/bank/server/services/BankCompressionExecutorImpl.java" methodLine="63" callLine="64"></Call>
+      <Call method="org.plazmaforge.bsolution.bank.server.services.BankCompressionExecutorImpl.executeCompression(java.sql.Statement,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/bank/server/services/BankCompressionExecutorImpl.java" methodLine="47" callLine="49"></Call>
+    </CallStack>
+  </Query>
+  <Query id="3">
+    <Value>{{na}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.bank.server.services</ExecPackage>
+    <ExecClass>BankTrigger</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/bank/server/services/BankImporter.java</ExecFile>
+    <ExecLine>158</ExecLine>
+    <ExecString>businessableInsertStm.executeUpdate()</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.bank.server.services.BankImporter.BankTrigger.doBeforeInsert(org.plazmaforge.framework.datawarehouse.TransferEvent)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/bank/server/services/BankImporter.java" methodLine="148" callLine="158"></Call>
+    </CallStack>
+  </Query>
+  <Query id="4">
+    <Value>{{na}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.bank.server.services</ExecPackage>
+    <ExecClass>BankTrigger</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/bank/server/services/BankImporter.java</ExecFile>
+    <ExecLine>166</ExecLine>
+    <ExecString>contactableInsertStm.executeUpdate()</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.bank.server.services.BankImporter.BankTrigger.doBeforeInsert(org.plazmaforge.framework.datawarehouse.TransferEvent)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/bank/server/services/BankImporter.java" methodLine="148" callLine="166"></Call>
+    </CallStack>
+  </Query>
+  <Query id="5">
+    <Value>{{na}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.bank.server.services</ExecPackage>
+    <ExecClass>BankTrigger</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/bank/server/services/BankImporter.java</ExecFile>
+    <ExecLine>174</ExecLine>
+    <ExecString>partnerInsertStm.executeUpdate()</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.bank.server.services.BankImporter.BankTrigger.doBeforeInsert(org.plazmaforge.framework.datawarehouse.TransferEvent)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/bank/server/services/BankImporter.java" methodLine="148" callLine="174"></Call>
+    </CallStack>
+  </Query>
+  <Query id="6">
+    <Value>{{na}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.bank.server.services</ExecPackage>
+    <ExecClass>BankTrigger</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/bank/server/services/BankImporter.java</ExecFile>
+    <ExecLine>185</ExecLine>
+    <ExecString>businessableUpdateStm.executeUpdate()</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.bank.server.services.BankImporter.BankTrigger.doBeforeUpdate(org.plazmaforge.framework.datawarehouse.TransferEvent)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/bank/server/services/BankImporter.java" methodLine="177" callLine="185"></Call>
+    </CallStack>
+  </Query>
+  <Query id="7">
+    <Value>{{na}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.bank.server.services</ExecPackage>
+    <ExecClass>BankTrigger</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/bank/server/services/BankImporter.java</ExecFile>
+    <ExecLine>192</ExecLine>
+    <ExecString>partnerUpdateStm.executeUpdate()</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.bank.server.services.BankImporter.BankTrigger.doBeforeUpdate(org.plazmaforge.framework.datawarehouse.TransferEvent)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/bank/server/services/BankImporter.java" methodLine="177" callLine="192"></Call>
+    </CallStack>
+  </Query>
+  <Query id="8">
+    <Value>UPDATE ENTERPRISE_CONTEXT SET PERIOD_ID = {{na}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.base.server.services</ExecPackage>
+    <ExecClass>SystemInfoExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/base/server/services/SystemInfoExecutorImpl.java</ExecFile>
+    <ExecLine>45</ExecLine>
+    <ExecString>st.executeUpdate("UPDATE ENTERPRISE_CONTEXT SET PERIOD_ID = " + periodId)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.base.server.services.SystemInfoExecutorImpl.setPriodId(java.lang.Integer)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/base/server/services/SystemInfoExecutorImpl.java" methodLine="41" callLine="45"></Call>
+    </CallStack>
+  </Query>
+  <Query id="9">
+    <Value>SELECT ID, NAME FROM V_BUSINESSABLE</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.base.server.services</ExecPackage>
+    <ExecClass>SystemInfoServiceImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/base/server/services/SystemInfoServiceImpl.java</ExecFile>
+    <ExecLine>121</ExecLine>
+    <ExecString>stm.executeQuery("SELECT ID, NAME FROM V_BUSINESSABLE")</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.base.server.services.SystemInfoServiceImpl.syncBusinessableObjects(java.sql.Connection)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/base/server/services/SystemInfoServiceImpl.java" methodLine="115" callLine="121"></Call>
+    </CallStack>
+  </Query>
+  <Query id="10">
+    <Value>UPDATE BUSINESSABLE SET NAME = {{question}} WHERE ID = {{question}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.base.server.services</ExecPackage>
+    <ExecClass>SystemInfoServiceImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/base/server/services/SystemInfoServiceImpl.java</ExecFile>
+    <ExecLine>134</ExecLine>
+    <ExecString>pstm.execute()</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.base.server.services.SystemInfoServiceImpl.syncBusinessableObjects(java.sql.Connection)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/base/server/services/SystemInfoServiceImpl.java" methodLine="115" callLine="130"></Call>
+    </CallStack>
+  </Query>
+  <Query id="11">
+    <Value>SELECT ID, CODE, NAME FROM SYS_ENTITY WHERE IS_SECURE = {{question}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.base.server.services</ExecPackage>
+    <ExecClass>SystemInfoServiceImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/base/server/services/SystemInfoServiceImpl.java</ExecFile>
+    <ExecLine>158</ExecLine>
+    <ExecString>pstm.executeQuery()</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.base.server.services.SystemInfoServiceImpl.getEntities(java.sql.Connection)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/base/server/services/SystemInfoServiceImpl.java" methodLine="152" callLine="156"></Call>
+    </CallStack>
+  </Query>
+  <Query id="12">
+    <Value>SELECT ID, OBJECT_ID FROM SYS_SECURE_OBJECT WHERE OBJECT_TYPE = {{question}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.base.server.services</ExecPackage>
+    <ExecClass>SystemInfoServiceImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/base/server/services/SystemInfoServiceImpl.java</ExecFile>
+    <ExecLine>333</ExecLine>
+    <ExecString>pstm.executeQuery()</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.base.server.services.SystemInfoServiceImpl.syncSecureObjects(java.sql.Connection,java.lang.String,java.util.List,boolean,boolean,boolean)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/base/server/services/SystemInfoServiceImpl.java" methodLine="317" callLine="331"></Call>
+    </CallStack>
+  </Query>
+  <Query id="13">
+    <Value>SELECT MAX(ID) FROM  SYS_SECURE_OBJECT</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.base.server.services</ExecPackage>
+    <ExecClass>SystemInfoServiceImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/base/server/services/SystemInfoServiceImpl.java</ExecFile>
+    <ExecLine>365</ExecLine>
+    <ExecString>stm.executeQuery("SELECT MAX(ID) FROM  SYS_SECURE_OBJECT")</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.base.server.services.SystemInfoServiceImpl.syncSecureObjects(java.sql.Connection,java.lang.String,java.util.List,boolean,boolean,boolean)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/base/server/services/SystemInfoServiceImpl.java" methodLine="317" callLine="365"></Call>
+    </CallStack>
+  </Query>
+  <Query id="14">
+    <Value>SELECT MAX(ID) FROM  SYS_PERMISSION</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.base.server.services</ExecPackage>
+    <ExecClass>SystemInfoServiceImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/base/server/services/SystemInfoServiceImpl.java</ExecFile>
+    <ExecLine>375</ExecLine>
+    <ExecString>stm.executeQuery("SELECT MAX(ID) FROM  SYS_PERMISSION")</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.base.server.services.SystemInfoServiceImpl.syncSecureObjects(java.sql.Connection,java.lang.String,java.util.List,boolean,boolean,boolean)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/base/server/services/SystemInfoServiceImpl.java" methodLine="317" callLine="375"></Call>
+    </CallStack>
+  </Query>
+  <Query id="15">
+    <Value>SELECT P.SECURE_OBJECT_ID FROM SYS_PERMISSION P INNER JOIN SYS_SECURE_OBJECT O ON P.SECURE_OBJECT_ID = O.ID WHERE O.OBJECT_TYPE = {{question}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.base.server.services</ExecPackage>
+    <ExecClass>SystemInfoServiceImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/base/server/services/SystemInfoServiceImpl.java</ExecFile>
+    <ExecLine>405</ExecLine>
+    <ExecString>pstm.executeQuery()</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.base.server.services.SystemInfoServiceImpl.syncSecureObjects(java.sql.Connection,java.lang.String,java.util.List,boolean,boolean,boolean)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/base/server/services/SystemInfoServiceImpl.java" methodLine="317" callLine="396"></Call>
+    </CallStack>
+  </Query>
+  <Query id="16">
+    <Value>UPDATE SYS_SECURE_OBJECT SET NAME = {{question}} WHERE ID = {{question}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.base.server.services</ExecPackage>
+    <ExecClass>SystemInfoServiceImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/base/server/services/SystemInfoServiceImpl.java</ExecFile>
+    <ExecLine>473</ExecLine>
+    <ExecString>updateStm.execute()</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.base.server.services.SystemInfoServiceImpl.syncSecureObjects(java.sql.Connection,java.lang.String,java.util.List,boolean,boolean,boolean)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/base/server/services/SystemInfoServiceImpl.java" methodLine="317" callLine="390"></Call>
+    </CallStack>
+  </Query>
+  <Query id="17">
+    <Value>INSERT INTO SYS_PERMISSION (ID, SECURE_OBJECT_ID, ROLE_ID, IS_READ, IS_WRITE) VALUES ({{question}}, {{question}}, {{question}}, {{question}}, {{question}})</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.base.server.services</ExecPackage>
+    <ExecClass>SystemInfoServiceImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/base/server/services/SystemInfoServiceImpl.java</ExecFile>
+    <ExecLine>490</ExecLine>
+    <ExecString>permissionStm.execute()</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.base.server.services.SystemInfoServiceImpl.syncSecureObjects(java.sql.Connection,java.lang.String,java.util.List,boolean,boolean,boolean)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/base/server/services/SystemInfoServiceImpl.java" methodLine="317" callLine="413"></Call>
+    </CallStack>
+  </Query>
+  <Query id="18">
+    <Value>INSERT INTO SYS_PERMISSION (ID, SECURE_OBJECT_ID, ROLE_ID, IS_EXEC) VALUES ({{question}}, {{question}}, {{question}}, {{question}})</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.base.server.services</ExecPackage>
+    <ExecClass>SystemInfoServiceImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/base/server/services/SystemInfoServiceImpl.java</ExecFile>
+    <ExecLine>490</ExecLine>
+    <ExecString>permissionStm.execute()</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.base.server.services.SystemInfoServiceImpl.syncSecureObjects(java.sql.Connection,java.lang.String,java.util.List,boolean,boolean,boolean)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/base/server/services/SystemInfoServiceImpl.java" methodLine="317" callLine="415"></Call>
+    </CallStack>
+  </Query>
+  <Query id="19">
+    <Value>INSERT INTO SYS_SECURE_OBJECT (ID, OBJECT_ID, CODE, NAME, OBJECT_TYPE) VALUES ({{question}}, {{question}}, {{question}}, {{question}}, {{question}})</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.base.server.services</ExecPackage>
+    <ExecClass>SystemInfoServiceImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/base/server/services/SystemInfoServiceImpl.java</ExecFile>
+    <ExecLine>501</ExecLine>
+    <ExecString>insertStm.execute()</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.base.server.services.SystemInfoServiceImpl.syncSecureObjects(java.sql.Connection,java.lang.String,java.util.List,boolean,boolean,boolean)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/base/server/services/SystemInfoServiceImpl.java" methodLine="317" callLine="386"></Call>
+    </CallStack>
+  </Query>
+  <Query id="20">
+    <Value>INSERT INTO SYS_PERMISSION (ID, SECURE_OBJECT_ID, ROLE_ID, IS_READ, IS_WRITE) VALUES ({{question}}, {{question}}, {{question}}, {{question}}, {{question}})</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.base.server.services</ExecPackage>
+    <ExecClass>SystemInfoServiceImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/base/server/services/SystemInfoServiceImpl.java</ExecFile>
+    <ExecLine>518</ExecLine>
+    <ExecString>permissionStm.execute()</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.base.server.services.SystemInfoServiceImpl.syncSecureObjects(java.sql.Connection,java.lang.String,java.util.List,boolean,boolean,boolean)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/base/server/services/SystemInfoServiceImpl.java" methodLine="317" callLine="413"></Call>
+    </CallStack>
+  </Query>
+  <Query id="21">
+    <Value>INSERT INTO SYS_PERMISSION (ID, SECURE_OBJECT_ID, ROLE_ID, IS_EXEC) VALUES ({{question}}, {{question}}, {{question}}, {{question}})</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.base.server.services</ExecPackage>
+    <ExecClass>SystemInfoServiceImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/base/server/services/SystemInfoServiceImpl.java</ExecFile>
+    <ExecLine>518</ExecLine>
+    <ExecString>permissionStm.execute()</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.base.server.services.SystemInfoServiceImpl.syncSecureObjects(java.sql.Connection,java.lang.String,java.util.List,boolean,boolean,boolean)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/base/server/services/SystemInfoServiceImpl.java" methodLine="317" callLine="415"></Call>
+    </CallStack>
+  </Query>
+  <Query id="22">
+    <Value>DELETE FROM SYS_SECURE_OBJECT WHERE ID IN  ( )</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.base.server.services</ExecPackage>
+    <ExecClass>SystemInfoServiceImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/base/server/services/SystemInfoServiceImpl.java</ExecFile>
+    <ExecLine>561</ExecLine>
+    <ExecString>stm.execute(buf.toString())</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.base.server.services.SystemInfoServiceImpl.deleteBySet(java.sql.Connection,java.lang.String,java.util.Set)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/base/server/services/SystemInfoServiceImpl.java" methodLine="541" callLine="561"></Call>
+      <Call method="org.plazmaforge.bsolution.base.server.services.SystemInfoServiceImpl.syncSecureObjects(java.sql.Connection,java.lang.String,java.util.List,boolean,boolean,boolean)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/base/server/services/SystemInfoServiceImpl.java" methodLine="317" callLine="358"></Call>
+    </CallStack>
+  </Query>
+  <Query id="23">
+    <Value>DELETE FROM SYS_PERMISSION WHERE SECURE_OBJECT_ID IN  ( )</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.base.server.services</ExecPackage>
+    <ExecClass>SystemInfoServiceImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/base/server/services/SystemInfoServiceImpl.java</ExecFile>
+    <ExecLine>561</ExecLine>
+    <ExecString>stm.execute(buf.toString())</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.base.server.services.SystemInfoServiceImpl.deleteBySet(java.sql.Connection,java.lang.String,java.util.Set)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/base/server/services/SystemInfoServiceImpl.java" methodLine="541" callLine="561"></Call>
+      <Call method="org.plazmaforge.bsolution.base.server.services.SystemInfoServiceImpl.syncSecureObjects(java.sql.Connection,java.lang.String,java.util.List,boolean,boolean,boolean)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/base/server/services/SystemInfoServiceImpl.java" methodLine="317" callLine="357"></Call>
+    </CallStack>
+  </Query>
+  <Query id="24">
+    <Value>{{na}} )</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.base.server.services</ExecPackage>
+    <ExecClass>SystemInfoServiceImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/base/server/services/SystemInfoServiceImpl.java</ExecFile>
+    <ExecLine>561</ExecLine>
+    <ExecString>stm.execute(buf.toString())</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.base.server.services.SystemInfoServiceImpl.deleteBySet(java.sql.Connection,java.lang.String,java.util.Set)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/base/server/services/SystemInfoServiceImpl.java" methodLine="541" callLine="561"></Call>
+    </CallStack>
+  </Query>
+  <Query id="25">
+    <Value>SELECT ID, FIRST_NAME, LAST_NAME, MIDDLE_NAME FROM CONTACT</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.base.server.services</ExecPackage>
+    <ExecClass>SystemInfoServiceImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/base/server/services/SystemInfoServiceImpl.java</ExecFile>
+    <ExecLine>581</ExecLine>
+    <ExecString>stm.executeQuery("SELECT ID, FIRST_NAME, LAST_NAME, MIDDLE_NAME FROM CONTACT")</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.base.server.services.SystemInfoServiceImpl.syncPersons(java.sql.Connection)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/base/server/services/SystemInfoServiceImpl.java" methodLine="575" callLine="581"></Call>
+    </CallStack>
+  </Query>
+  <Query id="26">
+    <Value>UPDATE CONTACT SET NAME = {{question}} WHERE ID = {{question}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.base.server.services</ExecPackage>
+    <ExecClass>SystemInfoServiceImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/base/server/services/SystemInfoServiceImpl.java</ExecFile>
+    <ExecLine>598</ExecLine>
+    <ExecString>pstm.execute()</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.base.server.services.SystemInfoServiceImpl.syncPersons(java.sql.Connection)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/base/server/services/SystemInfoServiceImpl.java" methodLine="575" callLine="594"></Call>
+    </CallStack>
+  </Query>
+  <Query id="27">
+    <Value>INSERT INTO M_PARTNER_REGISTER (PARTNER_ID, DEBIT_AMOUNT, CREDIT_AMOUNT) SELECT D.PARTNER_ID, 0, FD.TOTAL FROM FINANCE_DOCUMENT FD INNER JOIN DOCUMENT D ON D.ID = FD.ID INNER JOIN DOCUMENT_TYPE T ON T.ID = D.DOCUMENT_TYPE_ID INNER JOIN FINANCE_DOCUMENT_TYPE FT ON FT.DOCUMENT_TYPE_ID = T.ID WHERE T.DOCUMENT_SECTION IN ('CASH')  AND FT.MOVE_TYPE = 'INPUT' AND D.PERIOD_ID = {{na}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.cash.server.services</ExecPackage>
+    <ExecClass>CashCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/cash/server/services/CashCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>57</ExecLine>
+    <ExecString>st.execute("INSERT INTO M_PARTNER_REGISTER (PARTNER_ID, DEBIT_AMOUNT, CREDIT_AMOUNT)" + " SELECT D.PARTNER_ID, 0, FD.TOTAL FROM FINANCE_DOCUMENT FD" + " INNER JOIN DOCUMENT D ON D.ID = FD.ID"+ " INNER JOIN DOCUMENT_TYPE T ON T.ID = D.DOCUMENT_TYPE_ID"+ " INNER JOIN FINANCE_DOCUMENT_TYPE FT ON FT.DOCUMENT_TYPE_ID = T.ID"+ " WHERE T.DOCUMENT_SECTION" + PRODUCT_DOCUMENT_TYPE_CLAUSE + " AND FT.MOVE_TYPE = 'INPUT' AND D.PERIOD_ID = "+ periodId)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.cash.server.services.CashCompressionExecutorImpl.addIncome(java.sql.Statement,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/cash/server/services/CashCompressionExecutorImpl.java" methodLine="56" callLine="57"></Call>
+      <Call method="org.plazmaforge.bsolution.cash.server.services.CashCompressionExecutorImpl.executeCompression(java.sql.Statement,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/cash/server/services/CashCompressionExecutorImpl.java" methodLine="50" callLine="51"></Call>
+    </CallStack>
+  </Query>
+  <Query id="28">
+    <Value>INSERT INTO M_PARTNER_REGISTER (PARTNER_ID, DEBIT_AMOUNT, CREDIT_AMOUNT) SELECT D.PARTNER_ID, FD.TOTAL, 0 FROM FINANCE_DOCUMENT FD INNER JOIN DOCUMENT D ON D.ID = FD.ID INNER JOIN DOCUMENT_TYPE T ON T.ID = D.DOCUMENT_TYPE_ID INNER JOIN FINANCE_DOCUMENT_TYPE FT ON FT.DOCUMENT_TYPE_ID = T.ID WHERE T.DOCUMENT_SECTION IN ('CASH')  AND FT.MOVE_TYPE = 'OUTPUT' AND D.PERIOD_ID = {{na}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.cash.server.services</ExecPackage>
+    <ExecClass>CashCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/cash/server/services/CashCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>67</ExecLine>
+    <ExecString>st.execute("INSERT INTO M_PARTNER_REGISTER (PARTNER_ID, DEBIT_AMOUNT, CREDIT_AMOUNT)" + " SELECT D.PARTNER_ID, FD.TOTAL, 0 FROM FINANCE_DOCUMENT FD" + " INNER JOIN DOCUMENT D ON D.ID = FD.ID"+ " INNER JOIN DOCUMENT_TYPE T ON T.ID = D.DOCUMENT_TYPE_ID"+ " INNER JOIN FINANCE_DOCUMENT_TYPE FT ON FT.DOCUMENT_TYPE_ID = T.ID"+ " WHERE T.DOCUMENT_SECTION" + PRODUCT_DOCUMENT_TYPE_CLAUSE + " AND FT.MOVE_TYPE = 'OUTPUT' AND D.PERIOD_ID = "+ periodId)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.cash.server.services.CashCompressionExecutorImpl.addOutcome(java.sql.Statement,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/cash/server/services/CashCompressionExecutorImpl.java" methodLine="66" callLine="67"></Call>
+      <Call method="org.plazmaforge.bsolution.cash.server.services.CashCompressionExecutorImpl.executeCompression(java.sql.Statement,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/cash/server/services/CashCompressionExecutorImpl.java" methodLine="50" callLine="52"></Call>
+    </CallStack>
+  </Query>
+  <Query id="29">
+    <Value>DELETE FROM M_LEDGER_ACCOUNT_REGISTER</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.finance.server.services</ExecPackage>
+    <ExecClass>FinanceCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/finance/server/services/FinanceCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>49</ExecLine>
+    <ExecString>stm.execute("DELETE FROM M_LEDGER_ACCOUNT_REGISTER")</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.finance.server.services.FinanceCompressionExecutorImpl.beforeCompression(java.sql.Statement,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/finance/server/services/FinanceCompressionExecutorImpl.java" methodLine="48" callLine="49"></Call>
+    </CallStack>
+  </Query>
+  <Query id="30">
+    <Value>INSERT INTO M_LEDGER_ACCOUNT_REGISTER (LEDGER_ACCOUNT_ID, DEBIT_AMOUNT, CREDIT_AMOUNT) SELECT LEDGER_ACCOUNT_ID, AD.DEBIT_AMOUNT, AD.CREDIT_AMOUNT FROM LEDGER_ACCOUNT_REST AD WHERE AD.PERIOD_ID = {{na}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.finance.server.services</ExecPackage>
+    <ExecClass>FinanceCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/finance/server/services/FinanceCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>58</ExecLine>
+    <ExecString>stm.execute("INSERT INTO M_LEDGER_ACCOUNT_REGISTER (LEDGER_ACCOUNT_ID, DEBIT_AMOUNT, CREDIT_AMOUNT)" + " SELECT LEDGER_ACCOUNT_ID, AD.DEBIT_AMOUNT, AD.CREDIT_AMOUNT FROM LEDGER_ACCOUNT_REST AD" + " WHERE AD.PERIOD_ID = "+ periodId)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.finance.server.services.FinanceCompressionExecutorImpl.addRest(java.sql.Statement,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/finance/server/services/FinanceCompressionExecutorImpl.java" methodLine="57" callLine="58"></Call>
+      <Call method="org.plazmaforge.bsolution.finance.server.services.FinanceCompressionExecutorImpl.executeCompression(java.sql.Statement,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/finance/server/services/FinanceCompressionExecutorImpl.java" methodLine="42" callLine="43"></Call>
+    </CallStack>
+  </Query>
+  <Query id="31">
+    <Value>INSERT INTO M_LEDGER_ACCOUNT_REGISTER (LEDGER_ACCOUNT_ID, DEBIT_AMOUNT, CREDIT_AMOUNT) SELECT I.CREDIT_LEDGER_ACCOUNT_ID, 0, I.AMOUNT FROM ENTRY_ITEM I INNER JOIN FINANCE_DOCUMENT FD ON FD.ID = I.OWNER_ID INNER JOIN DOCUMENT D ON D.ID = FD.ID WHERE D.PERIOD_ID = {{na}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.finance.server.services</ExecPackage>
+    <ExecClass>FinanceCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/finance/server/services/FinanceCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>67</ExecLine>
+    <ExecString>st.execute("INSERT INTO M_LEDGER_ACCOUNT_REGISTER (LEDGER_ACCOUNT_ID, DEBIT_AMOUNT, CREDIT_AMOUNT)" + " SELECT I.CREDIT_LEDGER_ACCOUNT_ID, 0, I.AMOUNT" + " FROM ENTRY_ITEM I"+ " INNER JOIN FINANCE_DOCUMENT FD ON FD.ID = I.OWNER_ID"+ " INNER JOIN DOCUMENT D ON D.ID = FD.ID"+ " WHERE D.PERIOD_ID = "+ periodId)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.finance.server.services.FinanceCompressionExecutorImpl.addIncome(java.sql.Statement,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/finance/server/services/FinanceCompressionExecutorImpl.java" methodLine="64" callLine="68"></Call>
+      <Call method="org.plazmaforge.bsolution.finance.server.services.FinanceCompressionExecutorImpl.executeCompression(java.sql.Statement,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/finance/server/services/FinanceCompressionExecutorImpl.java" methodLine="42" callLine="44"></Call>
+    </CallStack>
+  </Query>
+  <Query id="32">
+    <Value>INSERT INTO M_LEDGER_ACCOUNT_REGISTER (LEDGER_ACCOUNT_ID, DEBIT_AMOUNT, CREDIT_AMOUNT) SELECT I.DEBIT_LEDGER_ACCOUNT_ID, I.AMOUNT, 0 FROM ENTRY_ITEM I INNER JOIN FINANCE_DOCUMENT FD ON FD.ID = I.OWNER_ID INNER JOIN DOCUMENT D ON D.ID = FD.ID WHERE D.PERIOD_ID = {{na}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.finance.server.services</ExecPackage>
+    <ExecClass>FinanceCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/finance/server/services/FinanceCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>81</ExecLine>
+    <ExecString>st.execute("INSERT INTO M_LEDGER_ACCOUNT_REGISTER (LEDGER_ACCOUNT_ID, DEBIT_AMOUNT, CREDIT_AMOUNT)" + " SELECT I.DEBIT_LEDGER_ACCOUNT_ID, I.AMOUNT, 0" + " FROM ENTRY_ITEM I"+ " INNER JOIN FINANCE_DOCUMENT FD ON FD.ID = I.OWNER_ID"+ " INNER JOIN DOCUMENT D ON D.ID = FD.ID"+ " WHERE D.PERIOD_ID = "+ periodId)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.finance.server.services.FinanceCompressionExecutorImpl.addOutcome(java.sql.Statement,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/finance/server/services/FinanceCompressionExecutorImpl.java" methodLine="78" callLine="82"></Call>
+      <Call method="org.plazmaforge.bsolution.finance.server.services.FinanceCompressionExecutorImpl.executeCompression(java.sql.Statement,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/finance/server/services/FinanceCompressionExecutorImpl.java" methodLine="42" callLine="45"></Call>
+    </CallStack>
+  </Query>
+  <Query id="33">
+    <Value>DELETE FROM M_LEDGER_ACCOUNT_REGISTER_SUM</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.finance.server.services</ExecPackage>
+    <ExecClass>FinanceCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/finance/server/services/FinanceCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>94</ExecLine>
+    <ExecString>stm.execute("DELETE FROM M_LEDGER_ACCOUNT_REGISTER_SUM")</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.finance.server.services.FinanceCompressionExecutorImpl.afterCompressionLedgerAccount(java.sql.Statement,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/finance/server/services/FinanceCompressionExecutorImpl.java" methodLine="91" callLine="94"></Call>
+    </CallStack>
+  </Query>
+  <Query id="34">
+    <Value>INSERT INTO M_LEDGER_ACCOUNT_REGISTER_SUM (LEDGER_ACCOUNT_ID, DEBIT_AMOUNT, CREDIT_AMOUNT)  SELECT R.LEDGER_ACCOUNT_ID, SUM(R.DEBIT_AMOUNT), SUM(R.CREDIT_AMOUNT) FROM M_LEDGER_ACCOUNT_REGISTER R GROUP BY R.LEDGER_ACCOUNT_ID</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.finance.server.services</ExecPackage>
+    <ExecClass>FinanceCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/finance/server/services/FinanceCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>97</ExecLine>
+    <ExecString>stm.execute("INSERT INTO M_LEDGER_ACCOUNT_REGISTER_SUM (LEDGER_ACCOUNT_ID, DEBIT_AMOUNT, CREDIT_AMOUNT) " + " SELECT R.LEDGER_ACCOUNT_ID, SUM(R.DEBIT_AMOUNT), SUM(R.CREDIT_AMOUNT) FROM M_LEDGER_ACCOUNT_REGISTER R" + " GROUP BY R.LEDGER_ACCOUNT_ID")</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.finance.server.services.FinanceCompressionExecutorImpl.afterCompressionLedgerAccount(java.sql.Statement,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/finance/server/services/FinanceCompressionExecutorImpl.java" methodLine="91" callLine="97"></Call>
+    </CallStack>
+  </Query>
+  <Query id="35">
+    <Value>DELETE FROM M_LEDGER_ACCOUNT_REGISTER_ID</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.finance.server.services</ExecPackage>
+    <ExecClass>FinanceCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/finance/server/services/FinanceCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>106</ExecLine>
+    <ExecString>stm.execute("DELETE FROM M_LEDGER_ACCOUNT_REGISTER_ID")</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.finance.server.services.FinanceCompressionExecutorImpl.afterCompressionLedgerAccount(java.sql.Statement,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/finance/server/services/FinanceCompressionExecutorImpl.java" methodLine="91" callLine="106"></Call>
+    </CallStack>
+  </Query>
+  <Query id="36">
+    <Value>INSERT INTO M_LEDGER_ACCOUNT_REGISTER_ID (LEDGER_ACCOUNT_ID)     SELECT P.LEDGER_ACCOUNT_ID FROM LEDGER_ACCOUNT_REGISTER P    WHERE P.ORGANIZATION_ID = {{na}} AND P.PERIOD_ID = {{na}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.finance.server.services</ExecPackage>
+    <ExecClass>FinanceCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/finance/server/services/FinanceCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>109</ExecLine>
+    <ExecString>stm.execute("INSERT INTO M_LEDGER_ACCOUNT_REGISTER_ID (LEDGER_ACCOUNT_ID) " + "    SELECT P.LEDGER_ACCOUNT_ID FROM LEDGER_ACCOUNT_REGISTER P" + "    WHERE P.ORGANIZATION_ID = " + organizationId + " AND P.PERIOD_ID = "+ prevPeriodId)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.finance.server.services.FinanceCompressionExecutorImpl.afterCompressionLedgerAccount(java.sql.Statement,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/finance/server/services/FinanceCompressionExecutorImpl.java" methodLine="91" callLine="109"></Call>
+      <Call method="org.plazmaforge.bsolution.finance.server.services.FinanceCompressionExecutorImpl.afterCompression(java.sql.Statement,int,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/finance/server/services/FinanceCompressionExecutorImpl.java" methodLine="53" callLine="54"></Call>
+    </CallStack>
+  </Query>
+  <Query id="37">
+    <Value>INSERT INTO M_LEDGER_ACCOUNT_REGISTER_ID (LEDGER_ACCOUNT_ID)     SELECT R.LEDGER_ACCOUNT_ID FROM M_LEDGER_ACCOUNT_REGISTER_SUM R     WHERE NOT (R.LEDGER_ACCOUNT_ID IN (SELECT I.LEDGER_ACCOUNT_ID FROM M_LEDGER_ACCOUNT_REGISTER_ID I))</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.finance.server.services</ExecPackage>
+    <ExecClass>FinanceCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/finance/server/services/FinanceCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>115</ExecLine>
+    <ExecString>stm.execute("INSERT INTO M_LEDGER_ACCOUNT_REGISTER_ID (LEDGER_ACCOUNT_ID) " + "    SELECT R.LEDGER_ACCOUNT_ID FROM M_LEDGER_ACCOUNT_REGISTER_SUM R " + "    WHERE NOT (R.LEDGER_ACCOUNT_ID IN (SELECT I.LEDGER_ACCOUNT_ID FROM M_LEDGER_ACCOUNT_REGISTER_ID I))")</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.finance.server.services.FinanceCompressionExecutorImpl.afterCompressionLedgerAccount(java.sql.Statement,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/finance/server/services/FinanceCompressionExecutorImpl.java" methodLine="91" callLine="115"></Call>
+    </CallStack>
+  </Query>
+  <Query id="38">
+    <Value>DELETE FROM LEDGER_ACCOUNT_REGISTER WHERE ORGANIZATION_ID = {{na}} AND PERIOD_ID = {{na}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.finance.server.services</ExecPackage>
+    <ExecClass>FinanceCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/finance/server/services/FinanceCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>119</ExecLine>
+    <ExecString>stm.execute("DELETE FROM LEDGER_ACCOUNT_REGISTER WHERE " + "ORGANIZATION_ID = " + organizationId + " AND "+ "PERIOD_ID = "+ newPeriodId)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.finance.server.services.FinanceCompressionExecutorImpl.afterCompressionLedgerAccount(java.sql.Statement,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/finance/server/services/FinanceCompressionExecutorImpl.java" methodLine="91" callLine="119"></Call>
+      <Call method="org.plazmaforge.bsolution.finance.server.services.FinanceCompressionExecutorImpl.afterCompression(java.sql.Statement,int,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/finance/server/services/FinanceCompressionExecutorImpl.java" methodLine="53" callLine="54"></Call>
+    </CallStack>
+  </Query>
+  <Query id="39">
+    <Value>SELECT MAX(ID) FROM LEDGER_ACCOUNT_REGISTER</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.finance.server.services</ExecPackage>
+    <ExecClass>FinanceCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/finance/server/services/FinanceCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>137</ExecLine>
+    <ExecString>stm.executeQuery("SELECT MAX(ID) FROM LEDGER_ACCOUNT_REGISTER")</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.finance.server.services.FinanceCompressionExecutorImpl.addLedgerAccountRegister(java.sql.Statement,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/finance/server/services/FinanceCompressionExecutorImpl.java" methodLine="127" callLine="137"></Call>
+    </CallStack>
+  </Query>
+  <Query id="40">
+    <Value>{{na}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.finance.server.services</ExecPackage>
+    <ExecClass>FinanceCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/finance/server/services/FinanceCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>155</ExecLine>
+    <ExecString>ps.execute()</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.finance.server.services.FinanceCompressionExecutorImpl.addLedgerAccountRegister(java.sql.Statement,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/finance/server/services/FinanceCompressionExecutorImpl.java" methodLine="127" callLine="155"></Call>
+    </CallStack>
+  </Query>
+  <Query id="41">
+    <Value> SELECT  U.LEDGER_ACCOUNT_ID, U1.DEBIT_AMOUNT, U2.DEBIT_AMOUNT, U1.CREDIT_AMOUNT, U2.CREDIT_AMOUNT FROM M_LEDGER_ACCOUNT_REGISTER_ID U  LEFT JOIN LEDGER_ACCOUNT_REGISTER U1 ON U1.LEDGER_ACCOUNT_ID = U.LEDGER_ACCOUNT_ID AND U1.LEDGER_ACCOUNT_ID = {{na}} LEFT JOIN M_LEDGER_ACCOUNT_REGISTER_SUM U2 ON U2.LEDGER_ACCOUNT_ID = U.LEDGER_ACCOUNT_ID</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.finance.server.services</ExecPackage>
+    <ExecClass>FinanceCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/finance/server/services/FinanceCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>182</ExecLine>
+    <ExecString>stm.executeQuery(sql)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.finance.server.services.FinanceCompressionExecutorImpl.getLedgerAccountRegister(java.sql.Statement,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/finance/server/services/FinanceCompressionExecutorImpl.java" methodLine="164" callLine="182"></Call>
+      <Call method="org.plazmaforge.bsolution.finance.server.services.FinanceCompressionExecutorImpl.addLedgerAccountRegister(java.sql.Statement,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/finance/server/services/FinanceCompressionExecutorImpl.java" methodLine="127" callLine="128"></Call>
+      <Call method="org.plazmaforge.bsolution.finance.server.services.FinanceCompressionExecutorImpl.afterCompressionLedgerAccount(java.sql.Statement,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/finance/server/services/FinanceCompressionExecutorImpl.java" methodLine="91" callLine="123"></Call>
+      <Call method="org.plazmaforge.bsolution.finance.server.services.FinanceCompressionExecutorImpl.afterCompression(java.sql.Statement,int,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/finance/server/services/FinanceCompressionExecutorImpl.java" methodLine="53" callLine="54"></Call>
+    </CallStack>
+  </Query>
+  <Query id="42">
+    <Value>SELECT LEDGER_ACCOUNT_ID, DEBIT_AMOUNT, CREDIT_AMOUNT FROM M_LEDGER_ACCOUNT_REGISTER_SUM</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.finance.server.services</ExecPackage>
+    <ExecClass>FinanceCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/finance/server/services/FinanceCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>200</ExecLine>
+    <ExecString>stm.executeQuery(sql)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.finance.server.services.FinanceCompressionExecutorImpl.getLedgerAccountRegister(java.sql.Statement,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/finance/server/services/FinanceCompressionExecutorImpl.java" methodLine="164" callLine="200"></Call>
+    </CallStack>
+  </Query>
+  <Query id="43">
+    <Value>{{na}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.goods.server.services</ExecPackage>
+    <ExecClass>GoodsTrigger</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsImporter.java</ExecFile>
+    <ExecLine>278</ExecLine>
+    <ExecString>businessableInsertStm.executeUpdate()</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.goods.server.services.GoodsImporter.GoodsTrigger.doBeforeInsert(org.plazmaforge.framework.datawarehouse.TransferEvent)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsImporter.java" methodLine="268" callLine="278"></Call>
+    </CallStack>
+  </Query>
+  <Query id="44">
+    <Value>{{na}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.goods.server.services</ExecPackage>
+    <ExecClass>GoodsTrigger</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsImporter.java</ExecFile>
+    <ExecLine>287</ExecLine>
+    <ExecString>goodsInsertStm.executeUpdate()</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.goods.server.services.GoodsImporter.GoodsTrigger.doAfterInsert(org.plazmaforge.framework.datawarehouse.TransferEvent)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsImporter.java" methodLine="282" callLine="287"></Call>
+    </CallStack>
+  </Query>
+  <Query id="45">
+    <Value>{{na}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.goods.server.services</ExecPackage>
+    <ExecClass>GoodsTrigger</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsImporter.java</ExecFile>
+    <ExecLine>303</ExecLine>
+    <ExecString>businessableUpdateStm.executeUpdate()</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.goods.server.services.GoodsImporter.GoodsTrigger.doBeforeUpdate(org.plazmaforge.framework.datawarehouse.TransferEvent)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsImporter.java" methodLine="290" callLine="303"></Call>
+    </CallStack>
+  </Query>
+  <Query id="46">
+    <Value>INSERT INTO M_PARTNER_REGISTER (PARTNER_ID, DEBIT_AMOUNT, CREDIT_AMOUNT) SELECT D.PARTNER_ID, 0, D.TOTAL FROM GOODS_INCOME AD INNER JOIN V_FINANCE_DOCUMENT D ON D.ID = AD.ID WHERE D.PERIOD_ID = {{na}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.goods.server.services</ExecPackage>
+    <ExecClass>GoodsCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>79</ExecLine>
+    <ExecString>st.execute("INSERT INTO M_PARTNER_REGISTER (PARTNER_ID, DEBIT_AMOUNT, CREDIT_AMOUNT)" + " SELECT D.PARTNER_ID, 0, D.TOTAL FROM GOODS_INCOME AD" + " INNER JOIN V_FINANCE_DOCUMENT D ON D.ID = AD.ID"+ " WHERE D.PERIOD_ID = "+ periodId)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.goods.server.services.GoodsCompressionExecutorImpl.addCredit(java.sql.Statement,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java" methodLine="76" callLine="80"></Call>
+      <Call method="org.plazmaforge.bsolution.goods.server.services.GoodsCompressionExecutorImpl.executeCompression(java.sql.Statement,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java" methodLine="43" callLine="49"></Call>
+    </CallStack>
+  </Query>
+  <Query id="47">
+    <Value>INSERT INTO M_PRODUCT_DETAIL_REGISTER (WAREHOUSE_ID, MTRL_RESPONSIBLE_ID, PRODUCT_ID, DEBIT_QUANTITY, DEBIT_AMOUNT, CREDIT_QUANTITY, CREDIT_AMOUNT) SELECT AD.WAREHOUSE_ID, AD.MTRL_RESPONSIBLE_ID, G.ID, 0, 0, I.QUANTITY * I.UNIT_RATE, I.AMOUNT FROM GOODS_INCOME_ITEM I INNER JOIN GOODS_INCOME AD ON AD.ID = I.GOODS_INCOME_ID INNER JOIN V_FINANCE_DOCUMENT D ON D.ID = AD.ID INNER JOIN GOODS G ON G.ID = I.PRODUCT_ID WHERE D.PERIOD_ID = {{na}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.goods.server.services</ExecPackage>
+    <ExecClass>GoodsCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>88</ExecLine>
+    <ExecString>st.execute("INSERT INTO M_PRODUCT_DETAIL_REGISTER (WAREHOUSE_ID, MTRL_RESPONSIBLE_ID, PRODUCT_ID, DEBIT_QUANTITY, DEBIT_AMOUNT, CREDIT_QUANTITY, CREDIT_AMOUNT)" + " SELECT AD.WAREHOUSE_ID, AD.MTRL_RESPONSIBLE_ID, G.ID, 0, 0, I.QUANTITY * I.UNIT_RATE, I.AMOUNT FROM GOODS_INCOME_ITEM I" + " INNER JOIN GOODS_INCOME AD ON AD.ID = I.GOODS_INCOME_ID"+ " INNER JOIN V_FINANCE_DOCUMENT D ON D.ID = AD.ID"+ " INNER JOIN GOODS G ON G.ID = I.PRODUCT_ID"+ " WHERE D.PERIOD_ID = "+ periodId)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.goods.server.services.GoodsCompressionExecutorImpl.addCredit(java.sql.Statement,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java" methodLine="76" callLine="89"></Call>
+      <Call method="org.plazmaforge.bsolution.goods.server.services.GoodsCompressionExecutorImpl.executeCompression(java.sql.Statement,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java" methodLine="43" callLine="49"></Call>
+    </CallStack>
+  </Query>
+  <Query id="48">
+    <Value>INSERT INTO M_PRODUCT_REGISTER (PRODUCT_ID, DEBIT_QUANTITY, DEBIT_AMOUNT, CREDIT_QUANTITY, CREDIT_AMOUNT)SELECT G.ID, 0, 0, I.QUANTITY * I.UNIT_RATE, I.AMOUNT FROM GOODS_INCOME_ITEM I INNER JOIN GOODS_INCOME AD ON AD.ID = I.GOODS_INCOME_ID INNER JOIN V_FINANCE_DOCUMENT D ON D.ID = AD.ID INNER JOIN GOODS G ON G.ID = I.PRODUCT_ID WHERE D.PERIOD_ID = {{na}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.goods.server.services</ExecPackage>
+    <ExecClass>GoodsCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>98</ExecLine>
+    <ExecString>st.execute("INSERT INTO M_PRODUCT_REGISTER (PRODUCT_ID, DEBIT_QUANTITY, DEBIT_AMOUNT, CREDIT_QUANTITY, CREDIT_AMOUNT)" + "SELECT G.ID, 0, 0, I.QUANTITY * I.UNIT_RATE, I.AMOUNT FROM GOODS_INCOME_ITEM I" + " INNER JOIN GOODS_INCOME AD ON AD.ID = I.GOODS_INCOME_ID"+ " INNER JOIN V_FINANCE_DOCUMENT D ON D.ID = AD.ID"+ " INNER JOIN GOODS G ON G.ID = I.PRODUCT_ID"+ " WHERE D.PERIOD_ID = "+ periodId)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.goods.server.services.GoodsCompressionExecutorImpl.addCredit(java.sql.Statement,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java" methodLine="76" callLine="99"></Call>
+      <Call method="org.plazmaforge.bsolution.goods.server.services.GoodsCompressionExecutorImpl.executeCompression(java.sql.Statement,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java" methodLine="43" callLine="49"></Call>
+    </CallStack>
+  </Query>
+  <Query id="49">
+    <Value>INSERT INTO M_PARTNER_REGISTER (PARTNER_ID, DEBIT_AMOUNT, CREDIT_AMOUNT) SELECT D.PARTNER_ID, D.TOTAL, 0 FROM GOODS_OUTCOME AD INNER JOIN V_FINANCE_DOCUMENT D ON D.ID = AD.ID WHERE D.PERIOD_ID = {{na}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.goods.server.services</ExecPackage>
+    <ExecClass>GoodsCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>112</ExecLine>
+    <ExecString>st.execute("INSERT INTO M_PARTNER_REGISTER (PARTNER_ID, DEBIT_AMOUNT, CREDIT_AMOUNT)" + " SELECT D.PARTNER_ID, D.TOTAL, 0 FROM GOODS_OUTCOME AD" + " INNER JOIN V_FINANCE_DOCUMENT D ON D.ID = AD.ID"+ " WHERE D.PERIOD_ID = "+ periodId)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.goods.server.services.GoodsCompressionExecutorImpl.addDebit(java.sql.Statement,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java" methodLine="109" callLine="113"></Call>
+      <Call method="org.plazmaforge.bsolution.goods.server.services.GoodsCompressionExecutorImpl.executeCompression(java.sql.Statement,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java" methodLine="43" callLine="50"></Call>
+    </CallStack>
+  </Query>
+  <Query id="50">
+    <Value>INSERT INTO M_PRODUCT_DETAIL_REGISTER (WAREHOUSE_ID, MTRL_RESPONSIBLE_ID, PRODUCT_ID, DEBIT_QUANTITY, DEBIT_AMOUNT, CREDIT_QUANTITY, CREDIT_AMOUNT) SELECT AD.WAREHOUSE_ID, AD.MTRL_RESPONSIBLE_ID, G.ID, I.QUANTITY * I.UNIT_RATE, I.AMOUNT, 0, 0 FROM GOODS_OUTCOME_ITEM I INNER JOIN GOODS_OUTCOME AD ON AD.ID = I.GOODS_OUTCOME_ID INNER JOIN V_FINANCE_DOCUMENT D ON D.ID = AD.ID INNER JOIN GOODS G ON G.ID = I.PRODUCT_ID WHERE D.PERIOD_ID = {{na}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.goods.server.services</ExecPackage>
+    <ExecClass>GoodsCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>120</ExecLine>
+    <ExecString>st.execute("INSERT INTO M_PRODUCT_DETAIL_REGISTER (WAREHOUSE_ID, MTRL_RESPONSIBLE_ID, PRODUCT_ID, DEBIT_QUANTITY, DEBIT_AMOUNT, CREDIT_QUANTITY, CREDIT_AMOUNT)" + " SELECT AD.WAREHOUSE_ID, AD.MTRL_RESPONSIBLE_ID, G.ID, I.QUANTITY * I.UNIT_RATE, I.AMOUNT, 0, 0 FROM GOODS_OUTCOME_ITEM I" + " INNER JOIN GOODS_OUTCOME AD ON AD.ID = I.GOODS_OUTCOME_ID"+ " INNER JOIN V_FINANCE_DOCUMENT D ON D.ID = AD.ID"+ " INNER JOIN GOODS G ON G.ID = I.PRODUCT_ID"+ " WHERE D.PERIOD_ID = "+ periodId)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.goods.server.services.GoodsCompressionExecutorImpl.addDebit(java.sql.Statement,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java" methodLine="109" callLine="121"></Call>
+      <Call method="org.plazmaforge.bsolution.goods.server.services.GoodsCompressionExecutorImpl.executeCompression(java.sql.Statement,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java" methodLine="43" callLine="50"></Call>
+    </CallStack>
+  </Query>
+  <Query id="51">
+    <Value>INSERT INTO M_PRODUCT_REGISTER (PRODUCT_ID, DEBIT_QUANTITY, DEBIT_AMOUNT, CREDIT_QUANTITY, CREDIT_AMOUNT)SELECT G.ID, I.QUANTITY * I.UNIT_RATE, I.AMOUNT, 0, 0 FROM GOODS_OUTCOME_ITEM I INNER JOIN GOODS_OUTCOME AD ON AD.ID = I.GOODS_OUTCOME_ID INNER JOIN V_FINANCE_DOCUMENT D ON D.ID = AD.ID INNER JOIN GOODS G ON G.ID = I.PRODUCT_ID WHERE D.PERIOD_ID = {{na}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.goods.server.services</ExecPackage>
+    <ExecClass>GoodsCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>130</ExecLine>
+    <ExecString>st.execute("INSERT INTO M_PRODUCT_REGISTER (PRODUCT_ID, DEBIT_QUANTITY, DEBIT_AMOUNT, CREDIT_QUANTITY, CREDIT_AMOUNT)" + "SELECT G.ID, I.QUANTITY * I.UNIT_RATE, I.AMOUNT, 0, 0 FROM GOODS_OUTCOME_ITEM I" + " INNER JOIN GOODS_OUTCOME AD ON AD.ID = I.GOODS_OUTCOME_ID"+ " INNER JOIN V_FINANCE_DOCUMENT D ON D.ID = AD.ID"+ " INNER JOIN GOODS G ON G.ID = I.PRODUCT_ID"+ " WHERE D.PERIOD_ID = "+ periodId)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.goods.server.services.GoodsCompressionExecutorImpl.addDebit(java.sql.Statement,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java" methodLine="109" callLine="131"></Call>
+      <Call method="org.plazmaforge.bsolution.goods.server.services.GoodsCompressionExecutorImpl.executeCompression(java.sql.Statement,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java" methodLine="43" callLine="50"></Call>
+    </CallStack>
+  </Query>
+  <Query id="52">
+    <Value>INSERT INTO M_PRODUCT_DETAIL_REGISTER (WAREHOUSE_ID, MTRL_RESPONSIBLE_ID, PRODUCT_ID, DEBIT_QUANTITY, DEBIT_AMOUNT, CREDIT_QUANTITY, CREDIT_AMOUNT) SELECT AD.WAREHOUSE_ID, AD.MTRL_RESPONSIBLE_ID, G.ID, 0, 0, I.QUANTITY * I.UNIT_RATE, I.AMOUNT FROM GOODS_WRITEOFF_ITEM I INNER JOIN GOODS_WRITEOFF AD ON AD.ID = I.GOODS_WRITEOFF_ID INNER JOIN V_FINANCE_DOCUMENT D ON D.ID = AD.ID INNER JOIN GOODS G ON G.ID = I.PRODUCT_ID WHERE D.PERIOD_ID = {{na}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.goods.server.services</ExecPackage>
+    <ExecClass>GoodsCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>169</ExecLine>
+    <ExecString>st.execute("INSERT INTO M_PRODUCT_DETAIL_REGISTER (WAREHOUSE_ID, MTRL_RESPONSIBLE_ID, PRODUCT_ID, DEBIT_QUANTITY, DEBIT_AMOUNT, CREDIT_QUANTITY, CREDIT_AMOUNT)" + " SELECT AD.WAREHOUSE_ID, AD.MTRL_RESPONSIBLE_ID, G.ID, 0, 0, I.QUANTITY * I.UNIT_RATE, I.AMOUNT FROM GOODS_WRITEOFF_ITEM I" + " INNER JOIN GOODS_WRITEOFF AD ON AD.ID = I.GOODS_WRITEOFF_ID"+ " INNER JOIN V_FINANCE_DOCUMENT D ON D.ID = AD.ID"+ " INNER JOIN GOODS G ON G.ID = I.PRODUCT_ID"+ " WHERE D.PERIOD_ID = "+ periodId)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.goods.server.services.GoodsCompressionExecutorImpl.addWriteoff(java.sql.Statement,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java" methodLine="167" callLine="170"></Call>
+      <Call method="org.plazmaforge.bsolution.goods.server.services.GoodsCompressionExecutorImpl.executeCompression(java.sql.Statement,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java" methodLine="43" callLine="54"></Call>
+    </CallStack>
+  </Query>
+  <Query id="53">
+    <Value>INSERT INTO M_PRODUCT_REGISTER (PRODUCT_ID, DEBIT_QUANTITY, DEBIT_AMOUNT, CREDIT_QUANTITY, CREDIT_AMOUNT)SELECT G.ID, 0, 0, I.QUANTITY * I.UNIT_RATE, I.AMOUNT FROM GOODS_WRITEOFF_ITEM I INNER JOIN GOODS_WRITEOFF AD ON AD.ID = I.GOODS_WRITEOFF_ID INNER JOIN V_FINANCE_DOCUMENT D ON D.ID = AD.ID INNER JOIN GOODS G ON G.ID = I.PRODUCT_ID WHERE D.PERIOD_ID = {{na}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.goods.server.services</ExecPackage>
+    <ExecClass>GoodsCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>178</ExecLine>
+    <ExecString>st.execute("INSERT INTO M_PRODUCT_REGISTER (PRODUCT_ID, DEBIT_QUANTITY, DEBIT_AMOUNT, CREDIT_QUANTITY, CREDIT_AMOUNT)" + "SELECT G.ID, 0, 0, I.QUANTITY * I.UNIT_RATE, I.AMOUNT FROM GOODS_WRITEOFF_ITEM I" + " INNER JOIN GOODS_WRITEOFF AD ON AD.ID = I.GOODS_WRITEOFF_ID"+ " INNER JOIN V_FINANCE_DOCUMENT D ON D.ID = AD.ID"+ " INNER JOIN GOODS G ON G.ID = I.PRODUCT_ID"+ " WHERE D.PERIOD_ID = "+ periodId)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.goods.server.services.GoodsCompressionExecutorImpl.addWriteoff(java.sql.Statement,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java" methodLine="167" callLine="179"></Call>
+      <Call method="org.plazmaforge.bsolution.goods.server.services.GoodsCompressionExecutorImpl.executeCompression(java.sql.Statement,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java" methodLine="43" callLine="54"></Call>
+    </CallStack>
+  </Query>
+  <Query id="54">
+    <Value>INSERT INTO M_PRODUCT_DETAIL_REGISTER (WAREHOUSE_ID, MTRL_RESPONSIBLE_ID, PRODUCT_ID, DEBIT_QUANTITY, DEBIT_AMOUNT, CREDIT_QUANTITY, CREDIT_AMOUNT) SELECT AD.WAREHOUSE_ID, AD.MTRL_RESPONSIBLE_ID, G.ID, I.QUANTITY * I.UNIT_RATE, I.AMOUNT, 0, 0 FROM GOODS_REST_ITEM I INNER JOIN GOODS_REST AD ON AD.ID = I.GOODS_REST_ID INNER JOIN V_FINANCE_DOCUMENT D ON D.ID = AD.ID INNER JOIN GOODS G ON G.ID = I.PRODUCT_ID WHERE D.PERIOD_ID = {{na}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.goods.server.services</ExecPackage>
+    <ExecClass>GoodsCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>192</ExecLine>
+    <ExecString>st.execute("INSERT INTO M_PRODUCT_DETAIL_REGISTER (WAREHOUSE_ID, MTRL_RESPONSIBLE_ID, PRODUCT_ID, DEBIT_QUANTITY, DEBIT_AMOUNT, CREDIT_QUANTITY, CREDIT_AMOUNT)" + " SELECT AD.WAREHOUSE_ID, AD.MTRL_RESPONSIBLE_ID, G.ID, I.QUANTITY * I.UNIT_RATE, I.AMOUNT, 0, 0 FROM GOODS_REST_ITEM I" + " INNER JOIN GOODS_REST AD ON AD.ID = I.GOODS_REST_ID"+ " INNER JOIN V_FINANCE_DOCUMENT D ON D.ID = AD.ID"+ " INNER JOIN GOODS G ON G.ID = I.PRODUCT_ID"+ " WHERE D.PERIOD_ID = "+ periodId)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.goods.server.services.GoodsCompressionExecutorImpl.addRest(java.sql.Statement,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java" methodLine="190" callLine="193"></Call>
+      <Call method="org.plazmaforge.bsolution.goods.server.services.GoodsCompressionExecutorImpl.executeCompression(java.sql.Statement,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java" methodLine="43" callLine="55"></Call>
+    </CallStack>
+  </Query>
+  <Query id="55">
+    <Value>INSERT INTO M_PRODUCT_REGISTER (PRODUCT_ID, DEBIT_QUANTITY, DEBIT_AMOUNT, CREDIT_QUANTITY, CREDIT_AMOUNT)SELECT G.ID, I.QUANTITY * I.UNIT_RATE, I.AMOUNT, 0, 0 FROM GOODS_REST_ITEM I INNER JOIN GOODS_REST AD ON AD.ID = I.GOODS_REST_ID INNER JOIN V_FINANCE_DOCUMENT D ON D.ID = AD.ID INNER JOIN GOODS G ON G.ID = I.PRODUCT_ID WHERE D.PERIOD_ID = {{na}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.goods.server.services</ExecPackage>
+    <ExecClass>GoodsCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>201</ExecLine>
+    <ExecString>st.execute("INSERT INTO M_PRODUCT_REGISTER (PRODUCT_ID, DEBIT_QUANTITY, DEBIT_AMOUNT, CREDIT_QUANTITY, CREDIT_AMOUNT)" + "SELECT G.ID, I.QUANTITY * I.UNIT_RATE, I.AMOUNT, 0, 0 FROM GOODS_REST_ITEM I" + " INNER JOIN GOODS_REST AD ON AD.ID = I.GOODS_REST_ID"+ " INNER JOIN V_FINANCE_DOCUMENT D ON D.ID = AD.ID"+ " INNER JOIN GOODS G ON G.ID = I.PRODUCT_ID"+ " WHERE D.PERIOD_ID = "+ periodId)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.goods.server.services.GoodsCompressionExecutorImpl.addRest(java.sql.Statement,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java" methodLine="190" callLine="202"></Call>
+      <Call method="org.plazmaforge.bsolution.goods.server.services.GoodsCompressionExecutorImpl.executeCompression(java.sql.Statement,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java" methodLine="43" callLine="55"></Call>
+    </CallStack>
+  </Query>
+  <Query id="56">
+    <Value>DELETE FROM M_PRODUCT_REGISTER_SUM</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.goods.server.services</ExecPackage>
+    <ExecClass>GoodsCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>217</ExecLine>
+    <ExecString>stm.execute("DELETE FROM M_PRODUCT_REGISTER_SUM")</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.goods.server.services.GoodsCompressionExecutorImpl.afterCompressionGoods(java.sql.Statement,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java" methodLine="215" callLine="217"></Call>
+    </CallStack>
+  </Query>
+  <Query id="57">
+    <Value>INSERT INTO M_PRODUCT_REGISTER_SUM (PRODUCT_ID, DEBIT_QUANTITY, CREDIT_QUANTITY, DEBIT_AMOUNT, CREDIT_AMOUNT)  SELECT R.PRODUCT_ID, SUM(R.DEBIT_QUANTITY), SUM(R.CREDIT_QUANTITY), SUM(R.DEBIT_AMOUNT), SUM(R.CREDIT_AMOUNT) FROM M_PRODUCT_REGISTER R GROUP BY R.PRODUCT_ID</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.goods.server.services</ExecPackage>
+    <ExecClass>GoodsCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>219</ExecLine>
+    <ExecString>stm.execute("INSERT INTO M_PRODUCT_REGISTER_SUM (PRODUCT_ID, DEBIT_QUANTITY, CREDIT_QUANTITY, DEBIT_AMOUNT, CREDIT_AMOUNT) " + " SELECT R.PRODUCT_ID, SUM(R.DEBIT_QUANTITY), SUM(R.CREDIT_QUANTITY), SUM(R.DEBIT_AMOUNT), SUM(R.CREDIT_AMOUNT) FROM M_PRODUCT_REGISTER R" + " GROUP BY R.PRODUCT_ID")</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.goods.server.services.GoodsCompressionExecutorImpl.afterCompressionGoods(java.sql.Statement,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java" methodLine="215" callLine="220"></Call>
+    </CallStack>
+  </Query>
+  <Query id="58">
+    <Value>DELETE FROM M_PRODUCT_REGISTER_ID</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.goods.server.services</ExecPackage>
+    <ExecClass>GoodsCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>232</ExecLine>
+    <ExecString>stm.execute("DELETE FROM M_PRODUCT_REGISTER_ID")</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.goods.server.services.GoodsCompressionExecutorImpl.afterCompressionGoods(java.sql.Statement,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java" methodLine="215" callLine="233"></Call>
+    </CallStack>
+  </Query>
+  <Query id="59">
+    <Value>INSERT INTO M_PRODUCT_REGISTER_ID (PRODUCT_ID)     SELECT P.PRODUCT_ID FROM PRODUCT_REGISTER P    WHERE P.ORGANIZATION_ID = {{na}} AND P.PERIOD_ID = {{na}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.goods.server.services</ExecPackage>
+    <ExecClass>GoodsCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>236</ExecLine>
+    <ExecString>stm.execute("INSERT INTO M_PRODUCT_REGISTER_ID (PRODUCT_ID) " + "    SELECT P.PRODUCT_ID FROM PRODUCT_REGISTER P" + "    WHERE P.ORGANIZATION_ID = " + organizationId + " AND P.PERIOD_ID = "+ prevPeriodId)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.goods.server.services.GoodsCompressionExecutorImpl.afterCompressionGoods(java.sql.Statement,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java" methodLine="215" callLine="237"></Call>
+    </CallStack>
+  </Query>
+  <Query id="60">
+    <Value>INSERT INTO M_PRODUCT_REGISTER_ID (PRODUCT_ID)     SELECT R.PRODUCT_ID FROM M_PRODUCT_REGISTER_SUM R     WHERE NOT (R.PRODUCT_ID IN (SELECT I.PRODUCT_ID FROM M_PRODUCT_REGISTER_ID I))</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.goods.server.services</ExecPackage>
+    <ExecClass>GoodsCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>242</ExecLine>
+    <ExecString>stm.execute("INSERT INTO M_PRODUCT_REGISTER_ID (PRODUCT_ID) " + "    SELECT R.PRODUCT_ID FROM M_PRODUCT_REGISTER_SUM R " + "    WHERE NOT (R.PRODUCT_ID IN (SELECT I.PRODUCT_ID FROM M_PRODUCT_REGISTER_ID I))")</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.goods.server.services.GoodsCompressionExecutorImpl.afterCompressionGoods(java.sql.Statement,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java" methodLine="215" callLine="243"></Call>
+    </CallStack>
+  </Query>
+  <Query id="61">
+    <Value>DELETE FROM PRODUCT_REGISTER WHERE ORGANIZATION_ID = {{na}} AND PERIOD_ID = {{na}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.goods.server.services</ExecPackage>
+    <ExecClass>GoodsCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>251</ExecLine>
+    <ExecString>stm.execute("DELETE FROM PRODUCT_REGISTER WHERE " + "ORGANIZATION_ID = " + organizationId + " AND "+ "PERIOD_ID = "+ newPeriodId)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.goods.server.services.GoodsCompressionExecutorImpl.afterCompressionGoods(java.sql.Statement,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java" methodLine="215" callLine="252"></Call>
+    </CallStack>
+  </Query>
+  <Query id="62">
+    <Value>INSERT INTO PRODUCT_REGISTER ( ID, ORGANIZATION_ID, PERIOD_ID, PRODUCT_ID, DEBIT_QUANTITY, CREDIT_QUANTITY, DEBIT_AMOUNT, CREDIT_AMOUNT)  SELECT {{na}}, {{na}},{{na}},    U.PRODUCT_ID,{{na}}, {{na}}, {{na}}, {{na}} FROM    M_PRODUCT_REGISTER_ID U     LEFT JOIN PRODUCT_REGISTER U1 ON U1.PRODUCT_ID = U.PRODUCT_ID AND U1.PERIOD_ID = {{na}}    LEFT JOIN M_PRODUCT_REGISTER_SUM U2 ON U2.PRODUCT_ID = U.PRODUCT_ID</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.goods.server.services</ExecPackage>
+    <ExecClass>GoodsCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>299</ExecLine>
+    <ExecString>stm.execute(sql)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.goods.server.services.GoodsCompressionExecutorImpl.afterCompressionGoods(java.sql.Statement,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java" methodLine="215" callLine="299"></Call>
+    </CallStack>
+  </Query>
+  <Query id="63">
+    <Value>INSERT INTO PRODUCT_REGISTER ( ID, ORGANIZATION_ID, PERIOD_ID, PRODUCT_ID, DEBIT_QUANTITY, CREDIT_QUANTITY, DEBIT_AMOUNT, CREDIT_AMOUNT)  SELECT {{na}}, {{na}},{{na}},    PRODUCT_ID,    DEBIT_QUANTITY,    CREDIT_QUANTITY,    DEBIT_AMOUNT,    CREDIT_AMOUNT FROM    M_PRODUCT_REGISTER_SUM</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.goods.server.services</ExecPackage>
+    <ExecClass>GoodsCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>299</ExecLine>
+    <ExecString>stm.execute(sql)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.goods.server.services.GoodsCompressionExecutorImpl.afterCompressionGoods(java.sql.Statement,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java" methodLine="215" callLine="299"></Call>
+    </CallStack>
+  </Query>
+  <Query id="64">
+    <Value>DELETE FROM M_PRODUCT_DETAIL_REGISTER_SUM</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.goods.server.services</ExecPackage>
+    <ExecClass>GoodsCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>307</ExecLine>
+    <ExecString>stm.execute("DELETE FROM M_PRODUCT_DETAIL_REGISTER_SUM")</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.goods.server.services.GoodsCompressionExecutorImpl.afterCompressionGoodsDetail(java.sql.Statement,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java" methodLine="305" callLine="307"></Call>
+    </CallStack>
+  </Query>
+  <Query id="65">
+    <Value>INSERT INTO M_PRODUCT_DETAIL_REGISTER_SUM (PRODUCT_ID, WAREHOUSE_ID, MTRL_RESPONSIBLE_ID, DEBIT_QUANTITY, CREDIT_QUANTITY, DEBIT_AMOUNT, CREDIT_AMOUNT)  SELECT R.PRODUCT_ID, R.WAREHOUSE_ID, R.MTRL_RESPONSIBLE_ID, SUM(R.DEBIT_QUANTITY), SUM(R.CREDIT_QUANTITY), SUM(R.DEBIT_AMOUNT), SUM(R.CREDIT_AMOUNT) FROM M_PRODUCT_DETAIL_REGISTER R GROUP BY R.PRODUCT_ID, R.WAREHOUSE_ID, R.MTRL_RESPONSIBLE_ID</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.goods.server.services</ExecPackage>
+    <ExecClass>GoodsCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>309</ExecLine>
+    <ExecString>stm.execute("INSERT INTO M_PRODUCT_DETAIL_REGISTER_SUM (PRODUCT_ID, WAREHOUSE_ID, MTRL_RESPONSIBLE_ID, DEBIT_QUANTITY, CREDIT_QUANTITY, DEBIT_AMOUNT, CREDIT_AMOUNT) " + " SELECT R.PRODUCT_ID, R.WAREHOUSE_ID, R.MTRL_RESPONSIBLE_ID, SUM(R.DEBIT_QUANTITY), SUM(R.CREDIT_QUANTITY), SUM(R.DEBIT_AMOUNT), SUM(R.CREDIT_AMOUNT) FROM M_PRODUCT_DETAIL_REGISTER R" + " GROUP BY R.PRODUCT_ID, R.WAREHOUSE_ID, R.MTRL_RESPONSIBLE_ID")</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.goods.server.services.GoodsCompressionExecutorImpl.afterCompressionGoodsDetail(java.sql.Statement,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java" methodLine="305" callLine="310"></Call>
+    </CallStack>
+  </Query>
+  <Query id="66">
+    <Value>DELETE FROM M_PRODUCT_DETAIL_REGISTER_ID</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.goods.server.services</ExecPackage>
+    <ExecClass>GoodsCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>322</ExecLine>
+    <ExecString>stm.execute("DELETE FROM M_PRODUCT_DETAIL_REGISTER_ID")</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.goods.server.services.GoodsCompressionExecutorImpl.afterCompressionGoodsDetail(java.sql.Statement,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java" methodLine="305" callLine="323"></Call>
+    </CallStack>
+  </Query>
+  <Query id="67">
+    <Value>INSERT INTO M_PRODUCT_DETAIL_REGISTER_ID (PRODUCT_ID, WAREHOUSE_ID, MTRL_RESPONSIBLE_ID)     SELECT P.PRODUCT_ID, P.WAREHOUSE_ID, P.MTRL_RESPONSIBLE_ID FROM PRODUCT_DETAIL_REGISTER P    WHERE P.ORGANIZATION_ID = {{na}} AND P.PERIOD_ID = {{na}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.goods.server.services</ExecPackage>
+    <ExecClass>GoodsCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>326</ExecLine>
+    <ExecString>stm.execute("INSERT INTO M_PRODUCT_DETAIL_REGISTER_ID (PRODUCT_ID, WAREHOUSE_ID, MTRL_RESPONSIBLE_ID) " + "    SELECT P.PRODUCT_ID, P.WAREHOUSE_ID, P.MTRL_RESPONSIBLE_ID FROM PRODUCT_DETAIL_REGISTER P" + "    WHERE P.ORGANIZATION_ID = " + organizationId + " AND P.PERIOD_ID = "+ prevPeriodId)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.goods.server.services.GoodsCompressionExecutorImpl.afterCompressionGoodsDetail(java.sql.Statement,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java" methodLine="305" callLine="327"></Call>
+    </CallStack>
+  </Query>
+  <Query id="68">
+    <Value>INSERT INTO M_PRODUCT_DETAIL_REGISTER_ID (PRODUCT_ID, WAREHOUSE_ID, MTRL_RESPONSIBLE_ID)     SELECT R.PRODUCT_ID, R.WAREHOUSE_ID, R.MTRL_RESPONSIBLE_ID FROM M_PRODUCT_DETAIL_REGISTER_SUM R     WHERE NOT (R.PRODUCT_ID IN (SELECT I.PRODUCT_ID FROM M_PRODUCT_REGISTER_ID I))</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.goods.server.services</ExecPackage>
+    <ExecClass>GoodsCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>332</ExecLine>
+    <ExecString>stm.execute("INSERT INTO M_PRODUCT_DETAIL_REGISTER_ID (PRODUCT_ID, WAREHOUSE_ID, MTRL_RESPONSIBLE_ID) " + "    SELECT R.PRODUCT_ID, R.WAREHOUSE_ID, R.MTRL_RESPONSIBLE_ID FROM M_PRODUCT_DETAIL_REGISTER_SUM R " + "    WHERE NOT (R.PRODUCT_ID IN (SELECT I.PRODUCT_ID FROM M_PRODUCT_REGISTER_ID I))")</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.goods.server.services.GoodsCompressionExecutorImpl.afterCompressionGoodsDetail(java.sql.Statement,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java" methodLine="305" callLine="333"></Call>
+    </CallStack>
+  </Query>
+  <Query id="69">
+    <Value>DELETE FROM PRODUCT_DETAIL_REGISTER WHERE ORGANIZATION_ID = {{na}} AND PERIOD_ID = {{na}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.goods.server.services</ExecPackage>
+    <ExecClass>GoodsCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>341</ExecLine>
+    <ExecString>stm.execute("DELETE FROM PRODUCT_DETAIL_REGISTER WHERE " + "ORGANIZATION_ID = " + organizationId + " AND "+ "PERIOD_ID = "+ newPeriodId)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.goods.server.services.GoodsCompressionExecutorImpl.afterCompressionGoodsDetail(java.sql.Statement,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java" methodLine="305" callLine="342"></Call>
+    </CallStack>
+  </Query>
+  <Query id="70">
+    <Value>INSERT INTO PRODUCT_DETAIL_REGISTER ( ID, ORGANIZATION_ID, PERIOD_ID, PRODUCT_ID, WAREHOUSE_ID, MTRL_RESPONSIBLE_ID, DEBIT_QUANTITY, CREDIT_QUANTITY, DEBIT_AMOUNT, CREDIT_AMOUNT)  SELECT {{na}}, {{na}},{{na}},    PRODUCT_ID,    WAREHOUSE_ID,    MTRL_RESPONSIBLE_ID,    DEBIT_QUANTITY,    CREDIT_QUANTITY,    DEBIT_AMOUNT,    CREDIT_AMOUNT FROM    M_PRODUCT_DETAIL_REGISTER_SUM</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.goods.server.services</ExecPackage>
+    <ExecClass>GoodsCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>398</ExecLine>
+    <ExecString>stm.execute(sql)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.goods.server.services.GoodsCompressionExecutorImpl.afterCompressionGoodsDetail(java.sql.Statement,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java" methodLine="305" callLine="398"></Call>
+    </CallStack>
+  </Query>
+  <Query id="71">
+    <Value>INSERT INTO PRODUCT_DETAIL_REGISTER ( ID, ORGANIZATION_ID, PERIOD_ID, PRODUCT_ID, WAREHOUSE_ID, MTRL_RESPONSIBLE_ID, DEBIT_QUANTITY, CREDIT_QUANTITY, DEBIT_AMOUNT, CREDIT_AMOUNT)  SELECT {{na}}, {{na}},{{na}},    U.PRODUCT_ID,    U.WAREHOUSE_ID,    U.MTRL_RESPONSIBLE_ID,{{na}}, {{na}}, {{na}}, {{na}} FROM    M_PRODUCT_DETAIL_REGISTER_ID U     LEFT JOIN PRODUCT_DETAIL_REGISTER U1 ON     (U1.PRODUCT_ID = U.PRODUCT_ID AND U1.WAREHOUSE_ID = U.WAREHOUSE_ID AND U1.MTRL_RESPONSIBLE_ID = U.MTRL_RESPONSIBLE_ID    AND U1.PERIOD_ID = {{na}})    LEFT JOIN M_PRODUCT_DETAIL_REGISTER_SUM U2 ON     (U2.PRODUCT_ID = U.PRODUCT_ID AND U2.WAREHOUSE_ID = U.WAREHOUSE_ID AND U2.MTRL_RESPONSIBLE_ID = U.MTRL_RESPONSIBLE_ID)</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.goods.server.services</ExecPackage>
+    <ExecClass>GoodsCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>398</ExecLine>
+    <ExecString>stm.execute(sql)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.goods.server.services.GoodsCompressionExecutorImpl.afterCompressionGoodsDetail(java.sql.Statement,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java" methodLine="305" callLine="398"></Call>
+    </CallStack>
+  </Query>
+  <Query id="72">
+    <Value>DELETE FROM M_PARTNER_REGISTER</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.partner.server.services</ExecPackage>
+    <ExecClass>PartnerCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/partner/server/services/PartnerCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>60</ExecLine>
+    <ExecString>stm.execute("DELETE FROM M_PARTNER_REGISTER")</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.partner.server.services.PartnerCompressionExecutorImpl.beforeCompression(java.sql.Statement,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/partner/server/services/PartnerCompressionExecutorImpl.java" methodLine="59" callLine="60"></Call>
+    </CallStack>
+  </Query>
+  <Query id="73">
+    <Value>INSERT INTO M_PARTNER_REGISTER (PARTNER_ID, DEBIT_AMOUNT, CREDIT_AMOUNT) SELECT PARTNER_ID, AD.DEBIT_AMOUNT, AD.CREDIT_AMOUNT FROM V_PARTNER_REST AD WHERE AD.PERIOD_ID = {{na}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.partner.server.services</ExecPackage>
+    <ExecClass>PartnerCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/partner/server/services/PartnerCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>68</ExecLine>
+    <ExecString>stm.execute("INSERT INTO M_PARTNER_REGISTER (PARTNER_ID, DEBIT_AMOUNT, CREDIT_AMOUNT)" + " SELECT PARTNER_ID, AD.DEBIT_AMOUNT, AD.CREDIT_AMOUNT FROM V_PARTNER_REST AD" + " WHERE AD.PERIOD_ID = "+ periodId)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.partner.server.services.PartnerCompressionExecutorImpl.addPartner(java.sql.Statement,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/partner/server/services/PartnerCompressionExecutorImpl.java" methodLine="67" callLine="68"></Call>
+      <Call method="org.plazmaforge.bsolution.partner.server.services.PartnerCompressionExecutorImpl.executeCompression(java.sql.Statement,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/partner/server/services/PartnerCompressionExecutorImpl.java" methodLine="55" callLine="56"></Call>
+    </CallStack>
+  </Query>
+  <Query id="74">
+    <Value>DELETE FROM M_PARTNER_REGISTER_SUM</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.partner.server.services</ExecPackage>
+    <ExecClass>PartnerCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/partner/server/services/PartnerCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>76</ExecLine>
+    <ExecString>stm.execute("DELETE FROM M_PARTNER_REGISTER_SUM")</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.partner.server.services.PartnerCompressionExecutorImpl.afterCompressionPartner(java.sql.Statement,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/partner/server/services/PartnerCompressionExecutorImpl.java" methodLine="73" callLine="76"></Call>
+    </CallStack>
+  </Query>
+  <Query id="75">
+    <Value>INSERT INTO M_PARTNER_REGISTER_SUM (PARTNER_ID, DEBIT_AMOUNT, CREDIT_AMOUNT)  SELECT R.PARTNER_ID, SUM(R.DEBIT_AMOUNT), SUM(R.CREDIT_AMOUNT) FROM M_PARTNER_REGISTER R GROUP BY R.PARTNER_ID</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.partner.server.services</ExecPackage>
+    <ExecClass>PartnerCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/partner/server/services/PartnerCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>79</ExecLine>
+    <ExecString>stm.execute("INSERT INTO M_PARTNER_REGISTER_SUM (PARTNER_ID, DEBIT_AMOUNT, CREDIT_AMOUNT) " + " SELECT R.PARTNER_ID, SUM(R.DEBIT_AMOUNT), SUM(R.CREDIT_AMOUNT) FROM M_PARTNER_REGISTER R" + " GROUP BY R.PARTNER_ID")</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.partner.server.services.PartnerCompressionExecutorImpl.afterCompressionPartner(java.sql.Statement,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/partner/server/services/PartnerCompressionExecutorImpl.java" methodLine="73" callLine="79"></Call>
+    </CallStack>
+  </Query>
+  <Query id="76">
+    <Value>DELETE FROM M_PARTNER_REGISTER_ID</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.partner.server.services</ExecPackage>
+    <ExecClass>PartnerCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/partner/server/services/PartnerCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>88</ExecLine>
+    <ExecString>stm.execute("DELETE FROM M_PARTNER_REGISTER_ID")</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.partner.server.services.PartnerCompressionExecutorImpl.afterCompressionPartner(java.sql.Statement,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/partner/server/services/PartnerCompressionExecutorImpl.java" methodLine="73" callLine="88"></Call>
+    </CallStack>
+  </Query>
+  <Query id="77">
+    <Value>INSERT INTO M_PARTNER_REGISTER_ID (PARTNER_ID)     SELECT P.PARTNER_ID FROM PARTNER_REGISTER P    WHERE P.ORGANIZATION_ID = {{na}} AND P.PERIOD_ID = {{na}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.partner.server.services</ExecPackage>
+    <ExecClass>PartnerCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/partner/server/services/PartnerCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>91</ExecLine>
+    <ExecString>stm.execute("INSERT INTO M_PARTNER_REGISTER_ID (PARTNER_ID) " + "    SELECT P.PARTNER_ID FROM PARTNER_REGISTER P" + "    WHERE P.ORGANIZATION_ID = " + organizationId + " AND P.PERIOD_ID = "+ prevPeriodId)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.partner.server.services.PartnerCompressionExecutorImpl.afterCompressionPartner(java.sql.Statement,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/partner/server/services/PartnerCompressionExecutorImpl.java" methodLine="73" callLine="91"></Call>
+      <Call method="org.plazmaforge.bsolution.partner.server.services.PartnerCompressionExecutorImpl.afterCompression(java.sql.Statement,int,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/partner/server/services/PartnerCompressionExecutorImpl.java" methodLine="63" callLine="64"></Call>
+    </CallStack>
+  </Query>
+  <Query id="78">
+    <Value>INSERT INTO M_PARTNER_REGISTER_ID (PARTNER_ID)     SELECT R.PARTNER_ID FROM M_PARTNER_REGISTER_SUM R     WHERE NOT (R.PARTNER_ID IN (SELECT I.PARTNER_ID FROM M_PARTNER_REGISTER_ID I))</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.partner.server.services</ExecPackage>
+    <ExecClass>PartnerCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/partner/server/services/PartnerCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>97</ExecLine>
+    <ExecString>stm.execute("INSERT INTO M_PARTNER_REGISTER_ID (PARTNER_ID) " + "    SELECT R.PARTNER_ID FROM M_PARTNER_REGISTER_SUM R " + "    WHERE NOT (R.PARTNER_ID IN (SELECT I.PARTNER_ID FROM M_PARTNER_REGISTER_ID I))")</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.partner.server.services.PartnerCompressionExecutorImpl.afterCompressionPartner(java.sql.Statement,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/partner/server/services/PartnerCompressionExecutorImpl.java" methodLine="73" callLine="97"></Call>
+    </CallStack>
+  </Query>
+  <Query id="79">
+    <Value>DELETE FROM PARTNER_REGISTER WHERE ORGANIZATION_ID = {{na}} AND PERIOD_ID = {{na}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.partner.server.services</ExecPackage>
+    <ExecClass>PartnerCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/partner/server/services/PartnerCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>101</ExecLine>
+    <ExecString>stm.execute("DELETE FROM PARTNER_REGISTER WHERE " + "ORGANIZATION_ID = " + organizationId + " AND "+ "PERIOD_ID = "+ newPeriodId)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.partner.server.services.PartnerCompressionExecutorImpl.afterCompressionPartner(java.sql.Statement,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/partner/server/services/PartnerCompressionExecutorImpl.java" methodLine="73" callLine="101"></Call>
+      <Call method="org.plazmaforge.bsolution.partner.server.services.PartnerCompressionExecutorImpl.afterCompression(java.sql.Statement,int,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/partner/server/services/PartnerCompressionExecutorImpl.java" methodLine="63" callLine="64"></Call>
+    </CallStack>
+  </Query>
+  <Query id="80">
+    <Value>SELECT MAX(ID) FROM PARTNER_REGISTER</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.partner.server.services</ExecPackage>
+    <ExecClass>PartnerCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/partner/server/services/PartnerCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>118</ExecLine>
+    <ExecString>stm.executeQuery("SELECT MAX(ID) FROM PARTNER_REGISTER")</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.partner.server.services.PartnerCompressionExecutorImpl.addPartnerRegister(java.sql.Statement,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/partner/server/services/PartnerCompressionExecutorImpl.java" methodLine="108" callLine="118"></Call>
+    </CallStack>
+  </Query>
+  <Query id="81">
+    <Value>{{na}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.partner.server.services</ExecPackage>
+    <ExecClass>PartnerCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/partner/server/services/PartnerCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>136</ExecLine>
+    <ExecString>ps.execute()</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.partner.server.services.PartnerCompressionExecutorImpl.addPartnerRegister(java.sql.Statement,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/partner/server/services/PartnerCompressionExecutorImpl.java" methodLine="108" callLine="136"></Call>
+    </CallStack>
+  </Query>
+  <Query id="82">
+    <Value> SELECT  U.PARTNER_ID, U1.DEBIT_AMOUNT, U2.DEBIT_AMOUNT, U1.CREDIT_AMOUNT, U2.CREDIT_AMOUNT FROM M_PARTNER_REGISTER_ID U  LEFT JOIN PARTNER_REGISTER U1 ON U1.PARTNER_ID = U.PARTNER_ID AND U1.PERIOD_ID = {{na}} LEFT JOIN M_PARTNER_REGISTER_SUM U2 ON U2.PARTNER_ID = U.PARTNER_ID</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.partner.server.services</ExecPackage>
+    <ExecClass>PartnerCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/partner/server/services/PartnerCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>163</ExecLine>
+    <ExecString>stm.executeQuery(sql)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.partner.server.services.PartnerCompressionExecutorImpl.getPartnerRegister(java.sql.Statement,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/partner/server/services/PartnerCompressionExecutorImpl.java" methodLine="145" callLine="163"></Call>
+      <Call method="org.plazmaforge.bsolution.partner.server.services.PartnerCompressionExecutorImpl.addPartnerRegister(java.sql.Statement,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/partner/server/services/PartnerCompressionExecutorImpl.java" methodLine="108" callLine="109"></Call>
+      <Call method="org.plazmaforge.bsolution.partner.server.services.PartnerCompressionExecutorImpl.afterCompressionPartner(java.sql.Statement,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/partner/server/services/PartnerCompressionExecutorImpl.java" methodLine="73" callLine="105"></Call>
+      <Call method="org.plazmaforge.bsolution.partner.server.services.PartnerCompressionExecutorImpl.afterCompression(java.sql.Statement,int,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/partner/server/services/PartnerCompressionExecutorImpl.java" methodLine="63" callLine="64"></Call>
+    </CallStack>
+  </Query>
+  <Query id="83">
+    <Value> SELECT  PARTNER_ID, DEBIT_AMOUNT, CREDIT_AMOUNT FROM M_PARTNER_REGISTER_SUM</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.partner.server.services</ExecPackage>
+    <ExecClass>PartnerCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/partner/server/services/PartnerCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>182</ExecLine>
+    <ExecString>stm.executeQuery(sql)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.partner.server.services.PartnerCompressionExecutorImpl.getPartnerRegister(java.sql.Statement,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/partner/server/services/PartnerCompressionExecutorImpl.java" methodLine="145" callLine="182"></Call>
+    </CallStack>
+  </Query>
+  <Query id="84">
+    <Value>SELECT E.ID, T.EMPLOYEE_ID FROM EMPLOYEE E LEFT JOIN EMPLOYEE_TOTAL T ON E.ID = T.EMPLOYEE_ID WHERE T.PERIOD_ID = {{na}} AND E.ORGANIZATION_ID = {{na}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.payroll.server.services</ExecPackage>
+    <ExecClass>PayrollCalculateExecutor</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/payroll/server/services/PayrollCalculateExecutor.java</ExecFile>
+    <ExecLine>109</ExecLine>
+    <ExecString>st.executeQuery("SELECT E.ID, T.EMPLOYEE_ID FROM EMPLOYEE E" + " LEFT JOIN EMPLOYEE_TOTAL T ON E.ID = T.EMPLOYEE_ID" + " WHERE T.PERIOD_ID = " + periodId.intValue() + " AND E.ORGANIZATION_ID = "+ organizationId.intValue())</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.payroll.server.services.PayrollCalculateExecutor.checkEmployeeTotal(java.lang.Integer,java.lang.Integer)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/payroll/server/services/PayrollCalculateExecutor.java" methodLine="95" callLine="109"></Call>
+    </CallStack>
+  </Query>
+  <Query id="85">
+    <Value>{{na}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.payroll.server.services</ExecPackage>
+    <ExecClass>PayrollCalculateExecutor</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/payroll/server/services/PayrollCalculateExecutor.java</ExecFile>
+    <ExecLine>148</ExecLine>
+    <ExecString>st.executeUpdate()</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.payroll.server.services.PayrollCalculateExecutor.insertEmployeeTotal(java.util.List,java.lang.Integer,java.lang.Integer)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/payroll/server/services/PayrollCalculateExecutor.java" methodLine="129" callLine="148"></Call>
+    </CallStack>
+  </Query>
+  <Query id="86">
+    <Value>SELECT T.ID AS EMPPLOYEE_TOTAL_ID, T.EMPLOYEE_ID, T.START_BALANCE, P.ID AS EMPLOYEE_PAYROLL_ID, R.PAYROLL_TYPE_ID,  P.PAYROLL_ID, P.PAYROLL_DAY, P.PAYROLL_HOUR, P.PAYROLL_PERCENT, P.AMOUNT FROM EMPLOYEE E INNER JOIN EMPLOYEE_TOTAL T ON E.ID = T.EMPLOYEE_ID INNER JOIN EMPLOYEE_PAYROLL P ON E.ID = P.EMPLOYEE_ID INNER JOIN PAYROLL R ON R.ID = P.PAYROLL_ID WHERE T.PERIOD_ID = {{na}} AND E.ORGANIZATION_ID = {{na}} ORDER BY T.EMPLOYEE_ID, R.PRIORITY</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.payroll.server.services</ExecPackage>
+    <ExecClass>PayrollCalculateExecutor</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/payroll/server/services/PayrollCalculateExecutor.java</ExecFile>
+    <ExecLine>170</ExecLine>
+    <ExecString>st.executeQuery("SELECT" + " T.ID AS EMPPLOYEE_TOTAL_ID," + " T.EMPLOYEE_ID,"+ " T.START_BALANCE,"+ " P.ID AS EMPLOYEE_PAYROLL_ID,"+ " R.PAYROLL_TYPE_ID, "+ " P.PAYROLL_ID,"+ " P.PAYROLL_DAY,"+ " P.PAYROLL_HOUR,"+ " P.PAYROLL_PERCENT,"+ " P.AMOUNT"+ " FROM EMPLOYEE E"+ " INNER JOIN EMPLOYEE_TOTAL T ON E.ID = T.EMPLOYEE_ID"+ " INNER JOIN EMPLOYEE_PAYROLL P ON E.ID = P.EMPLOYEE_ID"+ " INNER JOIN PAYROLL R ON R.ID = P.PAYROLL_ID"+ " WHERE T.PERIOD_ID = " + periodId.intValue() + " AND E.ORGANIZATION_ID = "+ organizationId.intValue()+ " ORDER BY T.EMPLOYEE_ID, R.PRIORITY")</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.payroll.server.services.PayrollCalculateExecutor.loadTotal(java.lang.Integer,java.lang.Integer)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/payroll/server/services/PayrollCalculateExecutor.java" methodLine="155" callLine="170"></Call>
+    </CallStack>
+  </Query>
+  <Query id="87">
+    <Value>{{na}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.payroll.server.services</ExecPackage>
+    <ExecClass>PayrollCalculateExecutor</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/payroll/server/services/PayrollCalculateExecutor.java</ExecFile>
+    <ExecLine>277</ExecLine>
+    <ExecString>st.executeUpdate()</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.payroll.server.services.PayrollCalculateExecutor.updateTotal(java.util.List)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/payroll/server/services/PayrollCalculateExecutor.java" methodLine="252" callLine="277"></Call>
+    </CallStack>
+  </Query>
+  <Query id="88">
+    <Value>DELETE FROM M_PRODUCT_REGISTER</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.product.server.services</ExecPackage>
+    <ExecClass>ProductCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>65</ExecLine>
+    <ExecString>stm.execute("DELETE FROM M_PRODUCT_REGISTER")</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductCompressionExecutorImpl.clearTempTable(java.sql.Statement)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java" methodLine="64" callLine="65"></Call>
+    </CallStack>
+  </Query>
+  <Query id="89">
+    <Value>DELETE FROM M_PRODUCT_DETAIL_REGISTER</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.product.server.services</ExecPackage>
+    <ExecClass>ProductCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>66</ExecLine>
+    <ExecString>stm.execute("DELETE FROM M_PRODUCT_DETAIL_REGISTER")</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductCompressionExecutorImpl.clearTempTable(java.sql.Statement)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java" methodLine="64" callLine="66"></Call>
+    </CallStack>
+  </Query>
+  <Query id="90">
+    <Value>DELETE FROM M_PRODUCT_REGISTER_SUM</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.product.server.services</ExecPackage>
+    <ExecClass>ProductCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>68</ExecLine>
+    <ExecString>stm.execute("DELETE FROM M_PRODUCT_REGISTER_SUM")</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductCompressionExecutorImpl.clearTempTable(java.sql.Statement)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java" methodLine="64" callLine="68"></Call>
+    </CallStack>
+  </Query>
+  <Query id="91">
+    <Value>DELETE FROM M_PRODUCT_REGISTER_ID</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.product.server.services</ExecPackage>
+    <ExecClass>ProductCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>69</ExecLine>
+    <ExecString>stm.execute("DELETE FROM M_PRODUCT_REGISTER_ID")</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductCompressionExecutorImpl.clearTempTable(java.sql.Statement)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java" methodLine="64" callLine="69"></Call>
+    </CallStack>
+  </Query>
+  <Query id="92">
+    <Value>DELETE FROM M_PRODUCT_DETAIL_REGISTER_SUM</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.product.server.services</ExecPackage>
+    <ExecClass>ProductCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>71</ExecLine>
+    <ExecString>stm.execute("DELETE FROM M_PRODUCT_DETAIL_REGISTER_SUM")</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductCompressionExecutorImpl.clearTempTable(java.sql.Statement)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java" methodLine="64" callLine="71"></Call>
+    </CallStack>
+  </Query>
+  <Query id="93">
+    <Value>DELETE FROM M_PRODUCT_DETAIL_REGISTER_ID</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.product.server.services</ExecPackage>
+    <ExecClass>ProductCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>72</ExecLine>
+    <ExecString>stm.execute("DELETE FROM M_PRODUCT_DETAIL_REGISTER_ID")</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductCompressionExecutorImpl.clearTempTable(java.sql.Statement)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java" methodLine="64" callLine="72"></Call>
+    </CallStack>
+  </Query>
+  <Query id="94">
+    <Value>INSERT INTO M_PARTNER_REGISTER (PARTNER_ID, DEBIT_AMOUNT, CREDIT_AMOUNT) SELECT D.PARTNER_ID, 0, FD.TOTAL FROM FINANCE_DOCUMENT FD INNER JOIN DOCUMENT D ON D.ID = FD.ID INNER JOIN DOCUMENT_TYPE T ON T.ID = D.DOCUMENT_TYPE_ID INNER JOIN FINANCE_DOCUMENT_TYPE FT ON FT.DOCUMENT_TYPE_ID = T.ID WHERE T.DOCUMENT_SECTION IN ('GOODS')  AND FT.MOVE_TYPE = 'INPUT' AND D.PERIOD_ID = {{na}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.product.server.services</ExecPackage>
+    <ExecClass>ProductCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>91</ExecLine>
+    <ExecString>st.execute("INSERT INTO M_PARTNER_REGISTER (PARTNER_ID, DEBIT_AMOUNT, CREDIT_AMOUNT)" + " SELECT D.PARTNER_ID, 0, FD.TOTAL FROM FINANCE_DOCUMENT FD" + " INNER JOIN DOCUMENT D ON D.ID = FD.ID"+ " INNER JOIN DOCUMENT_TYPE T ON T.ID = D.DOCUMENT_TYPE_ID"+ " INNER JOIN FINANCE_DOCUMENT_TYPE FT ON FT.DOCUMENT_TYPE_ID = T.ID"+ " WHERE T.DOCUMENT_SECTION" + PRODUCT_DOCUMENT_TYPE_CLAUSE + " AND FT.MOVE_TYPE = 'INPUT' AND D.PERIOD_ID = "+ periodId)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductCompressionExecutorImpl.addIncome(java.sql.Statement,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java" methodLine="88" callLine="92"></Call>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductCompressionExecutorImpl.executeCompression(java.sql.Statement,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java" methodLine="56" callLine="58"></Call>
+    </CallStack>
+  </Query>
+  <Query id="95">
+    <Value>INSERT INTO M_PRODUCT_DETAIL_REGISTER (WAREHOUSE_ID, MTRL_RESPONSIBLE_ID, PRODUCT_ID, DEBIT_QUANTITY, DEBIT_AMOUNT, CREDIT_QUANTITY, CREDIT_AMOUNT) SELECT WM.WAREHOUSE_ID, WM.MTRL_RESPONSIBLE_ID, PM.PRODUCT_ID, 0, 0, PM.QUANTITY * PM.UNIT_RATE, PM.AMOUNT FROM PRODUCT_MOVE PM INNER JOIN WAREHOUSE_MOVE WM ON WM.OWNER_ID = PM.OWNER_ID INNER JOIN DOCUMENT D ON D.ID = PM.OWNER_ID INNER JOIN DOCUMENT_TYPE T ON T.ID = D.DOCUMENT_TYPE_ID INNER JOIN FINANCE_DOCUMENT_TYPE FT ON FT.DOCUMENT_TYPE_ID = T.ID WHERE T.DOCUMENT_SECTION IN ('GOODS')  AND FT.MOVE_TYPE = 'INPUT' AND D.PERIOD_ID = {{na}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.product.server.services</ExecPackage>
+    <ExecClass>ProductCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>102</ExecLine>
+    <ExecString>st.execute("INSERT INTO M_PRODUCT_DETAIL_REGISTER (WAREHOUSE_ID, MTRL_RESPONSIBLE_ID, PRODUCT_ID, DEBIT_QUANTITY, DEBIT_AMOUNT, CREDIT_QUANTITY, CREDIT_AMOUNT)" + " SELECT WM.WAREHOUSE_ID, WM.MTRL_RESPONSIBLE_ID, PM.PRODUCT_ID, 0, 0, PM.QUANTITY * PM.UNIT_RATE, PM.AMOUNT" + " FROM PRODUCT_MOVE PM"+ " INNER JOIN WAREHOUSE_MOVE WM ON WM.OWNER_ID = PM.OWNER_ID"+ " INNER JOIN DOCUMENT D ON D.ID = PM.OWNER_ID"+ " INNER JOIN DOCUMENT_TYPE T ON T.ID = D.DOCUMENT_TYPE_ID"+ " INNER JOIN FINANCE_DOCUMENT_TYPE FT ON FT.DOCUMENT_TYPE_ID = T.ID"+ " WHERE T.DOCUMENT_SECTION" + PRODUCT_DOCUMENT_TYPE_CLAUSE + " AND FT.MOVE_TYPE = 'INPUT' AND D.PERIOD_ID = "+ periodId)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductCompressionExecutorImpl.addIncome(java.sql.Statement,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java" methodLine="88" callLine="103"></Call>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductCompressionExecutorImpl.executeCompression(java.sql.Statement,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java" methodLine="56" callLine="58"></Call>
+    </CallStack>
+  </Query>
+  <Query id="96">
+    <Value>INSERT INTO M_PRODUCT_REGISTER (PRODUCT_ID, DEBIT_QUANTITY, DEBIT_AMOUNT, CREDIT_QUANTITY, CREDIT_AMOUNT) SELECT PM.PRODUCT_ID, 0, 0, PM.QUANTITY * PM.UNIT_RATE, PM.AMOUNT FROM PRODUCT_MOVE PM INNER JOIN DOCUMENT D ON D.ID = PM.OWNER_ID INNER JOIN DOCUMENT_TYPE T ON T.ID = D.DOCUMENT_TYPE_ID INNER JOIN FINANCE_DOCUMENT_TYPE FT ON FT.DOCUMENT_TYPE_ID = T.ID WHERE T.DOCUMENT_SECTION IN ('GOODS')  AND FT.MOVE_TYPE = 'INPUT' AND D.PERIOD_ID = {{na}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.product.server.services</ExecPackage>
+    <ExecClass>ProductCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>115</ExecLine>
+    <ExecString>st.execute("INSERT INTO M_PRODUCT_REGISTER (PRODUCT_ID, DEBIT_QUANTITY, DEBIT_AMOUNT, CREDIT_QUANTITY, CREDIT_AMOUNT)" + " SELECT PM.PRODUCT_ID, 0, 0, PM.QUANTITY * PM.UNIT_RATE, PM.AMOUNT" + " FROM PRODUCT_MOVE PM"+ " INNER JOIN DOCUMENT D ON D.ID = PM.OWNER_ID"+ " INNER JOIN DOCUMENT_TYPE T ON T.ID = D.DOCUMENT_TYPE_ID"+ " INNER JOIN FINANCE_DOCUMENT_TYPE FT ON FT.DOCUMENT_TYPE_ID = T.ID"+ " WHERE T.DOCUMENT_SECTION" + PRODUCT_DOCUMENT_TYPE_CLAUSE + " AND FT.MOVE_TYPE = 'INPUT' AND D.PERIOD_ID = "+ periodId)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductCompressionExecutorImpl.addIncome(java.sql.Statement,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java" methodLine="88" callLine="116"></Call>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductCompressionExecutorImpl.executeCompression(java.sql.Statement,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java" methodLine="56" callLine="58"></Call>
+    </CallStack>
+  </Query>
+  <Query id="97">
+    <Value>INSERT INTO M_PARTNER_REGISTER (PARTNER_ID, DEBIT_AMOUNT, CREDIT_AMOUNT) SELECT D.PARTNER_ID, FD.TOTAL, 0 FROM FINANCE_DOCUMENT FD INNER JOIN DOCUMENT D ON D.ID = FD.ID INNER JOIN DOCUMENT_TYPE T ON T.ID = D.DOCUMENT_TYPE_ID INNER JOIN FINANCE_DOCUMENT_TYPE FT ON FT.DOCUMENT_TYPE_ID = T.ID WHERE T.DOCUMENT_SECTION IN ('GOODS')  AND FT.MOVE_TYPE = 'OUTPUT' AND D.PERIOD_ID = {{na}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.product.server.services</ExecPackage>
+    <ExecClass>ProductCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>131</ExecLine>
+    <ExecString>st.execute("INSERT INTO M_PARTNER_REGISTER (PARTNER_ID, DEBIT_AMOUNT, CREDIT_AMOUNT)" + " SELECT D.PARTNER_ID, FD.TOTAL, 0 FROM FINANCE_DOCUMENT FD" + " INNER JOIN DOCUMENT D ON D.ID = FD.ID"+ " INNER JOIN DOCUMENT_TYPE T ON T.ID = D.DOCUMENT_TYPE_ID"+ " INNER JOIN FINANCE_DOCUMENT_TYPE FT ON FT.DOCUMENT_TYPE_ID = T.ID"+ " WHERE T.DOCUMENT_SECTION" + PRODUCT_DOCUMENT_TYPE_CLAUSE + " AND FT.MOVE_TYPE = 'OUTPUT' AND D.PERIOD_ID = "+ periodId)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductCompressionExecutorImpl.addOutcome(java.sql.Statement,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java" methodLine="128" callLine="132"></Call>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductCompressionExecutorImpl.executeCompression(java.sql.Statement,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java" methodLine="56" callLine="59"></Call>
+    </CallStack>
+  </Query>
+  <Query id="98">
+    <Value>INSERT INTO M_PRODUCT_DETAIL_REGISTER (WAREHOUSE_ID, MTRL_RESPONSIBLE_ID, PRODUCT_ID, DEBIT_QUANTITY, DEBIT_AMOUNT, CREDIT_QUANTITY, CREDIT_AMOUNT) SELECT WM.WAREHOUSE_ID, WM.MTRL_RESPONSIBLE_ID, PM.PRODUCT_ID, PM.QUANTITY * PM.UNIT_RATE, PM.AMOUNT, 0, 0 FROM PRODUCT_MOVE PM INNER JOIN WAREHOUSE_MOVE WM ON WM.OWNER_ID = PM.OWNER_ID INNER JOIN DOCUMENT D ON D.ID = PM.OWNER_ID INNER JOIN DOCUMENT_TYPE T ON T.ID = D.DOCUMENT_TYPE_ID INNER JOIN FINANCE_DOCUMENT_TYPE FT ON FT.DOCUMENT_TYPE_ID = T.ID WHERE T.DOCUMENT_SECTION IN ('GOODS')  AND FT.MOVE_TYPE = 'OUTPUT' AND D.PERIOD_ID = {{na}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.product.server.services</ExecPackage>
+    <ExecClass>ProductCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>141</ExecLine>
+    <ExecString>st.execute("INSERT INTO M_PRODUCT_DETAIL_REGISTER (WAREHOUSE_ID, MTRL_RESPONSIBLE_ID, PRODUCT_ID, DEBIT_QUANTITY, DEBIT_AMOUNT, CREDIT_QUANTITY, CREDIT_AMOUNT)" + " SELECT WM.WAREHOUSE_ID, WM.MTRL_RESPONSIBLE_ID, PM.PRODUCT_ID, PM.QUANTITY * PM.UNIT_RATE, PM.AMOUNT, 0, 0" + " FROM PRODUCT_MOVE PM"+ " INNER JOIN WAREHOUSE_MOVE WM ON WM.OWNER_ID = PM.OWNER_ID"+ " INNER JOIN DOCUMENT D ON D.ID = PM.OWNER_ID"+ " INNER JOIN DOCUMENT_TYPE T ON T.ID = D.DOCUMENT_TYPE_ID"+ " INNER JOIN FINANCE_DOCUMENT_TYPE FT ON FT.DOCUMENT_TYPE_ID = T.ID"+ " WHERE T.DOCUMENT_SECTION" + PRODUCT_DOCUMENT_TYPE_CLAUSE + " AND FT.MOVE_TYPE = 'OUTPUT' AND D.PERIOD_ID = "+ periodId)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductCompressionExecutorImpl.addOutcome(java.sql.Statement,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java" methodLine="128" callLine="142"></Call>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductCompressionExecutorImpl.executeCompression(java.sql.Statement,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java" methodLine="56" callLine="59"></Call>
+    </CallStack>
+  </Query>
+  <Query id="99">
+    <Value>INSERT INTO M_PRODUCT_REGISTER (PRODUCT_ID, DEBIT_QUANTITY, DEBIT_AMOUNT, CREDIT_QUANTITY, CREDIT_AMOUNT)SELECT PM.PRODUCT_ID, PM.QUANTITY * PM.UNIT_RATE, PM.AMOUNT, 0, 0 FROM PRODUCT_MOVE PM INNER JOIN DOCUMENT D ON D.ID = PM.OWNER_ID INNER JOIN DOCUMENT_TYPE T ON T.ID = D.DOCUMENT_TYPE_ID INNER JOIN FINANCE_DOCUMENT_TYPE FT ON FT.DOCUMENT_TYPE_ID = T.ID WHERE T.DOCUMENT_SECTION IN ('GOODS')  AND FT.MOVE_TYPE = 'OUTPUT' AND D.PERIOD_ID = {{na}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.product.server.services</ExecPackage>
+    <ExecClass>ProductCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>153</ExecLine>
+    <ExecString>st.execute("INSERT INTO M_PRODUCT_REGISTER (PRODUCT_ID, DEBIT_QUANTITY, DEBIT_AMOUNT, CREDIT_QUANTITY, CREDIT_AMOUNT)" + "SELECT PM.PRODUCT_ID, PM.QUANTITY * PM.UNIT_RATE, PM.AMOUNT, 0, 0" + " FROM PRODUCT_MOVE PM"+ " INNER JOIN DOCUMENT D ON D.ID = PM.OWNER_ID"+ " INNER JOIN DOCUMENT_TYPE T ON T.ID = D.DOCUMENT_TYPE_ID"+ " INNER JOIN FINANCE_DOCUMENT_TYPE FT ON FT.DOCUMENT_TYPE_ID = T.ID"+ " WHERE T.DOCUMENT_SECTION" + PRODUCT_DOCUMENT_TYPE_CLAUSE + " AND FT.MOVE_TYPE = 'OUTPUT' AND D.PERIOD_ID = "+ periodId)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductCompressionExecutorImpl.addOutcome(java.sql.Statement,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java" methodLine="128" callLine="154"></Call>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductCompressionExecutorImpl.executeCompression(java.sql.Statement,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java" methodLine="56" callLine="59"></Call>
+    </CallStack>
+  </Query>
+  <Query id="100">
+    <Value>INSERT INTO M_PRODUCT_DETAIL_REGISTER (WAREHOUSE_ID, MTRL_RESPONSIBLE_ID, PRODUCT_ID, DEBIT_QUANTITY, DEBIT_AMOUNT, CREDIT_QUANTITY, CREDIT_AMOUNT) SELECT WM.WAREHOUSE_ID, WM.MTRL_RESPONSIBLE_ID, PM.PRODUCT_ID, 0, 0, PM.QUANTITY * PM.UNIT_RATE, PM.AMOUNT FROM PRODUCT_MOVE PM INNER JOIN WAREHOUSE_MOVE WM ON WM.OWNER_ID = PM.OWNER_ID INNER JOIN DOCUMENT D ON D.ID = PM.OWNER_ID INNER JOIN DOCUMENT_TYPE T ON T.ID = D.DOCUMENT_TYPE_ID INNER JOIN FINANCE_DOCUMENT_TYPE FT ON FT.DOCUMENT_TYPE_ID = T.ID WHERE T.DOCUMENT_SECTION IN ('GOODS')  AND FT.MOVE_TYPE = 'REST' AND D.PERIOD_ID = {{na}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.product.server.services</ExecPackage>
+    <ExecClass>ProductCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>170</ExecLine>
+    <ExecString>st.execute("INSERT INTO M_PRODUCT_DETAIL_REGISTER (WAREHOUSE_ID, MTRL_RESPONSIBLE_ID, PRODUCT_ID, DEBIT_QUANTITY, DEBIT_AMOUNT, CREDIT_QUANTITY, CREDIT_AMOUNT)" + " SELECT WM.WAREHOUSE_ID, WM.MTRL_RESPONSIBLE_ID, PM.PRODUCT_ID, 0, 0, PM.QUANTITY * PM.UNIT_RATE, PM.AMOUNT" + " FROM PRODUCT_MOVE PM"+ " INNER JOIN WAREHOUSE_MOVE WM ON WM.OWNER_ID = PM.OWNER_ID"+ " INNER JOIN DOCUMENT D ON D.ID = PM.OWNER_ID"+ " INNER JOIN DOCUMENT_TYPE T ON T.ID = D.DOCUMENT_TYPE_ID"+ " INNER JOIN FINANCE_DOCUMENT_TYPE FT ON FT.DOCUMENT_TYPE_ID = T.ID"+ " WHERE T.DOCUMENT_SECTION" + PRODUCT_DOCUMENT_TYPE_CLAUSE + " AND FT.MOVE_TYPE = 'REST' AND D.PERIOD_ID = "+ periodId)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductCompressionExecutorImpl.addRest(java.sql.Statement,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java" methodLine="166" callLine="171"></Call>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductCompressionExecutorImpl.executeCompression(java.sql.Statement,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java" methodLine="56" callLine="60"></Call>
+    </CallStack>
+  </Query>
+  <Query id="101">
+    <Value>INSERT INTO M_PRODUCT_REGISTER (PRODUCT_ID, DEBIT_QUANTITY, DEBIT_AMOUNT, CREDIT_QUANTITY, CREDIT_AMOUNT) SELECT PM.PRODUCT_ID, 0, 0, PM.QUANTITY * PM.UNIT_RATE, PM.AMOUNT FROM PRODUCT_MOVE PM INNER JOIN DOCUMENT D ON D.ID = PM.OWNER_ID INNER JOIN DOCUMENT_TYPE T ON T.ID = D.DOCUMENT_TYPE_ID INNER JOIN FINANCE_DOCUMENT_TYPE FT ON FT.DOCUMENT_TYPE_ID = T.ID WHERE T.DOCUMENT_SECTION IN ('GOODS')  AND FT.MOVE_TYPE = 'REST' AND D.PERIOD_ID = {{na}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.product.server.services</ExecPackage>
+    <ExecClass>ProductCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>183</ExecLine>
+    <ExecString>st.execute("INSERT INTO M_PRODUCT_REGISTER (PRODUCT_ID, DEBIT_QUANTITY, DEBIT_AMOUNT, CREDIT_QUANTITY, CREDIT_AMOUNT)" + " SELECT PM.PRODUCT_ID, 0, 0, PM.QUANTITY * PM.UNIT_RATE, PM.AMOUNT" + " FROM PRODUCT_MOVE PM"+ " INNER JOIN DOCUMENT D ON D.ID = PM.OWNER_ID"+ " INNER JOIN DOCUMENT_TYPE T ON T.ID = D.DOCUMENT_TYPE_ID"+ " INNER JOIN FINANCE_DOCUMENT_TYPE FT ON FT.DOCUMENT_TYPE_ID = T.ID"+ " WHERE T.DOCUMENT_SECTION" + PRODUCT_DOCUMENT_TYPE_CLAUSE + " AND FT.MOVE_TYPE = 'REST' AND D.PERIOD_ID = "+ periodId)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductCompressionExecutorImpl.addRest(java.sql.Statement,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java" methodLine="166" callLine="184"></Call>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductCompressionExecutorImpl.executeCompression(java.sql.Statement,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java" methodLine="56" callLine="60"></Call>
+    </CallStack>
+  </Query>
+  <Query id="102">
+    <Value>INSERT INTO M_PRODUCT_REGISTER_SUM (PRODUCT_ID, DEBIT_QUANTITY, CREDIT_QUANTITY, DEBIT_AMOUNT, CREDIT_AMOUNT)  SELECT R.PRODUCT_ID, SUM(R.DEBIT_QUANTITY), SUM(R.CREDIT_QUANTITY), SUM(R.DEBIT_AMOUNT), SUM(R.CREDIT_AMOUNT) FROM M_PRODUCT_REGISTER R GROUP BY R.PRODUCT_ID</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.product.server.services</ExecPackage>
+    <ExecClass>ProductCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>200</ExecLine>
+    <ExecString>stm.execute("INSERT INTO M_PRODUCT_REGISTER_SUM (PRODUCT_ID, DEBIT_QUANTITY, CREDIT_QUANTITY, DEBIT_AMOUNT, CREDIT_AMOUNT) " + " SELECT R.PRODUCT_ID, SUM(R.DEBIT_QUANTITY), SUM(R.CREDIT_QUANTITY), SUM(R.DEBIT_AMOUNT), SUM(R.CREDIT_AMOUNT) FROM M_PRODUCT_REGISTER R" + " GROUP BY R.PRODUCT_ID")</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductCompressionExecutorImpl.afterCompressionGoods(java.sql.Statement,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java" methodLine="198" callLine="201"></Call>
+    </CallStack>
+  </Query>
+  <Query id="103">
+    <Value>INSERT INTO M_PRODUCT_REGISTER_ID (PRODUCT_ID)     SELECT P.PRODUCT_ID FROM PRODUCT_REGISTER P    WHERE P.ORGANIZATION_ID = {{na}} AND P.PERIOD_ID = {{na}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.product.server.services</ExecPackage>
+    <ExecClass>ProductCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>213</ExecLine>
+    <ExecString>stm.execute("INSERT INTO M_PRODUCT_REGISTER_ID (PRODUCT_ID) " + "    SELECT P.PRODUCT_ID FROM PRODUCT_REGISTER P" + "    WHERE P.ORGANIZATION_ID = " + organizationId + " AND P.PERIOD_ID = "+ prevPeriodId)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductCompressionExecutorImpl.afterCompressionGoods(java.sql.Statement,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java" methodLine="198" callLine="214"></Call>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductCompressionExecutorImpl.afterCompression(java.sql.Statement,int,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java" methodLine="79" callLine="80"></Call>
+    </CallStack>
+  </Query>
+  <Query id="104">
+    <Value>INSERT INTO M_PRODUCT_REGISTER_ID (PRODUCT_ID)     SELECT R.PRODUCT_ID FROM M_PRODUCT_REGISTER_SUM R     WHERE NOT (R.PRODUCT_ID IN (SELECT I.PRODUCT_ID FROM M_PRODUCT_REGISTER_ID I))</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.product.server.services</ExecPackage>
+    <ExecClass>ProductCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>219</ExecLine>
+    <ExecString>stm.execute("INSERT INTO M_PRODUCT_REGISTER_ID (PRODUCT_ID) " + "    SELECT R.PRODUCT_ID FROM M_PRODUCT_REGISTER_SUM R " + "    WHERE NOT (R.PRODUCT_ID IN (SELECT I.PRODUCT_ID FROM M_PRODUCT_REGISTER_ID I))")</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductCompressionExecutorImpl.afterCompressionGoods(java.sql.Statement,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java" methodLine="198" callLine="220"></Call>
+    </CallStack>
+  </Query>
+  <Query id="105">
+    <Value>DELETE FROM PRODUCT_REGISTER WHERE ORGANIZATION_ID = {{na}} AND PERIOD_ID = {{na}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.product.server.services</ExecPackage>
+    <ExecClass>ProductCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>228</ExecLine>
+    <ExecString>stm.execute("DELETE FROM PRODUCT_REGISTER WHERE " + "ORGANIZATION_ID = " + organizationId + " AND "+ "PERIOD_ID = "+ newPeriodId)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductCompressionExecutorImpl.afterCompressionGoods(java.sql.Statement,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java" methodLine="198" callLine="229"></Call>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductCompressionExecutorImpl.afterCompression(java.sql.Statement,int,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java" methodLine="79" callLine="80"></Call>
+    </CallStack>
+  </Query>
+  <Query id="106">
+    <Value>SELECT MAX(ID) FROM PRODUCT_REGISTER</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.product.server.services</ExecPackage>
+    <ExecClass>ProductCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>308</ExecLine>
+    <ExecString>stm.executeQuery("SELECT MAX(ID) FROM PRODUCT_REGISTER")</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductCompressionExecutorImpl.addProductRegister(java.sql.Statement,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java" methodLine="290" callLine="308"></Call>
+    </CallStack>
+  </Query>
+  <Query id="107">
+    <Value>{{na}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.product.server.services</ExecPackage>
+    <ExecClass>ProductCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>330</ExecLine>
+    <ExecString>ps.execute()</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductCompressionExecutorImpl.addProductRegister(java.sql.Statement,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java" methodLine="290" callLine="330"></Call>
+    </CallStack>
+  </Query>
+  <Query id="108">
+    <Value> SELECT  U.PRODUCT_ID, U1.DEBIT_QUANTITY, U2.DEBIT_QUANTITY,  U1.CREDIT_QUANTITY, U2.CREDIT_QUANTITY, U1.DEBIT_AMOUNT, U2.DEBIT_AMOUNT, U1.CREDIT_AMOUNT, U2.CREDIT_AMOUNT FROM M_PRODUCT_REGISTER_ID U  LEFT JOIN PRODUCT_REGISTER U1 ON U1.PRODUCT_ID = U.PRODUCT_ID AND U1.PERIOD_ID = {{na}} LEFT JOIN M_PRODUCT_REGISTER_SUM U2 ON U2.PRODUCT_ID = U.PRODUCT_ID</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.product.server.services</ExecPackage>
+    <ExecClass>ProductCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>361</ExecLine>
+    <ExecString>stm.executeQuery(sql)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductCompressionExecutorImpl.getProductRegister(java.sql.Statement,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java" methodLine="339" callLine="361"></Call>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductCompressionExecutorImpl.addProductRegister(java.sql.Statement,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java" methodLine="290" callLine="291"></Call>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductCompressionExecutorImpl.afterCompressionGoods(java.sql.Statement,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java" methodLine="198" callLine="234"></Call>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductCompressionExecutorImpl.afterCompression(java.sql.Statement,int,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java" methodLine="79" callLine="80"></Call>
+    </CallStack>
+  </Query>
+  <Query id="109">
+    <Value> SELECT  PRODUCT_ID, DEBIT_QUANTITY, CREDIT_QUANTITY, DEBIT_AMOUNT, CREDIT_AMOUNT FROM M_PRODUCT_REGISTER_SUM</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.product.server.services</ExecPackage>
+    <ExecClass>ProductCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>389</ExecLine>
+    <ExecString>stm.executeQuery(sql)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductCompressionExecutorImpl.getProductRegister(java.sql.Statement,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java" methodLine="339" callLine="389"></Call>
+    </CallStack>
+  </Query>
+  <Query id="110">
+    <Value>INSERT INTO M_PRODUCT_DETAIL_REGISTER_SUM (PRODUCT_ID, WAREHOUSE_ID, MTRL_RESPONSIBLE_ID, DEBIT_QUANTITY, CREDIT_QUANTITY, DEBIT_AMOUNT, CREDIT_AMOUNT)  SELECT R.PRODUCT_ID, R.WAREHOUSE_ID, R.MTRL_RESPONSIBLE_ID, SUM(R.DEBIT_QUANTITY), SUM(R.CREDIT_QUANTITY), SUM(R.DEBIT_AMOUNT), SUM(R.CREDIT_AMOUNT) FROM M_PRODUCT_DETAIL_REGISTER R GROUP BY R.PRODUCT_ID, R.WAREHOUSE_ID, R.MTRL_RESPONSIBLE_ID</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.product.server.services</ExecPackage>
+    <ExecClass>ProductCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>417</ExecLine>
+    <ExecString>stm.execute("INSERT INTO M_PRODUCT_DETAIL_REGISTER_SUM (PRODUCT_ID, WAREHOUSE_ID, MTRL_RESPONSIBLE_ID, DEBIT_QUANTITY, CREDIT_QUANTITY, DEBIT_AMOUNT, CREDIT_AMOUNT) " + " SELECT R.PRODUCT_ID, R.WAREHOUSE_ID, R.MTRL_RESPONSIBLE_ID, SUM(R.DEBIT_QUANTITY), SUM(R.CREDIT_QUANTITY), SUM(R.DEBIT_AMOUNT), SUM(R.CREDIT_AMOUNT) FROM M_PRODUCT_DETAIL_REGISTER R" + " GROUP BY R.PRODUCT_ID, R.WAREHOUSE_ID, R.MTRL_RESPONSIBLE_ID")</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductCompressionExecutorImpl.afterCompressionGoodsDetail(java.sql.Statement,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java" methodLine="415" callLine="418"></Call>
+    </CallStack>
+  </Query>
+  <Query id="111">
+    <Value>INSERT INTO M_PRODUCT_DETAIL_REGISTER_ID (PRODUCT_ID, WAREHOUSE_ID, MTRL_RESPONSIBLE_ID)     SELECT P.PRODUCT_ID, P.WAREHOUSE_ID, P.MTRL_RESPONSIBLE_ID FROM PRODUCT_DETAIL_REGISTER P    WHERE P.ORGANIZATION_ID = {{na}} AND P.PERIOD_ID = {{na}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.product.server.services</ExecPackage>
+    <ExecClass>ProductCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>430</ExecLine>
+    <ExecString>stm.execute("INSERT INTO M_PRODUCT_DETAIL_REGISTER_ID (PRODUCT_ID, WAREHOUSE_ID, MTRL_RESPONSIBLE_ID) " + "    SELECT P.PRODUCT_ID, P.WAREHOUSE_ID, P.MTRL_RESPONSIBLE_ID FROM PRODUCT_DETAIL_REGISTER P" + "    WHERE P.ORGANIZATION_ID = " + organizationId + " AND P.PERIOD_ID = "+ prevPeriodId)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductCompressionExecutorImpl.afterCompressionGoodsDetail(java.sql.Statement,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java" methodLine="415" callLine="431"></Call>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductCompressionExecutorImpl.afterCompression(java.sql.Statement,int,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java" methodLine="79" callLine="81"></Call>
+    </CallStack>
+  </Query>
+  <Query id="112">
+    <Value>INSERT INTO M_PRODUCT_DETAIL_REGISTER_ID (PRODUCT_ID, WAREHOUSE_ID, MTRL_RESPONSIBLE_ID)     SELECT R.PRODUCT_ID, R.WAREHOUSE_ID, R.MTRL_RESPONSIBLE_ID FROM M_PRODUCT_DETAIL_REGISTER_SUM R     WHERE NOT (R.PRODUCT_ID IN (SELECT I.PRODUCT_ID FROM M_PRODUCT_REGISTER_ID I))</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.product.server.services</ExecPackage>
+    <ExecClass>ProductCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>436</ExecLine>
+    <ExecString>stm.execute("INSERT INTO M_PRODUCT_DETAIL_REGISTER_ID (PRODUCT_ID, WAREHOUSE_ID, MTRL_RESPONSIBLE_ID) " + "    SELECT R.PRODUCT_ID, R.WAREHOUSE_ID, R.MTRL_RESPONSIBLE_ID FROM M_PRODUCT_DETAIL_REGISTER_SUM R " + "    WHERE NOT (R.PRODUCT_ID IN (SELECT I.PRODUCT_ID FROM M_PRODUCT_REGISTER_ID I))")</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductCompressionExecutorImpl.afterCompressionGoodsDetail(java.sql.Statement,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java" methodLine="415" callLine="437"></Call>
+    </CallStack>
+  </Query>
+  <Query id="113">
+    <Value>DELETE FROM PRODUCT_DETAIL_REGISTER WHERE ORGANIZATION_ID = {{na}} AND PERIOD_ID = {{na}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.product.server.services</ExecPackage>
+    <ExecClass>ProductCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>442</ExecLine>
+    <ExecString>stm.execute("DELETE FROM PRODUCT_DETAIL_REGISTER WHERE " + "ORGANIZATION_ID = " + organizationId + " AND "+ "PERIOD_ID = "+ newPeriodId)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductCompressionExecutorImpl.afterCompressionGoodsDetail(java.sql.Statement,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java" methodLine="415" callLine="443"></Call>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductCompressionExecutorImpl.afterCompression(java.sql.Statement,int,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java" methodLine="79" callLine="81"></Call>
+    </CallStack>
+  </Query>
+  <Query id="114">
+    <Value>SELECT MAX(ID) FROM PRODUCT_DETAIL_REGISTER</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.product.server.services</ExecPackage>
+    <ExecClass>ProductCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>538</ExecLine>
+    <ExecString>stm.executeQuery("SELECT MAX(ID) FROM PRODUCT_DETAIL_REGISTER")</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductCompressionExecutorImpl.addProductDetailsRegister(java.sql.Statement,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java" methodLine="518" callLine="538"></Call>
+    </CallStack>
+  </Query>
+  <Query id="115">
+    <Value>{{na}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.product.server.services</ExecPackage>
+    <ExecClass>ProductCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>563</ExecLine>
+    <ExecString>ps.execute()</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductCompressionExecutorImpl.addProductDetailsRegister(java.sql.Statement,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java" methodLine="518" callLine="563"></Call>
+    </CallStack>
+  </Query>
+  <Query id="116">
+    <Value> SELECT  U.PRODUCT_ID, U.WAREHOUSE_ID, U.MTRL_RESPONSIBLE_ID, U1.DEBIT_QUANTITY, U2.DEBIT_QUANTITY,  U1.CREDIT_QUANTITY, U2.CREDIT_QUANTITY, U1.DEBIT_AMOUNT, U2.DEBIT_AMOUNT, U1.CREDIT_AMOUNT, U2.CREDIT_AMOUNT FROM M_PRODUCT_DETAIL_REGISTER_ID U  LEFT JOIN PRODUCT_DETAIL_REGISTER U1 ON  (U1.PRODUCT_ID = U.PRODUCT_ID AND U1.WAREHOUSE_ID = U.WAREHOUSE_ID AND U1.MTRL_RESPONSIBLE_ID = U.MTRL_RESPONSIBLE_ID AND U1.PERIOD_ID = {{na}}) LEFT JOIN M_PRODUCT_DETAIL_REGISTER_SUM U2 ON  (U2.PRODUCT_ID = U.PRODUCT_ID AND U2.WAREHOUSE_ID = U.WAREHOUSE_ID AND U2.MTRL_RESPONSIBLE_ID = U.MTRL_RESPONSIBLE_ID)</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.product.server.services</ExecPackage>
+    <ExecClass>ProductCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>600</ExecLine>
+    <ExecString>stm.executeQuery(sql)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductCompressionExecutorImpl.getProductDetailsRegister(java.sql.Statement,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java" methodLine="573" callLine="600"></Call>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductCompressionExecutorImpl.addProductDetailsRegister(java.sql.Statement,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java" methodLine="518" callLine="519"></Call>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductCompressionExecutorImpl.afterCompressionGoodsDetail(java.sql.Statement,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java" methodLine="415" callLine="447"></Call>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductCompressionExecutorImpl.afterCompression(java.sql.Statement,int,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java" methodLine="79" callLine="81"></Call>
+    </CallStack>
+  </Query>
+  <Query id="117">
+    <Value> SELECT  PRODUCT_ID, WAREHOUSE_ID, MTRL_RESPONSIBLE_ID, DEBIT_QUANTITY, CREDIT_QUANTITY, DEBIT_AMOUNT, CREDIT_AMOUNT FROM M_PRODUCT_DETAIL_REGISTER_SUM</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.product.server.services</ExecPackage>
+    <ExecClass>ProductCompressionExecutorImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java</ExecFile>
+    <ExecLine>632</ExecLine>
+    <ExecString>stm.executeQuery(sql)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductCompressionExecutorImpl.getProductDetailsRegister(java.sql.Statement,int,int,int)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java" methodLine="573" callLine="632"></Call>
+    </CallStack>
+  </Query>
+  <Query id="118">
+    <Value> SELECT  SUM(pm.account_quantity), SUM(pm.amount) FROM product_move pm INNER JOIN document d ON d.id = pm.owner_id INNER JOIN document_type t ON t.id = d.document_type_id INNER JOIN finance_document_type ft ON ft.document_type_id = t.id WHERE ft.move_type = 'ORDER_INPUT' AND d.period_id = {{na}} AND pm.product_id ={{na}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.product.server.services</ExecPackage>
+    <ExecClass>ProductManagerServiceImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductManagerServiceImpl.java</ExecFile>
+    <ExecLine>135</ExecLine>
+    <ExecString>stm.executeQuery(sql)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductManagerServiceImpl.getProductInfoValue(java.lang.String)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductManagerServiceImpl.java" methodLine="129" callLine="135"></Call>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductManagerServiceImpl.getProductInfoValue(java.lang.String,java.lang.Integer,java.lang.Integer)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductManagerServiceImpl.java" methodLine="115" callLine="125"></Call>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductManagerServiceImpl.getAwaitInfo(java.lang.Integer,java.lang.Integer)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductManagerServiceImpl.java" methodLine="212" callLine="215"></Call>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductManagerServiceImpl.getAwaitQuantity(java.lang.Integer,java.lang.Integer)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductManagerServiceImpl.java" methodLine="95" callLine="97"></Call>
+    </CallStack>
+  </Query>
+  <Query id="119">
+    <Value> SELECT  SUM(pm.account_quantity), SUM(pm.amount) FROM product_move pm INNER JOIN document d ON d.id = pm.owner_id INNER JOIN document_type t ON t.id = d.document_type_id INNER JOIN finance_document_type ft ON ft.document_type_id = t.id WHERE ft.move_type = 'REST' AND d.period_id = {{na}} AND pm.product_id ={{na}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.product.server.services</ExecPackage>
+    <ExecClass>ProductManagerServiceImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductManagerServiceImpl.java</ExecFile>
+    <ExecLine>135</ExecLine>
+    <ExecString>stm.executeQuery(sql)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductManagerServiceImpl.getProductInfoValue(java.lang.String)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductManagerServiceImpl.java" methodLine="129" callLine="135"></Call>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductManagerServiceImpl.getProductInfoValue(java.lang.String,java.lang.Integer,java.lang.Integer)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductManagerServiceImpl.java" methodLine="115" callLine="125"></Call>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductManagerServiceImpl.getRestInfo(java.lang.Integer,java.lang.Integer)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductManagerServiceImpl.java" methodLine="182" callLine="185"></Call>
+    </CallStack>
+  </Query>
+  <Query id="120">
+    <Value> SELECT  SUM(pm.account_quantity), SUM(pm.amount) FROM product_move pm INNER JOIN document d ON d.id = pm.owner_id INNER JOIN document_type t ON t.id = d.document_type_id INNER JOIN finance_document_type ft ON ft.document_type_id = t.id WHERE ft.move_type = 'OUTPUT' AND d.period_id = {{na}} AND pm.product_id ={{na}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.product.server.services</ExecPackage>
+    <ExecClass>ProductManagerServiceImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductManagerServiceImpl.java</ExecFile>
+    <ExecLine>135</ExecLine>
+    <ExecString>stm.executeQuery(sql)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductManagerServiceImpl.getProductInfoValue(java.lang.String)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductManagerServiceImpl.java" methodLine="129" callLine="135"></Call>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductManagerServiceImpl.getProductInfoValue(java.lang.String,java.lang.Integer,java.lang.Integer)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductManagerServiceImpl.java" methodLine="115" callLine="125"></Call>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductManagerServiceImpl.getOutcomeInfo(java.lang.Integer,java.lang.Integer)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductManagerServiceImpl.java" methodLine="200" callLine="203"></Call>
+    </CallStack>
+  </Query>
+  <Query id="121">
+    <Value> SELECT  SUM(pm.account_quantity), SUM(pm.amount) FROM product_move pm INNER JOIN document d ON d.id = pm.owner_id INNER JOIN document_type t ON t.id = d.document_type_id INNER JOIN finance_document_type ft ON ft.document_type_id = t.id WHERE ft.move_type = 'INPUT' AND d.period_id = {{na}} AND pm.product_id ={{na}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.product.server.services</ExecPackage>
+    <ExecClass>ProductManagerServiceImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductManagerServiceImpl.java</ExecFile>
+    <ExecLine>135</ExecLine>
+    <ExecString>stm.executeQuery(sql)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductManagerServiceImpl.getProductInfoValue(java.lang.String)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductManagerServiceImpl.java" methodLine="129" callLine="135"></Call>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductManagerServiceImpl.getProductInfoValue(java.lang.String,java.lang.Integer,java.lang.Integer)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductManagerServiceImpl.java" methodLine="115" callLine="125"></Call>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductManagerServiceImpl.getIncomeInfo(java.lang.Integer,java.lang.Integer)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductManagerServiceImpl.java" methodLine="191" callLine="194"></Call>
+    </CallStack>
+  </Query>
+  <Query id="122">
+    <Value> SELECT  SUM(pm.account_quantity), SUM(pm.amount) FROM product_move pm INNER JOIN document d ON d.id = pm.owner_id INNER JOIN document_type t ON t.id = d.document_type_id INNER JOIN finance_document_type ft ON ft.document_type_id = t.id WHERE ft.move_type = 'ORDER_OUTPUT' AND d.period_id = {{na}} AND pm.product_id ={{na}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.product.server.services</ExecPackage>
+    <ExecClass>ProductManagerServiceImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductManagerServiceImpl.java</ExecFile>
+    <ExecLine>135</ExecLine>
+    <ExecString>stm.executeQuery(sql)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductManagerServiceImpl.getProductInfoValue(java.lang.String)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductManagerServiceImpl.java" methodLine="129" callLine="135"></Call>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductManagerServiceImpl.getProductInfoValue(java.lang.String,java.lang.Integer,java.lang.Integer)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductManagerServiceImpl.java" methodLine="115" callLine="125"></Call>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductManagerServiceImpl.getReserveInfo(java.lang.Integer,java.lang.Integer)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductManagerServiceImpl.java" methodLine="221" callLine="224"></Call>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductManagerServiceImpl.getReserveQuantity(java.lang.Integer,java.lang.Integer)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductManagerServiceImpl.java" methodLine="89" callLine="91"></Call>
+    </CallStack>
+  </Query>
+  <Query id="123">
+    <Value> SELECT  debit_quantity, credit_quantity, debit_amount, credit_amount FROM product_register  WHERE product_id = {{na}} AND period_id = {{na}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.product.server.services</ExecPackage>
+    <ExecClass>ProductManagerServiceImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductManagerServiceImpl.java</ExecFile>
+    <ExecLine>166</ExecLine>
+    <ExecString>stm.executeQuery(sql)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductManagerServiceImpl.getRegisterInfo(java.lang.Integer,java.lang.Integer)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductManagerServiceImpl.java" methodLine="149" callLine="166"></Call>
+    </CallStack>
+  </Query>
+  <Query id="124">
+    <Value>{{na}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.product.server.services</ExecPackage>
+    <ExecClass>ProductManagerServiceImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductManagerServiceImpl.java</ExecFile>
+    <ExecLine>293</ExecLine>
+    <ExecString>stm.execute()</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductManagerServiceImpl.updateProductQuantity(java.util.Map,java.lang.String)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductManagerServiceImpl.java" methodLine="275" callLine="293"></Call>
+    </CallStack>
+  </Query>
+  <Query id="125">
+    <Value> SELECT  product_id, debit_quantity, credit_quantity FROM product_register  WHERE period_id = {{na}}</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.product.server.services</ExecPackage>
+    <ExecClass>ProductManagerServiceImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductManagerServiceImpl.java</ExecFile>
+    <ExecLine>389</ExecLine>
+    <ExecString>stm.executeQuery(sql)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductManagerServiceImpl.populateRegisterInfo(java.util.Map,java.lang.Integer)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductManagerServiceImpl.java" methodLine="374" callLine="389"></Call>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductManagerServiceImpl.populateProductInfoMap(java.util.Map,java.lang.Integer)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductManagerServiceImpl.java" methodLine="355" callLine="357"></Call>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductManagerServiceImpl.createProductInfoMap(java.lang.Integer)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductManagerServiceImpl.java" methodLine="347" callLine="349"></Call>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductManagerServiceImpl.calculateRest(java.lang.Integer)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductManagerServiceImpl.java" methodLine="263" callLine="264"></Call>
+    </CallStack>
+  </Query>
+  <Query id="126">
+    <Value> SELECT  product_id, SUM(pm.account_quantity) FROM product_move pm INNER JOIN document d ON d.id = pm.owner_id INNER JOIN document_type t ON t.id = d.document_type_id INNER JOIN finance_document_type ft ON ft.document_type_id = t.id WHERE ft.move_type = 'OUTPUT' AND d.period_id = {{na}} GROUP BY pm.product_id</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.product.server.services</ExecPackage>
+    <ExecClass>ProductManagerServiceImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductManagerServiceImpl.java</ExecFile>
+    <ExecLine>428</ExecLine>
+    <ExecString>stm.executeQuery(sql)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductManagerServiceImpl.populateProductInfo(java.util.Map,java.lang.String,java.lang.Integer)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductManagerServiceImpl.java" methodLine="409" callLine="428"></Call>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductManagerServiceImpl.populateProductInfoMap(java.util.Map,java.lang.Integer)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductManagerServiceImpl.java" methodLine="355" callLine="364"></Call>
+    </CallStack>
+  </Query>
+  <Query id="127">
+    <Value> SELECT  product_id, SUM(pm.account_quantity) FROM product_move pm INNER JOIN document d ON d.id = pm.owner_id INNER JOIN document_type t ON t.id = d.document_type_id INNER JOIN finance_document_type ft ON ft.document_type_id = t.id WHERE ft.move_type = 'ORDER_INPUT' AND d.period_id = {{na}} GROUP BY pm.product_id</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.product.server.services</ExecPackage>
+    <ExecClass>ProductManagerServiceImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductManagerServiceImpl.java</ExecFile>
+    <ExecLine>428</ExecLine>
+    <ExecString>stm.executeQuery(sql)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductManagerServiceImpl.populateProductInfo(java.util.Map,java.lang.String,java.lang.Integer)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductManagerServiceImpl.java" methodLine="409" callLine="428"></Call>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductManagerServiceImpl.populateProductInfoMap(java.util.Map,java.lang.Integer)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductManagerServiceImpl.java" methodLine="355" callLine="368"></Call>
+    </CallStack>
+  </Query>
+  <Query id="128">
+    <Value> SELECT  product_id, SUM(pm.account_quantity) FROM product_move pm INNER JOIN document d ON d.id = pm.owner_id INNER JOIN document_type t ON t.id = d.document_type_id INNER JOIN finance_document_type ft ON ft.document_type_id = t.id WHERE ft.move_type = 'ORDER_OUTPUT' AND d.period_id = {{na}} GROUP BY pm.product_id</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.product.server.services</ExecPackage>
+    <ExecClass>ProductManagerServiceImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductManagerServiceImpl.java</ExecFile>
+    <ExecLine>428</ExecLine>
+    <ExecString>stm.executeQuery(sql)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductManagerServiceImpl.populateProductInfo(java.util.Map,java.lang.String,java.lang.Integer)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductManagerServiceImpl.java" methodLine="409" callLine="428"></Call>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductManagerServiceImpl.populateProductInfoMap(java.util.Map,java.lang.Integer)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductManagerServiceImpl.java" methodLine="355" callLine="370"></Call>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductManagerServiceImpl.createProductInfoMap(java.lang.Integer)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductManagerServiceImpl.java" methodLine="347" callLine="349"></Call>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductManagerServiceImpl.calculateRest(java.lang.Integer)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductManagerServiceImpl.java" methodLine="263" callLine="264"></Call>
+    </CallStack>
+  </Query>
+  <Query id="129">
+    <Value> SELECT  product_id, SUM(pm.account_quantity) FROM product_move pm INNER JOIN document d ON d.id = pm.owner_id INNER JOIN document_type t ON t.id = d.document_type_id INNER JOIN finance_document_type ft ON ft.document_type_id = t.id WHERE ft.move_type = 'INPUT' AND d.period_id = {{na}} GROUP BY pm.product_id</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.product.server.services</ExecPackage>
+    <ExecClass>ProductManagerServiceImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductManagerServiceImpl.java</ExecFile>
+    <ExecLine>428</ExecLine>
+    <ExecString>stm.executeQuery(sql)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductManagerServiceImpl.populateProductInfo(java.util.Map,java.lang.String,java.lang.Integer)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductManagerServiceImpl.java" methodLine="409" callLine="428"></Call>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductManagerServiceImpl.populateProductInfoMap(java.util.Map,java.lang.Integer)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductManagerServiceImpl.java" methodLine="355" callLine="362"></Call>
+    </CallStack>
+  </Query>
+  <Query id="130">
+    <Value> SELECT  product_id, SUM(pm.account_quantity) FROM product_move pm INNER JOIN document d ON d.id = pm.owner_id INNER JOIN document_type t ON t.id = d.document_type_id INNER JOIN finance_document_type ft ON ft.document_type_id = t.id WHERE ft.move_type = 'REST' AND d.period_id = {{na}} GROUP BY pm.product_id</Value>
+    <HotspotFinder>JDBCHotspotFinder</HotspotFinder>
+    <ExecPackage>org.plazmaforge.bsolution.product.server.services</ExecPackage>
+    <ExecClass>ProductManagerServiceImpl</ExecClass>
+    <ExecFile>plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductManagerServiceImpl.java</ExecFile>
+    <ExecLine>428</ExecLine>
+    <ExecString>stm.executeQuery(sql)</ExecString>
+    <CallStack>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductManagerServiceImpl.populateProductInfo(java.util.Map,java.lang.String,java.lang.Integer)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductManagerServiceImpl.java" methodLine="409" callLine="428"></Call>
+      <Call method="org.plazmaforge.bsolution.product.server.services.ProductManagerServiceImpl.populateProductInfoMap(java.util.Map,java.lang.Integer)" file="plazma-1.0.5/bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductManagerServiceImpl.java" methodLine="355" callLine="360"></Call>
+    </CallStack>
+  </Query>
+</Queries>
