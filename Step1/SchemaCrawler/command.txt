@@ -1,0 +1,1 @@
+ schemacrawler.sh   --url="jdbc:hsqldb:file:/home/julien/plazma_copy;readonly=true"   --user=SA --password=   --info-level=maximum   --implicit-associations=true   --command=schema   --output-format=htmlx   --output-file=$HOME/plazma-implicit.html
