@@ -1,0 +1,274 @@
+﻿==============================================================================
+SQL REPORT - plazma-code-r5885-branches-plazma-1.0.5
+==============================================================================
+111 queries in 26 files in 19 folders
+
+
+1. FOLDERS CONTAINING SQL
+------------------------------------------------------------------------------
+FOLDER                                                        FILES  QUERIES  WITH JOINS
+bs.base.configuration/conf                                        1        2           1
+bs.base.configuration/conf/packages/contact/entities              2        2           0
+bs.base.configuration/conf/packages/employee/entities             1        2           0
+bs.base.configuration/conf/packages/finance/entities              1        2           0
+bs.base.configuration/conf/packages/partner/entities              1        5           0
+bs.base.db                                                        1        2           0
+bs.base/src/org/plazmaforge/bsolution/bank/server/services        1        5           0
+bs.base/src/org/plazmaforge/bsolution/base/server/services        1       17           1
+bs.base/src/org/plazmaforge/bsolution/finance/server/service      2       11           0
+bs.base/src/org/plazmaforge/bsolution/goods/server/services       2       18           0
+bs.base/src/org/plazmaforge/bsolution/partner/server/service      1        8           0
+bs.base/src/org/plazmaforge/bsolution/payroll/server/service      2        4           0
+bs.base/src/org/plazmaforge/bsolution/product/server/service      2       19           0
+bs.base/src/org/plazmaforge/bsolution/security/server/servic      2        3           2
+bs.enterprise.configuration/conf                                  1        2           1
+bs.enterprise.configuration/conf/packages/contact/entities        2        2           0
+bs.enterprise.server/src/org/plazmaforge/bs/security/server/      1        2           1
+framework.client.swt/src/org/plazmaforge/framework/client/sw      1        4           0
+framework/src/org/plazmaforge/framework/report/data               1        1           1
+
+
+==============================================================================
+TOTAL
+==============================================================================
+Queries found       : 111
+Distinct queries    : 94
+Files with SQL      : 26
+Folders with SQL    : 19
+With joins          : 7
+By type             : insert 33, select 33, delete 25, update 20
+
+
+2. FILES AND QUERY COUNT PER FOLDER
+------------------------------------------------------------------------------
+
+[bs.base.configuration/conf]  1 files, 2 queries
+    application-context-security.xml                             2
+
+[bs.base.configuration/conf/packages/contact/entities]  2 files, 2 queries
+    Contact.entity.xml                                           1
+    ContactableElement.entity.xml                                1
+
+[bs.base.configuration/conf/packages/employee/entities]  1 files, 2 queries
+    Employee.entity.xml                                          2
+
+[bs.base.configuration/conf/packages/finance/entities]  1 files, 2 queries
+    LedgerAccount.entity.xml                                     2
+
+[bs.base.configuration/conf/packages/partner/entities]  1 files, 5 queries
+    Partner.entity.xml                                           5
+
+[bs.base.db]  1 files, 2 queries
+    build.xml                                                    2
+
+[bs.base/src/org/plazmaforge/bsolution/bank/server/services]  1 files, 5 queries
+    BankImporter.java                                            5
+
+[bs.base/src/org/plazmaforge/bsolution/base/server/services]  1 files, 17 queries
+    SystemInfoServiceImpl.java                                  17
+
+[bs.base/src/org/plazmaforge/bsolution/finance/server/services]  2 files, 11 queries
+    EntryCalculateServiceImpl.java                               3
+    FinanceCompressionExecutorImpl.java                          8
+
+[bs.base/src/org/plazmaforge/bsolution/goods/server/services]  2 files, 18 queries
+    GoodsCompressionExecutorImpl.java                           12
+    GoodsImporter.java                                           6
+
+[bs.base/src/org/plazmaforge/bsolution/partner/server/services]  1 files, 8 queries
+    PartnerCompressionExecutorImpl.java                          8
+
+[bs.base/src/org/plazmaforge/bsolution/payroll/server/services]  2 files, 4 queries
+    ERMEmployeePayrollService.java                               2
+    PayrollCalculateExecutor.java                                2
+
+[bs.base/src/org/plazmaforge/bsolution/product/server/services]  2 files, 19 queries
+    ERMProductManager.java                                       1
+    ProductCompressionExecutorImpl.java                         18
+
+[bs.base/src/org/plazmaforge/bsolution/security/server/services]  2 files, 3 queries
+    ERMPermissionViewService.java                                1
+    ERMUserService.java                                          2
+
+[bs.enterprise.configuration/conf]  1 files, 2 queries
+    application-context-security.xml                             2
+
+[bs.enterprise.configuration/conf/packages/contact/entities]  2 files, 2 queries
+    Contact.entity.xml                                           1
+    ContactableElement.entity.xml                                1
+
+[bs.enterprise.server/src/org/plazmaforge/bs/security/server/services]  1 files, 2 queries
+    UserServiceImpl.java                                         2
+
+[framework.client.swt/src/org/plazmaforge/framework/client/swt/dialogs/dataimport]  1 files, 4 queries
+    messages.properties                                          4
+
+[framework/src/org/plazmaforge/framework/report/data]  1 files, 1 queries
+    EntityLoaderImpl.java                                        1
+
+
+3. QUERY LOCATIONS (file, line)
+==============================================================================
+
+bs.base.configuration/conf/application-context-security.xml  (2 queries)
+    line 28     select   tables: sys_user
+    line 29     select   tables: sys_user_role,sys_user,sys_role  | joins: sys_user.id = sys_user_role.user_id; sys_role.id = sys_user_role.role_id
+
+bs.base.configuration/conf/packages/contact/entities/Contact.entity.xml  (1 queries)
+    line 51     update   tables: contact
+
+bs.base.configuration/conf/packages/contact/entities/ContactableElement.entity.xml  (1 queries)
+    line 25     update   tables: contactable
+
+bs.base.configuration/conf/packages/employee/entities/Employee.entity.xml  (2 queries)
+    line 81     insert   tables: contractor
+    line 86     delete   tables: contractor
+
+bs.base.configuration/conf/packages/finance/entities/LedgerAccount.entity.xml  (2 queries)
+    line 17     update   tables: template_entry_item
+    line 18     update   tables: template_entry_item
+
+bs.base.configuration/conf/packages/partner/entities/Partner.entity.xml  (5 queries)
+    line 60     update   tables: partner
+    line 79     update   tables: partner
+    line 80     delete   tables: bank_account
+    line 107    insert   tables: contractor
+    line 112    delete   tables: contractor
+
+bs.base.db/build.xml  (2 queries)
+    line 161    insert   tables: database
+    line 220    insert   tables: database
+
+bs.base/src/org/plazmaforge/bsolution/bank/server/services/BankImporter.java  (5 queries)
+    line 131    insert   tables: businessable
+    line 132    insert   tables: contactable
+    line 133    insert   tables: partner
+    line 135    update   tables: bank,businessable
+    line 136    update   tables: bank,partner
+
+bs.base/src/org/plazmaforge/bsolution/base/server/services/SystemInfoServiceImpl.java  (17 queries)
+    line 121    select   tables: v_businessable
+    line 130    update   tables: businessable
+    line 156    select   tables: sys_entity
+    line 198    select   tables: sys_entity
+    line 207    update   tables: sys_secure_object
+    line 331    select   tables: sys_secure_object
+    line 357    delete   tables: sys_permission
+    line 358    delete   tables: sys_secure_object
+    line 365    select   tables: sys_secure_object
+    line 375    select   tables: sys_permission
+    line 386    insert   tables: sys_secure_object
+    line 390    update   tables: sys_secure_object
+    line 396    select   tables: sys_permission,sys_secure_object  | joins: sys_permission.secure_object_id = sys_secure_object.id
+    line 413    insert   tables: sys_permission
+    line 415    insert   tables: sys_permission
+    line 581    select   tables: contact
+    line 594    update   tables: contact
+
+bs.base/src/org/plazmaforge/bsolution/finance/server/services/EntryCalculateServiceImpl.java  (3 queries)
+    line 74     select   tables: ledger_account
+    line 77     select   tables: partner
+    line 78     select   tables: product
+
+bs.base/src/org/plazmaforge/bsolution/finance/server/services/FinanceCompressionExecutorImpl.java  (8 queries)
+    line 49     delete   tables: m_ledger_account_register
+    line 94     delete   tables: m_ledger_account_register_sum
+    line 97     insert   tables: m_ledger_account_register,m_ledger_account_register_sum
+    line 106    delete   tables: m_ledger_account_register_id
+    line 115    insert   tables: m_ledger_account_register_sum,m_ledger_account_register_id
+    line 132    insert   tables: ledger_account_register
+    line 137    select   tables: ledger_account_register
+    line 198    select   tables: m_ledger_account_register_sum
+
+bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsCompressionExecutorImpl.java  (12 queries)
+    line 65     delete   tables: m_product_register
+    line 66     delete   tables: m_product_detail_register
+    line 217    delete   tables: m_product_register_sum
+    line 220    insert   tables: m_product_register,m_product_register_sum
+    line 233    delete   tables: m_product_register_id
+    line 243    insert   tables: m_product_register_sum,m_product_register_id
+    line 256    insert   tables: product_register
+    line 307    delete   tables: m_product_detail_register_sum
+    line 310    insert   tables: m_product_detail_register,m_product_detail_register_sum
+    line 323    delete   tables: m_product_detail_register_id
+    line 333    insert   tables: m_product_detail_register_sum,m_product_register_id,m_product_detail_register_id
+    line 346    insert   tables: product_detail_register
+
+bs.base/src/org/plazmaforge/bsolution/goods/server/services/GoodsImporter.java  (6 queries)
+    line 251    insert   tables: businessable
+    line 252    insert   tables: goods
+    line 253    update   tables: product,businessable
+    line 254    select   tables: currency
+    line 255    select   tables: unit
+    line 256    select   tables: product_group
+
+bs.base/src/org/plazmaforge/bsolution/partner/server/services/PartnerCompressionExecutorImpl.java  (8 queries)
+    line 60     delete   tables: m_partner_register
+    line 76     delete   tables: m_partner_register_sum
+    line 79     insert   tables: m_partner_register,m_partner_register_sum
+    line 88     delete   tables: m_partner_register_id
+    line 97     insert   tables: m_partner_register_sum,m_partner_register_id
+    line 113    insert   tables: partner_register
+    line 118    select   tables: partner_register
+    line 179    select   tables: m_partner_register_sum
+
+bs.base/src/org/plazmaforge/bsolution/payroll/server/services/ERMEmployeePayrollService.java  (2 queries)
+    line 23     delete   tables: employee_payroll
+    line 31     delete   tables: employee_payroll
+
+bs.base/src/org/plazmaforge/bsolution/payroll/server/services/PayrollCalculateExecutor.java  (2 queries)
+    line 142    insert   tables: employee_total
+    line 263    update   tables: employee_total
+
+bs.base/src/org/plazmaforge/bsolution/product/server/services/ERMProductManager.java  (1 queries)
+    line 266    select   tables: enterprise_context
+
+bs.base/src/org/plazmaforge/bsolution/product/server/services/ProductCompressionExecutorImpl.java  (18 queries)
+    line 65     delete   tables: m_product_register
+    line 66     delete   tables: m_product_detail_register
+    line 68     delete   tables: m_product_register_sum
+    line 69     delete   tables: m_product_register_id
+    line 71     delete   tables: m_product_detail_register_sum
+    line 72     delete   tables: m_product_detail_register_id
+    line 201    insert   tables: m_product_register,m_product_register_sum
+    line 220    insert   tables: m_product_register_sum,m_product_register_id
+    line 237    insert   tables: product_register
+    line 295    insert   tables: product_register
+    line 308    select   tables: product_register
+    line 381    select   tables: m_product_register_sum
+    line 418    insert   tables: m_product_detail_register,m_product_detail_register_sum
+    line 437    insert   tables: m_product_detail_register_sum,m_product_register_id,m_product_detail_register_id
+    line 450    insert   tables: product_detail_register
+    line 523    insert   tables: product_detail_register
+    line 538    select   tables: product_detail_register
+    line 622    select   tables: m_product_detail_register_sum
+
+bs.base/src/org/plazmaforge/bsolution/security/server/services/ERMPermissionViewService.java  (1 queries)
+    line 18     select   tables: sys_secure_object,sys_permission  | joins: sys_permission.secure_object_id = sys_secure_object.id
+
+bs.base/src/org/plazmaforge/bsolution/security/server/services/ERMUserService.java  (2 queries)
+    line 59     select   tables: partner,organization  | joins: organization.id = partner.id
+    line 198    select   tables: sys_role_interface
+
+bs.enterprise.configuration/conf/application-context-security.xml  (2 queries)
+    line 28     select   tables: sys_user
+    line 29     select   tables: sys_user_role,sys_user,sys_role  | joins: sys_user.id = sys_user_role.user_id; sys_role.id = sys_user_role.role_id
+
+bs.enterprise.configuration/conf/packages/contact/entities/Contact.entity.xml  (1 queries)
+    line 92     update   tables: contact
+
+bs.enterprise.configuration/conf/packages/contact/entities/ContactableElement.entity.xml  (1 queries)
+    line 28     update   tables: contactable
+
+bs.enterprise.server/src/org/plazmaforge/bs/security/server/services/UserServiceImpl.java  (2 queries)
+    line 61     select   tables: partner,organization  | joins: organization.id = partner.id
+    line 205    select   tables: sys_role_interface
+
+framework.client.swt/src/org/plazmaforge/framework/client/swt/dialogs/dataimport/messages.properties  (4 queries)
+    line 41     update   tables: columnmappingpanel.action.update.or.insert,or
+    line 41     update   tables: columnmappingpanel.action.update.or.insert,or
+    line 42     update   tables: or
+    line 42     update   tables: or
+
+framework/src/org/plazmaforge/framework/report/data/EntityLoaderImpl.java  (1 queries)
+    line 62     select   tables: sys_entity_attr,sys_entity_attr_value  | joins: sys_entity_attr.attr_id = sys_entity_attr.id

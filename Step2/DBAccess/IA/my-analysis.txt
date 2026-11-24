@@ -1,0 +1,75 @@
+// this file has the personal analysis of both deep_seek and claude's script results.
+// llms were used to generate the 2 files sql_scan.py (claude), sql_Scanner.py (deep_seek) to make scripts to analyse plazma's codebase.
+// after the scripts were ran to get the reports, the reports were analysed in the text below.
+
+-bs.base\src\org\plazmaforge\bsolution\bank\server\services\ERMPaymentLinkManager.java
+line 
+we infer:
+DOCUMENT.DOCUMENT_STATUS_ID → DOCUMENT_STATUS.ID
+probable:
+DOCUMENT_STATUS.DOCUMENT_TYPE_ID → DOCUMENT_TYPE.ID
+
+-bs.base/src/org/plazmaforge/bsolution/base/server/services/SystemInfoServiceImpl.java
+line 396 
+we infer:
+SYS_USER_ROLE.USER_ID → SYS_USER.ID
+SYS_USER_ROLE.ROLE_ID → SYS_ROLE.ID
+
+-bs.base/src/org/plazmaforge/bsolution/finance/server/services/EntryCalculateServiceImpl.java
+line 136
+we infer:
+FINANCE_DOCUMENT.ID → DOCUMENT.ID
+PARTNER.LEDGER_ACCOUNT_ID → LEDGER_ACCOUNT.ID
+
+PROBABLE:
+DOCUMENT.ORGANIZATION_ID → ORGANIZATION.ID
+
+-bs.base/src/org/plazmaforge/bsolution/finance/server/services/FinanceCompressionExecutorImpl.java
+line 67
+FINANCE_DOCUMENT.ID → DOCUMENT.ID
+DOCUMENT.PERIOD_ID → PERIOD.ID
+
+from bs.base\src\org\plazmaforge\bsolution\security\server\services\ERMUserService.java
+line 59
+ORGANIZATION.ID → PARTNER.ID
+
+
+DOCUMENT.DOCUMENT_STATUS_ID → DOCUMENT_STATUS.ID	     inferred
+DOCUMENT_STATUS.DOCUMENT_TYPE_ID → DOCUMENT_TYPE.ID          probable
+SYS_USER_ROLE.USER_ID → SYS_USER.ID	                     inferred
+SYS_USER_ROLE.ROLE_ID → SYS_ROLE.ID	                     inferred
+FINANCE_DOCUMENT.ID → DOCUMENT.ID	                     inferred
+PARTNER.LEDGER_ACCOUNT_ID → LEDGER_ACCOUNT.ID	             inferred
+DOCUMENT.ORGANIZATION_ID → ORGANIZATION.ID	             probable
+DOCUMENT.PERIOD_ID → PERIOD.ID	                             inferred
+ORGANIZATION.ID → PARTNER.ID	                             inferred
+
+
+
+manuel
+insert: 2
+select: 
+update:
+delete:
+IA claude
+insert: -5
+select: -1
+update:
+delete: -2
+IA deepseek
+insert:
+select: 
+update:
+delete:
+
+ACCESSED: SYS_USER, CONTACT, BANK_ACCOUNT, LEDGER_ACCOUNT, PARTNER, FINANCE_DOCUMENT, DOCUMENT, 
+        ORGANISATION, BANK, CURRENCY, SYS_ENTITY, DOCUMENT_TYPE, DOCUMENT.
+
+NOTACCESSED: SYS_ENTITY_TYPE, DEPARTMENT, JOB_POSITION, DEPARTMENT, LEDGER_ACCOUNT_TYPE, TAX, 
+             FORM_PROPERTY, PARTNER_GROUP, PARTNER_TYPE, PROJECT_STAGE_GROUP, INDUSTRY, PROJECT_TYPE,
+             CONTRACT, PROJECT_STATUS, PROJECT_STAGE, PERIOD_TYPE,  PROJECT, DOCUMENT_STATUS.
+
+
+
+in bs.base/src/org/plazmaforge/bsolution/base/server/services/SystemInfoServiceImpl.java
+we have "syncPersons" that is dead code and never used with 2 dead querries

@@ -1,0 +1,851 @@
+==============================================================================
+SQL QUERIES IN APPLICATION CODE  (.sql / DDL ignored)
+==============================================================================
+Root           : C:\Users\Venator\Documents\GitHub\tests\plazma-code-r5885-branches-plazma-1.0.5
+Generated      : 2026-11-21T13:13:31
+Folders        : 21
+Files          : 38
+Total queries  : 217
+
+==============================================================================
+1. FOLDERS WITH EMBEDDED SQL
+==============================================================================
+
+ Queries  Files  Folder
+--------  -----  --------------------------------------------------
+      52      2  bs.base\src\org\plazmaforge\bsolution\goods\server\services
+      48      3  bs.base\src\org\plazmaforge\bsolution\product\server\services
+      26      3  bs.base\src\org\plazmaforge\bsolution\finance\server\services
+      23      5  bs.base\src\org\plazmaforge\bsolution\base\server\services
+      14      1  bs.base\src\org\plazmaforge\bsolution\partner\server\services
+      10      3  bs.base\src\org\plazmaforge\bsolution\bank\server\services
+       7      1  framework\src\org\plazmaforge\framework\datawarehouse
+       6      4  bs.carservice\tmp
+       5      2  bs.base\src\org\plazmaforge\bsolution\payroll\server\services
+       4      1  bs.base\src\org\plazmaforge\bsolution\cash\server\services
+       4      2  bs.base\src\org\plazmaforge\bsolution\organization\server\services
+       3      2  bs.base\src\org\plazmaforge\bsolution\finance\common\acceptors
+       3      1  bs.base\src\org\plazmaforge\bsolution\security\server\services
+       3      1  bs.enterprise.server\src\org\plazmaforge\bs\security\server\services
+       2      1  bs.base\src\org\plazmaforge\bsolution\document\server\services
+       2      1  bs.enterprise.server\src\org\plazmaforge\bs\organization\server\services
+       1      1  bs.base.web\web\extjs
+       1      1  bs.enterprise.client\gen\org\plazmaforge\bs\base\client\forms
+       1      1  framework\src\org\plazmaforge\framework\dao
+       1      1  framework\src\org\plazmaforge\framework\datawarehouse\convert\dataexport\sql
+       1      1  framework\src\org\plazmaforge\framework\sql
+
+==============================================================================
+2. FILES WITH EMBEDDED SQL
+==============================================================================
+
+ Queries  File
+--------  ------------------------------------------------------------
+      46  bs.base\src\org\plazmaforge\bsolution\goods\server\services\GoodsCompressionExecutorImpl.java
+      42  bs.base\src\org\plazmaforge\bsolution\product\server\services\ProductCompressionExecutorImpl.java
+      19  bs.base\src\org\plazmaforge\bsolution\finance\server\services\FinanceCompressionExecutorImpl.java
+      17  bs.base\src\org\plazmaforge\bsolution\base\server\services\SystemInfoServiceImpl.java
+      14  bs.base\src\org\plazmaforge\bsolution\partner\server\services\PartnerCompressionExecutorImpl.java
+       7  framework\src\org\plazmaforge\framework\datawarehouse\SQLTransferHelper.java
+       6  bs.base\src\org\plazmaforge\bsolution\goods\server\services\GoodsImporter.java
+       5  bs.base\src\org\plazmaforge\bsolution\bank\server\services\BankImporter.java
+       5  bs.base\src\org\plazmaforge\bsolution\product\server\services\ERMProductManager.java
+       4  bs.base\src\org\plazmaforge\bsolution\bank\server\services\BankCompressionExecutorImpl.java
+       4  bs.base\src\org\plazmaforge\bsolution\cash\server\services\CashCompressionExecutorImpl.java
+       4  bs.base\src\org\plazmaforge\bsolution\finance\server\services\EntryCalculateServiceImpl.java
+       3  bs.base\src\org\plazmaforge\bsolution\base\server\services\AttributeServiceImpl.java
+       3  bs.base\src\org\plazmaforge\bsolution\finance\server\services\ERMEntryCalculateFinder.java
+       3  bs.base\src\org\plazmaforge\bsolution\payroll\server\services\PayrollCalculateExecutor.java
+       3  bs.base\src\org\plazmaforge\bsolution\security\server\services\ERMUserService.java
+       3  bs.carservice\tmp\CarServOrderServiceImpl.java
+       3  bs.enterprise.server\src\org\plazmaforge\bs\security\server\services\UserServiceImpl.java
+       2  bs.base\src\org\plazmaforge\bsolution\document\server\services\DocumentTypeServiceImpl.java
+       2  bs.base\src\org\plazmaforge\bsolution\finance\common\acceptors\BTaxReportByQuarterDialogAcceptor.java
+       2  bs.base\src\org\plazmaforge\bsolution\organization\server\services\ERMWarehouseManager.java
+       2  bs.base\src\org\plazmaforge\bsolution\organization\server\services\OrganizationServiceImpl.java
+       2  bs.base\src\org\plazmaforge\bsolution\payroll\server\services\ERMEmployeePayrollService.java
+       2  bs.enterprise.server\src\org\plazmaforge\bs\organization\server\services\OrganizationServiceImpl.java
+       1  bs.base.web\web\extjs\ext-all-debug-w-comments.js
+       1  bs.base\src\org\plazmaforge\bsolution\bank\server\services\ERMPaymentLinkManager.java
+       1  bs.base\src\org\plazmaforge\bsolution\base\server\services\EnumerationServiceImpl.java
+       1  bs.base\src\org\plazmaforge\bsolution\base\server\services\LookupServiceImpl.java
+       1  bs.base\src\org\plazmaforge\bsolution\base\server\services\SystemInfoExecutorImpl.java
+       1  bs.base\src\org\plazmaforge\bsolution\finance\common\acceptors\BPensionReportByYearDialogAcceptor.java
+       1  bs.base\src\org\plazmaforge\bsolution\product\server\services\ProductManagerServiceImpl.java
+       1  bs.carservice\tmp\CarInsurerContractVariantServiceImpl.java
+       1  bs.carservice\tmp\CarMtrlFindReportServiceImpl.java
+       1  bs.carservice\tmp\CarMtrlPurchaseReportServiceImpl.java
+       1  bs.enterprise.client\gen\org\plazmaforge\bs\base\client\forms\CountryListForm_Gen.java
+       1  framework\src\org\plazmaforge\framework\dao\SQLBuilder.java
+       1  framework\src\org\plazmaforge\framework\datawarehouse\convert\dataexport\sql\SQLExporter.java
+       1  framework\src\org\plazmaforge\framework\sql\IDGenerator.java
+
+==============================================================================
+3. QUERIES BY FILE
+==============================================================================
+
+### bs.base.web\web\extjs\ext-all-debug-w-comments.js  (1 query)
+
+  L46923 [SELECT]
+         Select a name...
+
+
+### bs.base\src\org\plazmaforge\bsolution\bank\server\services\BankCompressionExecutorImpl.java  (4 queries)
+
+  L54    [INSERT]
+         INSERT INTO M_PARTNER_REGISTER (PARTNER_ID, DEBIT_AMOUNT, CREDIT_AMOUNT)
+
+  L55    [SELECT]
+         SELECT D.PARTNER_ID, 0, FD.TOTAL FROM FINANCE_DOCUMENT FD
+
+  L64    [INSERT]
+         INSERT INTO M_PARTNER_REGISTER (PARTNER_ID, DEBIT_AMOUNT, CREDIT_AMOUNT)
+
+  L65    [SELECT]
+         SELECT D.PARTNER_ID, FD.TOTAL, 0 FROM FINANCE_DOCUMENT FD
+
+
+### bs.base\src\org\plazmaforge\bsolution\bank\server\services\BankImporter.java  (5 queries)
+
+  L131   [INSERT]
+         INSERT INTO BUSINESSABLE (ID, ENTITY_ID, OWNER_ID, NAME) VALUES (?, ?, ?, ?)
+
+  L132   [INSERT]
+         INSERT INTO CONTACTABLE (ID, ENTITY_ID, OWNER_ID) VALUES (?, ?, ?)
+
+  L133   [INSERT]
+         INSERT INTO PARTNER (ID, NAME, DESCRIMINATOR) VALUES (?, ?, ?)
+
+  L135   [UPDATE]
+         UPDATE BUSINESSABLE SET NAME = ? WHERE ID IN (SELECT ID FROM BANK WHERE BIC = ?)
+
+  L136   [UPDATE]
+         UPDATE PARTNER SET NAME = ? WHERE ID IN (SELECT ID FROM BANK WHERE BIC = ?)
+
+
+### bs.base\src\org\plazmaforge\bsolution\bank\server\services\ERMPaymentLinkManager.java  (1 query)
+
+  L219   [UPDATE]
+         UPDATE DOCUMENT SET DOCUMENT_STATUS_ID =
+
+
+### bs.base\src\org\plazmaforge\bsolution\base\server\services\AttributeServiceImpl.java  (3 queries)
+
+  L46    [DELETE]
+         DELETE FROM SYS_ENTITY_ATTR_VALUE WHERE ENTITY_ID =
+
+  L47    [DELETE]
+         DELETE FROM SYS_ENTITY_ATTR WHERE ENTITY_ID =
+
+  L64    [DELETE]
+         DELETE FROM SYS_ENTITY_ATTR_VALUE WHERE ATTR_ID =
+
+
+### bs.base\src\org\plazmaforge\bsolution\base\server\services\EnumerationServiceImpl.java  (1 query)
+
+  L28    [DELETE]
+         DELETE FROM SYS_ENUMERATION WHERE ENTITY_ID =
+
+
+### bs.base\src\org\plazmaforge\bsolution\base\server\services\LookupServiceImpl.java  (1 query)
+
+  L28    [DELETE]
+         DELETE FROM SYS_LOOKUP WHERE ENTITY_ID =
+
+
+### bs.base\src\org\plazmaforge\bsolution\base\server\services\SystemInfoExecutorImpl.java  (1 query)
+
+  L45    [UPDATE]
+         UPDATE ENTERPRISE_CONTEXT SET PERIOD_ID =
+
+
+### bs.base\src\org\plazmaforge\bsolution\base\server\services\SystemInfoServiceImpl.java  (17 queries)
+
+  L121   [SELECT]
+         SELECT ID, NAME FROM V_BUSINESSABLE
+
+  L130   [UPDATE]
+         UPDATE BUSINESSABLE SET NAME = ? WHERE ID = ?
+
+  L156   [SELECT]
+         SELECT ID, CODE, NAME FROM SYS_ENTITY WHERE IS_SECURE = ?
+
+  L198   [SELECT]
+         SELECT ID, NAME FROM SYS_ENTITY
+
+  L207   [UPDATE]
+         UPDATE SYS_SECURE_OBJECT SET NAME = ? WHERE OBJECT_ID = ? AND NAME IS NULL
+
+  L331   [SELECT]
+         SELECT ID, OBJECT_ID FROM SYS_SECURE_OBJECT WHERE OBJECT_TYPE = ?
+
+  L357   [DELETE]
+         DELETE FROM SYS_PERMISSION WHERE SECURE_OBJECT_ID IN
+
+  L358   [DELETE]
+         DELETE FROM SYS_SECURE_OBJECT WHERE ID IN
+
+  L365   [SELECT]
+         SELECT MAX(ID) FROM SYS_SECURE_OBJECT
+
+  L375   [SELECT]
+         SELECT MAX(ID) FROM SYS_PERMISSION
+
+  L386   [INSERT]
+         INSERT INTO SYS_SECURE_OBJECT (ID, OBJECT_ID, CODE, NAME, OBJECT_TYPE) VALUES (?, ?, ?, ?, ?)
+
+  L390   [UPDATE]
+         UPDATE SYS_SECURE_OBJECT SET NAME = ? WHERE ID = ?
+
+  L396   [SELECT]
+         SELECT P.SECURE_OBJECT_ID FROM SYS_PERMISSION P
+
+  L413   [INSERT]
+         INSERT INTO SYS_PERMISSION (ID, SECURE_OBJECT_ID, ROLE_ID, IS_READ, IS_WRITE) VALUES (?, ?, ?, ?, ?)
+
+  L415   [INSERT]
+         INSERT INTO SYS_PERMISSION (ID, SECURE_OBJECT_ID, ROLE_ID, IS_EXEC) VALUES (?, ?, ?, ?)
+
+  L581   [SELECT]
+         SELECT ID, FIRST_NAME, LAST_NAME, MIDDLE_NAME FROM CONTACT
+
+  L594   [UPDATE]
+         UPDATE CONTACT SET NAME = ? WHERE ID = ?
+
+
+### bs.base\src\org\plazmaforge\bsolution\cash\server\services\CashCompressionExecutorImpl.java  (4 queries)
+
+  L57    [INSERT]
+         INSERT INTO M_PARTNER_REGISTER (PARTNER_ID, DEBIT_AMOUNT, CREDIT_AMOUNT)
+
+  L58    [SELECT]
+         SELECT D.PARTNER_ID, 0, FD.TOTAL FROM FINANCE_DOCUMENT FD
+
+  L67    [INSERT]
+         INSERT INTO M_PARTNER_REGISTER (PARTNER_ID, DEBIT_AMOUNT, CREDIT_AMOUNT)
+
+  L68    [SELECT]
+         SELECT D.PARTNER_ID, FD.TOTAL, 0 FROM FINANCE_DOCUMENT FD
+
+
+### bs.base\src\org\plazmaforge\bsolution\document\server\services\DocumentTypeServiceImpl.java  (2 queries)
+
+  L67    [SELECT]
+         SELECT LAST_DOCUMENT_NUMBER, DOCUMENT_NO_PREFIX, DOCUMENT_NO_SUFFIX FROM DOCUMENT_TYPE WHERE ENTITY_ID = '
+
+  L79    [UPDATE]
+         UPDATE DOCUMENT_TYPE SET LAST_DOCUMENT_NUMBER =
+
+
+### bs.base\src\org\plazmaforge\bsolution\finance\common\acceptors\BPensionReportByYearDialogAcceptor.java  (1 query)
+
+  L793   [SELECT]
+         SELECT D.DOCUMENT_NO, D.DOCUMENT_DATE, F.TOTAL_WITH_TAX, P.PAYMENT_MISSING, O.NOTE
+
+
+### bs.base\src\org\plazmaforge\bsolution\finance\common\acceptors\BTaxReportByQuarterDialogAcceptor.java  (2 queries)
+
+  L401   [SELECT]
+         SELECT D.DOCUMENT_NO, D.DOCUMENT_DATE, F.TOTAL_WITH_TAX, P.PAYMENT_MISSING, '
+
+  L434   [SELECT]
+         SELECT SUM(F.TOTAL_WITH_TAX)
+
+
+### bs.base\src\org\plazmaforge\bsolution\finance\server\services\ERMEntryCalculateFinder.java  (3 queries)
+
+  L34    [SELECT]
+         SELECT ID FROM LEDGER_ACCOUNT WHERE CODE = '
+
+  L44    [SELECT]
+         SELECT LEDGER_ACCOUNT_ID FROM PARTNER WHERE ID =
+
+  L49    [SELECT]
+         SELECT LEDGER_ACCOUNT_ID FROM PRODUCT WHERE ID =
+
+
+### bs.base\src\org\plazmaforge\bsolution\finance\server\services\EntryCalculateServiceImpl.java  (4 queries)
+
+  L74    [SELECT]
+         SELECT CODE, ID FROM LEDGER_ACCOUNT
+
+  L77    [SELECT]
+         SELECT ID, LEDGER_ACCOUNT_ID FROM PARTNER
+
+  L78    [SELECT]
+         SELECT ID, LEDGER_ACCOUNT_ID FROM PRODUCT
+
+  L136   [DELETE]
+         DELETE FROM ENTRY_ITEM WHERE ID IN (SELECT I.ID FROM ENTRY_ITEM I
+
+
+### bs.base\src\org\plazmaforge\bsolution\finance\server\services\FinanceCompressionExecutorImpl.java  (19 queries)
+
+  L49    [DELETE]
+         DELETE FROM M_LEDGER_ACCOUNT_REGISTER
+
+  L58    [INSERT]
+         INSERT INTO M_LEDGER_ACCOUNT_REGISTER (LEDGER_ACCOUNT_ID, DEBIT_AMOUNT, CREDIT_AMOUNT)
+
+  L59    [SELECT]
+         SELECT LEDGER_ACCOUNT_ID, AD.DEBIT_AMOUNT, AD.CREDIT_AMOUNT FROM LEDGER_ACCOUNT_REST AD
+
+  L68    [INSERT]
+         INSERT INTO M_LEDGER_ACCOUNT_REGISTER (LEDGER_ACCOUNT_ID, DEBIT_AMOUNT, CREDIT_AMOUNT)
+
+  L69    [SELECT]
+         SELECT I.CREDIT_LEDGER_ACCOUNT_ID, 0, I.AMOUNT
+
+  L82    [INSERT]
+         INSERT INTO M_LEDGER_ACCOUNT_REGISTER (LEDGER_ACCOUNT_ID, DEBIT_AMOUNT, CREDIT_AMOUNT)
+
+  L83    [SELECT]
+         SELECT I.DEBIT_LEDGER_ACCOUNT_ID, I.AMOUNT, 0
+
+  L94    [DELETE]
+         DELETE FROM M_LEDGER_ACCOUNT_REGISTER_SUM
+
+  L97    [INSERT]
+         INSERT INTO M_LEDGER_ACCOUNT_REGISTER_SUM (LEDGER_ACCOUNT_ID, DEBIT_AMOUNT, CREDIT_AMOUNT)
+
+  L98    [SELECT]
+         SELECT R.LEDGER_ACCOUNT_ID, SUM(R.DEBIT_AMOUNT), SUM(R.CREDIT_AMOUNT) FROM M_LEDGER_ACCOUNT_REGISTER R
+
+  L106   [DELETE]
+         DELETE FROM M_LEDGER_ACCOUNT_REGISTER_ID
+
+  L109   [INSERT]
+         INSERT INTO M_LEDGER_ACCOUNT_REGISTER_ID (LEDGER_ACCOUNT_ID)
+
+  L110   [SELECT]
+         SELECT P.LEDGER_ACCOUNT_ID FROM LEDGER_ACCOUNT_REGISTER P
+
+  L115   [INSERT]
+         INSERT INTO M_LEDGER_ACCOUNT_REGISTER_ID (LEDGER_ACCOUNT_ID)
+
+  L116   [SELECT]
+         SELECT R.LEDGER_ACCOUNT_ID FROM M_LEDGER_ACCOUNT_REGISTER_SUM R
+
+  L119   [DELETE]
+         DELETE FROM LEDGER_ACCOUNT_REGISTER WHERE
+
+  L132   [INSERT]
+         INSERT INTO LEDGER_ACCOUNT_REGISTER (
+
+  L137   [SELECT]
+         SELECT MAX(ID) FROM LEDGER_ACCOUNT_REGISTER
+
+  L198   [SELECT]
+         SELECT LEDGER_ACCOUNT_ID, DEBIT_AMOUNT, CREDIT_AMOUNT FROM M_LEDGER_ACCOUNT_REGISTER_SUM
+
+
+### bs.base\src\org\plazmaforge\bsolution\goods\server\services\GoodsCompressionExecutorImpl.java  (46 queries)
+
+  L65    [DELETE]
+         DELETE FROM m_product_register
+
+  L66    [DELETE]
+         DELETE FROM m_product_detail_register
+
+  L80    [INSERT]
+         INSERT INTO M_PARTNER_REGISTER (PARTNER_ID, DEBIT_AMOUNT, CREDIT_AMOUNT)
+
+  L81    [SELECT]
+         SELECT D.PARTNER_ID, 0, D.TOTAL FROM GOODS_INCOME AD
+
+  L89    [INSERT]
+         INSERT INTO M_PRODUCT_DETAIL_REGISTER (WAREHOUSE_ID, MTRL_RESPONSIBLE_ID, PRODUCT_ID, DEBIT_QUANTITY, DEBIT_AMOUNT, CREDIT_QUANTITY, CREDIT_AMOUNT)
+
+  L90    [SELECT]
+         SELECT AD.WAREHOUSE_ID, AD.MTRL_RESPONSIBLE_ID, G.ID, 0, 0, I.QUANTITY * I.UNIT_RATE, I.AMOUNT FROM GOODS_INCOME_ITEM I
+
+  L99    [INSERT]
+         INSERT INTO M_PRODUCT_REGISTER (PRODUCT_ID, DEBIT_QUANTITY, DEBIT_AMOUNT, CREDIT_QUANTITY, CREDIT_AMOUNT)
+
+  L100   [SELECT]
+         SELECT G.ID, 0, 0, I.QUANTITY * I.UNIT_RATE, I.AMOUNT FROM GOODS_INCOME_ITEM I
+
+  L113   [INSERT]
+         INSERT INTO M_PARTNER_REGISTER (PARTNER_ID, DEBIT_AMOUNT, CREDIT_AMOUNT)
+
+  L114   [SELECT]
+         SELECT D.PARTNER_ID, D.TOTAL, 0 FROM GOODS_OUTCOME AD
+
+  L121   [INSERT]
+         INSERT INTO M_PRODUCT_DETAIL_REGISTER (WAREHOUSE_ID, MTRL_RESPONSIBLE_ID, PRODUCT_ID, DEBIT_QUANTITY, DEBIT_AMOUNT, CREDIT_QUANTITY, CREDIT_AMOUNT)
+
+  L122   [SELECT]
+         SELECT AD.WAREHOUSE_ID, AD.MTRL_RESPONSIBLE_ID, G.ID, I.QUANTITY * I.UNIT_RATE, I.AMOUNT, 0, 0 FROM GOODS_OUTCOME_ITEM I
+
+  L131   [INSERT]
+         INSERT INTO M_PRODUCT_REGISTER (PRODUCT_ID, DEBIT_QUANTITY, DEBIT_AMOUNT, CREDIT_QUANTITY, CREDIT_AMOUNT)
+
+  L132   [SELECT]
+         SELECT G.ID, I.QUANTITY * I.UNIT_RATE, I.AMOUNT, 0, 0 FROM GOODS_OUTCOME_ITEM I
+
+  L146   [INSERT]
+         INSERT INTO m_product_detail_register (warehouse_id, responsible_id, product_id, debit_quantity, debit_amount, credit_quantity, credit_amount)
+
+  L147   [SELECT]
+         SELECT ad.credit_warehouse_id, ad.credit_responsible_id, g.id, 0, 0, i.quantity * i.unit_rate, i.amount FROM goods_move_item i
+
+  L155   [INSERT]
+         INSERT INTO m_product_detail_register (warehouse_id, responsible_id, product_id, debit_quantity, debit_amount, credit_quantity, credit_amount)
+
+  L156   [SELECT]
+         SELECT ad.debit_warehouse_id, ad.debit_responsible_id, g.id, i.quantity * i.unit_rate, i.amount, 0, 0 FROM goods_move_item i
+
+  L170   [INSERT]
+         INSERT INTO M_PRODUCT_DETAIL_REGISTER (WAREHOUSE_ID, MTRL_RESPONSIBLE_ID, PRODUCT_ID, DEBIT_QUANTITY, DEBIT_AMOUNT, CREDIT_QUANTITY, CREDIT_AMOUNT)
+
+  L171   [SELECT]
+         SELECT AD.WAREHOUSE_ID, AD.MTRL_RESPONSIBLE_ID, G.ID, 0, 0, I.QUANTITY * I.UNIT_RATE, I.AMOUNT FROM GOODS_WRITEOFF_ITEM I
+
+  L179   [INSERT]
+         INSERT INTO M_PRODUCT_REGISTER (PRODUCT_ID, DEBIT_QUANTITY, DEBIT_AMOUNT, CREDIT_QUANTITY, CREDIT_AMOUNT)
+
+  L180   [SELECT]
+         SELECT G.ID, 0, 0, I.QUANTITY * I.UNIT_RATE, I.AMOUNT FROM GOODS_WRITEOFF_ITEM I
+
+  L193   [INSERT]
+         INSERT INTO M_PRODUCT_DETAIL_REGISTER (WAREHOUSE_ID, MTRL_RESPONSIBLE_ID, PRODUCT_ID, DEBIT_QUANTITY, DEBIT_AMOUNT, CREDIT_QUANTITY, CREDIT_AMOUNT)
+
+  L194   [SELECT]
+         SELECT AD.WAREHOUSE_ID, AD.MTRL_RESPONSIBLE_ID, G.ID, I.QUANTITY * I.UNIT_RATE, I.AMOUNT, 0, 0 FROM GOODS_REST_ITEM I
+
+  L202   [INSERT]
+         INSERT INTO M_PRODUCT_REGISTER (PRODUCT_ID, DEBIT_QUANTITY, DEBIT_AMOUNT, CREDIT_QUANTITY, CREDIT_AMOUNT)
+
+  L203   [SELECT]
+         SELECT G.ID, I.QUANTITY * I.UNIT_RATE, I.AMOUNT, 0, 0 FROM GOODS_REST_ITEM I
+
+  L217   [DELETE]
+         DELETE FROM M_PRODUCT_REGISTER_SUM
+
+  L220   [INSERT]
+         INSERT INTO M_PRODUCT_REGISTER_SUM (PRODUCT_ID, DEBIT_QUANTITY, CREDIT_QUANTITY, DEBIT_AMOUNT, CREDIT_AMOUNT)
+
+  L221   [SELECT]
+         SELECT R.PRODUCT_ID, SUM(R.DEBIT_QUANTITY), SUM(R.CREDIT_QUANTITY), SUM(R.DEBIT_AMOUNT), SUM(R.CREDIT_AMOUNT) FROM M_PRODUCT_REGISTER R
+
+  L233   [DELETE]
+         DELETE FROM M_PRODUCT_REGISTER_ID
+
+  L237   [INSERT]
+         INSERT INTO M_PRODUCT_REGISTER_ID (PRODUCT_ID)
+
+  L238   [SELECT]
+         SELECT P.PRODUCT_ID FROM PRODUCT_REGISTER P
+
+  L243   [INSERT]
+         INSERT INTO M_PRODUCT_REGISTER_ID (PRODUCT_ID)
+
+  L244   [SELECT]
+         SELECT R.PRODUCT_ID FROM M_PRODUCT_REGISTER_SUM R
+
+  L252   [DELETE]
+         DELETE FROM PRODUCT_REGISTER WHERE
+
+  L256   [INSERT]
+         INSERT INTO PRODUCT_REGISTER (
+
+  L307   [DELETE]
+         DELETE FROM M_PRODUCT_DETAIL_REGISTER_SUM
+
+  L310   [INSERT]
+         INSERT INTO M_PRODUCT_DETAIL_REGISTER_SUM (PRODUCT_ID, WAREHOUSE_ID, MTRL_RESPONSIBLE_ID, DEBIT_QUANTITY, CREDIT_QUANTITY, DEBIT_AMOUNT, CREDIT_AMOUNT)
+
+  L311   [SELECT]
+         SELECT R.PRODUCT_ID, R.WAREHOUSE_ID, R.MTRL_RESPONSIBLE_ID, SUM(R.DEBIT_QUANTITY), SUM(R.CREDIT_QUANTITY), SUM(R.DEBIT_AMOUNT), SUM(R.CREDIT_AMOUNT) FROM M_PRODUCT_DETAIL_REGISTER R
+
+  L323   [DELETE]
+         DELETE FROM M_PRODUCT_DETAIL_REGISTER_ID
+
+  L327   [INSERT]
+         INSERT INTO M_PRODUCT_DETAIL_REGISTER_ID (PRODUCT_ID, WAREHOUSE_ID, MTRL_RESPONSIBLE_ID)
+
+  L328   [SELECT]
+         SELECT P.PRODUCT_ID, P.WAREHOUSE_ID, P.MTRL_RESPONSIBLE_ID FROM PRODUCT_DETAIL_REGISTER P
+
+  L333   [INSERT]
+         INSERT INTO M_PRODUCT_DETAIL_REGISTER_ID (PRODUCT_ID, WAREHOUSE_ID, MTRL_RESPONSIBLE_ID)
+
+  L334   [SELECT]
+         SELECT R.PRODUCT_ID, R.WAREHOUSE_ID, R.MTRL_RESPONSIBLE_ID FROM M_PRODUCT_DETAIL_REGISTER_SUM R
+
+  L342   [DELETE]
+         DELETE FROM PRODUCT_DETAIL_REGISTER WHERE
+
+  L346   [INSERT]
+         INSERT INTO PRODUCT_DETAIL_REGISTER (
+
+
+### bs.base\src\org\plazmaforge\bsolution\goods\server\services\GoodsImporter.java  (6 queries)
+
+  L251   [INSERT]
+         INSERT INTO BUSINESSABLE (ID, ENTITY_ID, OWNER_ID, NAME) VALUES (?, ?, ?, ?)
+
+  L252   [INSERT]
+         INSERT INTO GOODS (ID, GOODS_TYPE_ID) VALUES (?, ?)
+
+  L253   [UPDATE]
+         UPDATE BUSINESSABLE SET NAME = ? WHERE ID IN (SELECT ID FROM PRODUCT WHERE CODE = ?)
+
+  L254   [SELECT]
+         SELECT ID FROM CURRENCY WHERE CODE = ?
+
+  L255   [SELECT]
+         SELECT ID FROM UNIT WHERE NAME = ?
+
+  L256   [SELECT]
+         SELECT ID FROM PRODUCT_GROUP WHERE CODE = ?
+
+
+### bs.base\src\org\plazmaforge\bsolution\organization\server\services\ERMWarehouseManager.java  (2 queries)
+
+  L46    [INSERT]
+         INSERT INTO WAREHOUSE (ID) VALUES (
+
+  L54    [DELETE]
+         DELETE FROM WAREHOUSE WHERE ID =
+
+
+### bs.base\src\org\plazmaforge\bsolution\organization\server\services\OrganizationServiceImpl.java  (2 queries)
+
+  L50    [INSERT]
+         INSERT INTO ORGANIZATION (ID) VALUES (
+
+  L58    [DELETE]
+         DELETE FROM ORGANIZATION WHERE ID =
+
+
+### bs.base\src\org\plazmaforge\bsolution\partner\server\services\PartnerCompressionExecutorImpl.java  (14 queries)
+
+  L60    [DELETE]
+         DELETE FROM M_PARTNER_REGISTER
+
+  L68    [INSERT]
+         INSERT INTO M_PARTNER_REGISTER (PARTNER_ID, DEBIT_AMOUNT, CREDIT_AMOUNT)
+
+  L69    [SELECT]
+         SELECT PARTNER_ID, AD.DEBIT_AMOUNT, AD.CREDIT_AMOUNT FROM V_PARTNER_REST AD
+
+  L76    [DELETE]
+         DELETE FROM M_PARTNER_REGISTER_SUM
+
+  L79    [INSERT]
+         INSERT INTO M_PARTNER_REGISTER_SUM (PARTNER_ID, DEBIT_AMOUNT, CREDIT_AMOUNT)
+
+  L80    [SELECT]
+         SELECT R.PARTNER_ID, SUM(R.DEBIT_AMOUNT), SUM(R.CREDIT_AMOUNT) FROM M_PARTNER_REGISTER R
+
+  L88    [DELETE]
+         DELETE FROM M_PARTNER_REGISTER_ID
+
+  L91    [INSERT]
+         INSERT INTO M_PARTNER_REGISTER_ID (PARTNER_ID)
+
+  L92    [SELECT]
+         SELECT P.PARTNER_ID FROM PARTNER_REGISTER P
+
+  L97    [INSERT]
+         INSERT INTO M_PARTNER_REGISTER_ID (PARTNER_ID)
+
+  L98    [SELECT]
+         SELECT R.PARTNER_ID FROM M_PARTNER_REGISTER_SUM R
+
+  L101   [DELETE]
+         DELETE FROM PARTNER_REGISTER WHERE
+
+  L113   [INSERT]
+         INSERT INTO PARTNER_REGISTER (
+
+  L118   [SELECT]
+         SELECT MAX(ID) FROM PARTNER_REGISTER
+
+
+### bs.base\src\org\plazmaforge\bsolution\payroll\server\services\ERMEmployeePayrollService.java  (2 queries)
+
+  L23    [DELETE]
+         DELETE FROM EMPLOYEE_PAYROLL WHERE EMPLOYEE_ID = ?
+
+  L31    [DELETE]
+         DELETE FROM EMPLOYEE_PAYROLL WHERE EMPLOYEE_ID = ? AND PERIOD_ID = ?
+
+
+### bs.base\src\org\plazmaforge\bsolution\payroll\server\services\PayrollCalculateExecutor.java  (3 queries)
+
+  L109   [SELECT]
+         SELECT E.ID, T.EMPLOYEE_ID FROM EMPLOYEE E
+
+  L142   [INSERT]
+         INSERT INTO EMPLOYEE_TOTAL (ID, EMPLOYEE_ID, PERIOD_ID) VALUES (?, ?, ?)
+
+  L263   [UPDATE]
+         UPDATE EMPLOYEE_TOTAL SET
+
+
+### bs.base\src\org\plazmaforge\bsolution\product\server\services\ERMProductManager.java  (5 queries)
+
+  L185   [SELECT]
+         SELECT MOVE_TYPE FROM FINANCE_DOCUMENT_TYPE WHERE DOCUMENT_TYPE_ID =
+
+  L266   [SELECT]
+         SELECT IS_AUTO_CALCULATE_PROD_REST FROM ENTERPRISE_CONTEXT
+
+  L301   [SELECT]
+         SELECT PRODUCT_ID, ACCOUNT_QUANTITY FROM PRODUCT_MOVE WHERE OWNER_ID =
+
+  L386   [SELECT]
+         SELECT ID,
+
+  L424   [UPDATE]
+         UPDATE PRODUCT SET
+
+
+### bs.base\src\org\plazmaforge\bsolution\product\server\services\ProductCompressionExecutorImpl.java  (42 queries)
+
+  L65    [DELETE]
+         DELETE FROM M_PRODUCT_REGISTER
+
+  L66    [DELETE]
+         DELETE FROM M_PRODUCT_DETAIL_REGISTER
+
+  L68    [DELETE]
+         DELETE FROM M_PRODUCT_REGISTER_SUM
+
+  L69    [DELETE]
+         DELETE FROM M_PRODUCT_REGISTER_ID
+
+  L71    [DELETE]
+         DELETE FROM M_PRODUCT_DETAIL_REGISTER_SUM
+
+  L72    [DELETE]
+         DELETE FROM M_PRODUCT_DETAIL_REGISTER_ID
+
+  L92    [INSERT]
+         INSERT INTO M_PARTNER_REGISTER (PARTNER_ID, DEBIT_AMOUNT, CREDIT_AMOUNT)
+
+  L93    [SELECT]
+         SELECT D.PARTNER_ID, 0, FD.TOTAL FROM FINANCE_DOCUMENT FD
+
+  L103   [INSERT]
+         INSERT INTO M_PRODUCT_DETAIL_REGISTER (WAREHOUSE_ID, MTRL_RESPONSIBLE_ID, PRODUCT_ID, DEBIT_QUANTITY, DEBIT_AMOUNT, CREDIT_QUANTITY, CREDIT_AMOUNT)
+
+  L104   [SELECT]
+         SELECT WM.WAREHOUSE_ID, WM.MTRL_RESPONSIBLE_ID, PM.PRODUCT_ID, 0, 0, PM.QUANTITY * PM.UNIT_RATE, PM.AMOUNT
+
+  L116   [INSERT]
+         INSERT INTO M_PRODUCT_REGISTER (PRODUCT_ID, DEBIT_QUANTITY, DEBIT_AMOUNT, CREDIT_QUANTITY, CREDIT_AMOUNT)
+
+  L117   [SELECT]
+         SELECT PM.PRODUCT_ID, 0, 0, PM.QUANTITY * PM.UNIT_RATE, PM.AMOUNT
+
+  L132   [INSERT]
+         INSERT INTO M_PARTNER_REGISTER (PARTNER_ID, DEBIT_AMOUNT, CREDIT_AMOUNT)
+
+  L133   [SELECT]
+         SELECT D.PARTNER_ID, FD.TOTAL, 0 FROM FINANCE_DOCUMENT FD
+
+  L142   [INSERT]
+         INSERT INTO M_PRODUCT_DETAIL_REGISTER (WAREHOUSE_ID, MTRL_RESPONSIBLE_ID, PRODUCT_ID, DEBIT_QUANTITY, DEBIT_AMOUNT, CREDIT_QUANTITY, CREDIT_AMOUNT)
+
+  L143   [SELECT]
+         SELECT WM.WAREHOUSE_ID, WM.MTRL_RESPONSIBLE_ID, PM.PRODUCT_ID, PM.QUANTITY * PM.UNIT_RATE, PM.AMOUNT, 0, 0
+
+  L154   [INSERT]
+         INSERT INTO M_PRODUCT_REGISTER (PRODUCT_ID, DEBIT_QUANTITY, DEBIT_AMOUNT, CREDIT_QUANTITY, CREDIT_AMOUNT)
+
+  L155   [SELECT]
+         SELECT PM.PRODUCT_ID, PM.QUANTITY * PM.UNIT_RATE, PM.AMOUNT, 0, 0
+
+  L171   [INSERT]
+         INSERT INTO M_PRODUCT_DETAIL_REGISTER (WAREHOUSE_ID, MTRL_RESPONSIBLE_ID, PRODUCT_ID, DEBIT_QUANTITY, DEBIT_AMOUNT, CREDIT_QUANTITY, CREDIT_AMOUNT)
+
+  L172   [SELECT]
+         SELECT WM.WAREHOUSE_ID, WM.MTRL_RESPONSIBLE_ID, PM.PRODUCT_ID, 0, 0, PM.QUANTITY * PM.UNIT_RATE, PM.AMOUNT
+
+  L184   [INSERT]
+         INSERT INTO M_PRODUCT_REGISTER (PRODUCT_ID, DEBIT_QUANTITY, DEBIT_AMOUNT, CREDIT_QUANTITY, CREDIT_AMOUNT)
+
+  L185   [SELECT]
+         SELECT PM.PRODUCT_ID, 0, 0, PM.QUANTITY * PM.UNIT_RATE, PM.AMOUNT
+
+  L201   [INSERT]
+         INSERT INTO M_PRODUCT_REGISTER_SUM (PRODUCT_ID, DEBIT_QUANTITY, CREDIT_QUANTITY, DEBIT_AMOUNT, CREDIT_AMOUNT)
+
+  L202   [SELECT]
+         SELECT R.PRODUCT_ID, SUM(R.DEBIT_QUANTITY), SUM(R.CREDIT_QUANTITY), SUM(R.DEBIT_AMOUNT), SUM(R.CREDIT_AMOUNT) FROM M_PRODUCT_REGISTER R
+
+  L214   [INSERT]
+         INSERT INTO M_PRODUCT_REGISTER_ID (PRODUCT_ID)
+
+  L215   [SELECT]
+         SELECT P.PRODUCT_ID FROM PRODUCT_REGISTER P
+
+  L220   [INSERT]
+         INSERT INTO M_PRODUCT_REGISTER_ID (PRODUCT_ID)
+
+  L221   [SELECT]
+         SELECT R.PRODUCT_ID FROM M_PRODUCT_REGISTER_SUM R
+
+  L229   [DELETE]
+         DELETE FROM PRODUCT_REGISTER WHERE
+
+  L237   [INSERT]
+         INSERT INTO product_register (
+
+  L295   [INSERT]
+         INSERT INTO PRODUCT_REGISTER (
+
+  L308   [SELECT]
+         SELECT MAX(ID) FROM PRODUCT_REGISTER
+
+  L418   [INSERT]
+         INSERT INTO M_PRODUCT_DETAIL_REGISTER_SUM (PRODUCT_ID, WAREHOUSE_ID, MTRL_RESPONSIBLE_ID, DEBIT_QUANTITY, CREDIT_QUANTITY, DEBIT_AMOUNT, CREDIT_AMOUNT)
+
+  L419   [SELECT]
+         SELECT R.PRODUCT_ID, R.WAREHOUSE_ID, R.MTRL_RESPONSIBLE_ID, SUM(R.DEBIT_QUANTITY), SUM(R.CREDIT_QUANTITY), SUM(R.DEBIT_AMOUNT), SUM(R.CREDIT_AMOUNT) FROM M_PRODUCT_DETAIL_REGISTER R
+
+  L431   [INSERT]
+         INSERT INTO M_PRODUCT_DETAIL_REGISTER_ID (PRODUCT_ID, WAREHOUSE_ID, MTRL_RESPONSIBLE_ID)
+
+  L432   [SELECT]
+         SELECT P.PRODUCT_ID, P.WAREHOUSE_ID, P.MTRL_RESPONSIBLE_ID FROM PRODUCT_DETAIL_REGISTER P
+
+  L437   [INSERT]
+         INSERT INTO M_PRODUCT_DETAIL_REGISTER_ID (PRODUCT_ID, WAREHOUSE_ID, MTRL_RESPONSIBLE_ID)
+
+  L438   [SELECT]
+         SELECT R.PRODUCT_ID, R.WAREHOUSE_ID, R.MTRL_RESPONSIBLE_ID FROM M_PRODUCT_DETAIL_REGISTER_SUM R
+
+  L443   [DELETE]
+         DELETE FROM PRODUCT_DETAIL_REGISTER WHERE
+
+  L450   [INSERT]
+         INSERT INTO product_detail_register (
+
+  L523   [INSERT]
+         INSERT INTO PRODUCT_DETAIL_REGISTER (
+
+  L538   [SELECT]
+         SELECT MAX(ID) FROM PRODUCT_DETAIL_REGISTER
+
+
+### bs.base\src\org\plazmaforge\bsolution\product\server\services\ProductManagerServiceImpl.java  (1 query)
+
+  L286   [UPDATE]
+         UPDATE PRODUCT SET
+
+
+### bs.base\src\org\plazmaforge\bsolution\security\server\services\ERMUserService.java  (3 queries)
+
+  L59    [SELECT]
+         SELECT P.ID, P.NAME FROM PARTNER P LEFT JOIN ORGANIZATION O ON O.ID = P.ID
+
+  L152   [SELECT]
+         SELECT ORGANIZATION_ID FROM SYS_USER_ORG WHERE USER_ID =
+
+  L198   [SELECT]
+         SELECT INTERFACE_ID FROM SYS_ROLE_INTERFACE WHERE
+
+
+### bs.carservice\tmp\CarInsurerContractVariantServiceImpl.java  (1 query)
+
+  L57    [SELECT]
+         SELECT ID FROM CAR_INSURER_CONTRACT_VARIANT WHERE INSURER_ID =
+
+
+### bs.carservice\tmp\CarMtrlFindReportServiceImpl.java  (1 query)
+
+  L102   [SELECT]
+         SELECT CAR_SERV_ORDER_ID FROM CAR_MTRL_FIND_REQUEST WHERE ID =
+
+
+### bs.carservice\tmp\CarMtrlPurchaseReportServiceImpl.java  (1 query)
+
+  L106   [SELECT]
+         SELECT FREQ.CAR_SERV_ORDER_ID
+
+
+### bs.carservice\tmp\CarServOrderServiceImpl.java  (3 queries)
+
+  L88    [UPDATE]
+         UPDATE CAR_SERV_ORDER_DAMAGE SET TOTAL_INVENTORY_ID = NULL WHERE CAR_SERV_ORDER_ID =
+
+  L92    [UPDATE]
+         UPDATE CAR_SERV_ORDER_ITEM SET CAR_SERV_ORDER_INVENTORY_ID = NULL WHERE CAR_SERV_ORDER_ID =
+
+  L97    [UPDATE]
+         UPDATE CAR_SERV_ORDER_PAINT_TYPE SET CAR_SERV_ORDER_INVENTORY_ID = NULL WHERE CAR_SERV_ORDER_ID =
+
+
+### bs.enterprise.client\gen\org\plazmaforge\bs\base\client\forms\CountryListForm_Gen.java  (1 query)
+
+  L34    [SELECT]
+         Select button
+
+
+### bs.enterprise.server\src\org\plazmaforge\bs\organization\server\services\OrganizationServiceImpl.java  (2 queries)
+
+  L42    [INSERT]
+         INSERT INTO ORGANIZATION (ID) VALUES (
+
+  L52    [DELETE]
+         DELETE FROM ORGANIZATION WHERE ID =
+
+
+### bs.enterprise.server\src\org\plazmaforge\bs\security\server\services\UserServiceImpl.java  (3 queries)
+
+  L61    [SELECT]
+         SELECT P.ID, P.NAME FROM PARTNER P LEFT JOIN ORGANIZATION O ON O.ID = P.ID
+
+  L155   [SELECT]
+         SELECT ORGANIZATION_ID FROM SYS_USER_ORG WHERE USER_ID =
+
+  L205   [SELECT]
+         SELECT INTERFACE_ID FROM SYS_ROLE_INTERFACE WHERE
+
+
+### framework\src\org\plazmaforge\framework\dao\SQLBuilder.java  (1 query)
+
+  L154   [SELECT]
+         SELECT MAX(
+
+
+### framework\src\org\plazmaforge\framework\datawarehouse\SQLTransferHelper.java  (7 queries)
+
+  L127   [SELECT]
+         SELECT * FROM
+
+  L141   [SELECT]
+         SELECT COUNT(*) FROM
+
+  L411   [UPDATE]
+         UPDATE SQL is null
+
+  L419   [SELECT]
+         SELECT KEYS SQL is null
+
+  L646   [INSERT]
+         INSERT INTO
+
+  L738   [DELETE]
+         DELETE FROM
+
+  L742   [SELECT]
+         SELECT MAX(
+
+
+### framework\src\org\plazmaforge\framework\datawarehouse\convert\dataexport\sql\SQLExporter.java  (1 query)
+
+  L56    [INSERT]
+         INSERT INTO
+
+
+### framework\src\org\plazmaforge\framework\sql\IDGenerator.java  (1 query)
+
+  L191   [SELECT]
+         SELECT MAX(
+
+
