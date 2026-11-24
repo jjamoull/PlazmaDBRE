@@ -36,13 +36,11 @@ ORGANIZATION.ID → PARTNER.ID
 
 DOCUMENT.DOCUMENT_STATUS_ID → DOCUMENT_STATUS.ID	     inferred
 DOCUMENT_STATUS.DOCUMENT_TYPE_ID → DOCUMENT_TYPE.ID          probable
-SYS_USER_ROLE.USER_ID → SYS_USER.ID	                     inferred
-SYS_USER_ROLE.ROLE_ID → SYS_ROLE.ID	                     inferred
 FINANCE_DOCUMENT.ID → DOCUMENT.ID	                     inferred
 PARTNER.LEDGER_ACCOUNT_ID → LEDGER_ACCOUNT.ID	             inferred
 DOCUMENT.ORGANIZATION_ID → ORGANIZATION.ID	             probable
 DOCUMENT.PERIOD_ID → PERIOD.ID	                             inferred
-ORGANIZATION.ID → PARTNER.ID	                             inferred
+ORGANIZATION.ID → PARTNER.ID	                             inferred (implicit?)
 
 
 
